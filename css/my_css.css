@@ -2,7 +2,7 @@
     This CSS file will be used to format our Mi'kmaq Pictionary game (Wowkwiss Says).
 
     Authors:
-    Sebastian Duque Rivera (A00441528)
+    Sebastian Duque Rivera (A00441528) or SDR
     Felipe Duque RIvera ()
     Coco ()
     Adam ()
@@ -10,9 +10,28 @@
 
 */
 
+/*
+    Main background image.
+*/
 body {
     background-image: url(../images/Forrest.jpg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+/* 
+  Listen, record and exit buttons.
+*/
+.btns {
+    width: auto;
+    height: auto;
+    font-size: 10em;
+}
+
+/*
+    The extra space at the top of the page for the buttons.
+*/
+.top-space { 
+    margin-top:3rem;
+}

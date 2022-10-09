@@ -4,7 +4,7 @@
     This will be the html file we use for our Mi'kmaq Pictionary Game (Wowkwiss Says).
     
     Authors:
-    Sebastian Duque Rivera (A00441528)
+    Sebastian Duque Rivera (A00441528) or SDR
     Felipe Duque Rivera ()
     Coco()
     Adam()
@@ -30,12 +30,27 @@
     <link rel="stylesheet" href="css/my_css.css" />
 
     <!-- Our scripts -->
-    <script src="src/wowkwiss.js"></script>
+    <script src="src/project.js"></script>
   </head>
 
   <body>
-    <div>
-      <button></button>
-    </div>
+    <!-- This will hold our listen and record buttons -->
+    <!-- All Bootstrap grid classes are required to be in a container class -->
+    <div class="container text-center">
+      <!-- defines the first row -->
+      <div class="row top-space">
+        <!-- defines 1 column which includes all 12 column sections -->
+        <div class="col-12">
+          <button class="btn btn-light btns" onclick="listen()">
+            <i class="bi bi-volume-up-fill"></i>
+          </button>
+          <button class="btn btn-light btns" onclick="record()">
+            <i class='bi-mic'></i>
+          </button>
+          <button class="btn btn-danger btns" onclick="exit()">
+            <i class='bi-x-square-fill'></i>
+          </button>
+        </div>
+      </div>
   </body>
 </html>
