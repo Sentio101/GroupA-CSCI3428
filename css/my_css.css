@@ -35,3 +35,17 @@ body {
 .top-space { 
     margin-top:3rem;
 }
+
+/*
+    Centers the text.
+*/
+.text-center {
+    text-align: center!important;
+}
+
+/*
+    The extra space at the top of the page for the buttons.
+*/
+.top-space { 
+    margin-top:3rem;
+}

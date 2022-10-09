@@ -34,23 +34,24 @@
   </head>
 
   <body>
-    <!-- This will hold our listen and record buttons -->
+    <!-- This will hold our listen, record and exit buttons -->
     <!-- All Bootstrap grid classes are required to be in a container class -->
     <div class="container text-center">
-      <!-- defines the first row -->
+      <!-- Top portion with buttons -->
       <div class="row top-space">
         <!-- defines 1 column which includes all 12 column sections -->
         <div class="col-12">
-          <button class="btn btn-light btns" onclick="listen()">
+          <button class="btn btn-primary btns" onclick="listen()">
             <i class="bi bi-volume-up-fill"></i>
           </button>
           <button class="btn btn-light btns" onclick="record()">
-            <i class='bi-mic'></i>
+            <i class="bi-mic"></i>
           </button>
           <button class="btn btn-danger btns" onclick="exit()">
-            <i class='bi-x-square-fill'></i>
+            <i class="bi-x-square-fill"></i>
           </button>
         </div>
       </div>
+    </div>
   </body>
 </html>

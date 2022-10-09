@@ -13,18 +13,21 @@
 /**
  *  This will be used to setp up the main elements of the intro page as soon as you launch it.
  */
-function setup() {} // end setup
+function setup() {}
+
+/**
+ *  This will play the audio file.
+ */
+function listen() {}
 
 /**
  *  This will record new audio files from the user.
  */
-function record(
-
-)
+function record() {}
 
 /**
  *  This will close the application.
  */
 function exit() {
-    window.close();
+  window.close();
 }
