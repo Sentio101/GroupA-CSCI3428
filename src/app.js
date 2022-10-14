@@ -8,7 +8,7 @@
 
   Authors: 
   Terry Goldsmith (Created fully functioning code except for 2 function stubs: record(), teacher())
-  Sebastian Duque Rivera (Modified comments as well as certain images used. Assisted in adding code for record() and teacher() functions.)
+  Sebastian Duque Rivera (Modified comments as well as certain images used. Renamed panelSet. Assisted in adding code for record() and teacher() functions.)
 */
 
 // Global array containing audio file names containing the asscoiated
@@ -65,7 +65,7 @@ let panels = [
 ];
 
 // Contains the current screen number starting at zero.
-let panelSet = 0;
+let screenNum = 0;
 
 /*
   The purpose of this function is to inject HTML that consists of:
@@ -94,13 +94,13 @@ function setup() {
 
 /*
   The purpose of this function is to play the audio for the current screen.
-  "panelSet" always contains the number for the current screen.
+  "screenNum" always contains the number for the current screen.
 
   Authors: same as file header
 */
 
 function audio() {
-  let voice = new Audio(audios[panelSet]);
+  let voice = new Audio(audios[screenNum]);
   voice.play();
 }
 
@@ -140,23 +140,23 @@ function teacher() {}
   Authors: same as the file header
  */
 function choose(choice) {
-  if (choice == answers[panelSet]) {
+  if (choice == answers[screenNum]) {
     alert("Congratulations");
 
-    // update panelSet in the sequence: 0 1 2 3 4 5 6 7 8 and back to 0
-    panelSet = (panelSet + parseInt(1)) % parseInt(9);
+    // update screenNum in the sequence: 0 1 2 3 4 5 6 7 8 and back to 0
+    screenNum = (screenNum + parseInt(1)) % parseInt(9);
 
     let str1 = '<input class="button" type="image" src="./pics/';
     let str2 = '" width="325" height="325" onclick="choose(1)"/>';
-    let str3 = str1 + panels[panelSet * 3] + str2;
+    let str3 = str1 + panels[screenNum * 3] + str2;
     document.getElementById("pic1").innerHTML = str3;
 
     str2 = '" width="325" height="325" onclick="choose(2)"/>';
-    str3 = str1 + panels[panelSet * 3 + parseInt(1)] + str2;
+    str3 = str1 + panels[screenNum * 3 + parseInt(1)] + str2;
     document.getElementById("pic2").innerHTML = str3;
 
     str2 = '" width="325" height="325" onclick="choose(3)"/>';
-    str3 = str1 + panels[panelSet * 3 + parseInt(2)] + str2;
+    str3 = str1 + panels[screenNum * 3 + parseInt(2)] + str2;
     document.getElementById("pic3").innerHTML = str3;
   } else {
     alert("Try again");
