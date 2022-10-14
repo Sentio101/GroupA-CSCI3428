@@ -1,10 +1,12 @@
+<!DOCTYPE html>
 <!--
   This html file will be used for the Mi'kmaq language app. The content within this file was initially developped by Terry Goldsmith 
   and we are building on top of it in order to improve functionality and implement new features.
 
   Authors: 
   Terry Goldsmith (created the initial file which includes all the required code)
-  Sebastian Duque Rivera, A00441528 (Removed unecessary comments, modified names for title, css, js files used, modified div container, )
+  Sebastian Duque Rivera, A00441528 (Removed some unecessary comments, modified filenames for css and js, as well as title. 
+                                    Moved buttons to app.js under a new getBtns() function.)
 -->
 
 <html>
@@ -37,22 +39,8 @@
   <body onload="setup()">
     <div class="container text-center">
       <div class="row top-space">
-        <div class="col-12">
-          <button class="btn btn-success" onclick="audio()">
-            <i class="bi-ear"></i>
-          </button>
-          <button class="btn btn-warning" onclick="record()">
-            <i class="bi-mic-fill"></i>
-          </button>
-          <button class="btn btn-danger" onclick="quit()">
-            <i class="bi-x-square-fill"></i>
-          </button>
-          <button class="btn btn-primary" onclick="teacher()">
-            <i class="bi-file-lock2"></i>
-          </button>
-        </div>
+        <div class="col-12" id="header"></div>
       </div>
-
       <div class="row top-space">
         <!-- defines 3 columns which each include 4 column sections
                which add up to 12 as they must -->
@@ -60,6 +48,5 @@
         <div class="col-lg-4" id="pic2"></div>
         <div class="col-lg-4" id="pic3"></div>
       </div>
-    </div>
   </body>
 </html>

@@ -8,7 +8,10 @@
 
   Authors: 
   Terry Goldsmith (Created fully functioning code except for 2 function stubs: record(), teacher())
-  Sebastian Duque Rivera (Modified comments as well as certain images used. Renamed panelSet. Assisted in adding code for record() and teacher() functions.)
+  Sebastian Duque Rivera (SDR), A00441528 (Modified comments as well as certain images used. Renamed panelSet.
+                                          Re-purposed setup() function to display an intro screen first. Also 
+                                          added getBtns() function and renamed previous setup() to game(). 
+                                          Assisted in adding code for record() and teacher() functions.)
 */
 
 // Global array containing audio file names containing the asscoiated
@@ -67,6 +70,43 @@ let panels = [
 // Contains the current screen number starting at zero.
 let screenNum = 0;
 
+/**
+ *  This function will set up the initial intro page for the app, which will
+ *  include our fox and the play button.
+ *
+ *  Authors: SDR
+ */
+function setup() {
+  let title = '<h1 class="header-size">Wowkwis Says</h1>';
+  document.getElementById("header").innerHTML = title;
+
+  // Not displaying just yet...
+  let fox = '<input class="fox-size" type="image" src="./pics/wowkwis"';
+  document.getElementById("pic1").innerHTML = fox;
+
+  let start =
+    '<button class="btn btn-primary startBtn" onclick="game()"><i class="bi bi-play-fill"></i></button>';
+  document.getElementById("pic2").innerHTML = start;
+}
+
+/**
+ *  This function will retrieve the 4 main buttons for the app and display them in the header.
+ *
+ *  Authors: SDR
+ */
+function getBtns() {
+  let audioBtn =
+    '<button class="btn btn-success" onclick="audio()"><i class="bi bi-volume-up-fill"></i></button>';
+  let recordBtn =
+    '<button class="btn btn-warning" onclick="record()"><i class="bi-mic-fill"></i></button>';
+  let exitBtn =
+    '<button class="btn btn-danger" onclick="quit()"><i class="bi-x-square-fill"></i></button>';
+  let adminBtn =
+    '<button class="btn btn-primary" onclick="teacher()"><i class="bi-file-lock2"></i></button>';
+  let btns = audioBtn + recordBtn + exitBtn + adminBtn;
+  document.getElementById("header").innerHTML = btns;
+}
+
 /*
   The purpose of this function is to inject HTML that consists of:
     - 3 images
@@ -77,7 +117,8 @@ let screenNum = 0;
 
   Authors: same as file header
 */
-function setup() {
+function game() {
+  getBtns();
   let str1 = '<input class="button" type="image" src="./pics/';
   let str2 = '" width="325" height="325" onclick="choose(1)"/>';
   let str3 = str1 + panels[0] + str2;
