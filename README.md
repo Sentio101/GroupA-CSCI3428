@@ -9,3 +9,5 @@ Things to do:
 - Create intro play button screen with wowkwiss
 - Add record function
 - Add teacher function (note this will supposedly prompt a password, in order to activate...)
+
+- Add the randomize feature
