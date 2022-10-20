@@ -9,11 +9,12 @@
 
 */
 
-/* SEction for HTML tags */
+/* Section for HTML tags */
 body {
     background-image: url("../pics/forrest.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 i {
@@ -42,8 +43,20 @@ input {
 }
 
 .fox-size{
-    width: 325;
-    height: 400;
+    width: 500px;
+    height: 550px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20%;
+}
+
+.map-size{
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .header-size{

@@ -80,13 +80,37 @@ function setup() {
   let title = '<h1 class="header-size">Wowkwis Says</h1>';
   document.getElementById("header").innerHTML = title;
 
-  // Not displaying just yet...
-  let fox = '<input class="fox-size" type="image" src="./pics/wowkwis"';
-  document.getElementById("pic1").innerHTML = fox;
+  let fox = '<img class="fox-size" type="image" src="./pics/wowkwis.jpg">';
+  document.getElementById("footer").innerHTML = fox;
 
   let start =
-    '<button class="btn btn-primary startBtn" onclick="game()"><i class="bi bi-play-fill"></i></button>';
+    '<button class="btn btn-primary startBtn" onclick="displayMap()"><i class="bi bi-play-fill"></i></button>';
   document.getElementById("pic2").innerHTML = start;
+}
+
+/**
+ *  In Progress: This function will retrieve the interactive map for the game and will
+ *  display the different "levels" that the user can play.
+ *
+ *  Authors: SDR
+ */
+function displayMap() {
+  clearDivs();
+  let map = '<img class="map-size" type="image" src="./pics/map.jpg">';
+  document.getElementById("header").innerHTML = map;
+}
+
+/**
+ *  This function will clear the contents of the header, pic and footer divs.
+ *
+ *  Authors: SDR
+ */
+function clearDivs() {
+  document.getElementById("header").innerHTML = "";
+  document.getElementById("pic1").innerHTML = "";
+  document.getElementById("pic2").innerHTML = "";
+  document.getElementById("pic3").innerHTML = "";
+  document.getElementById("footer").innerHTML = "";
 }
 
 /**

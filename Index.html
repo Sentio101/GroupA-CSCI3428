@@ -6,7 +6,8 @@
   Authors: 
   Terry Goldsmith (created the initial file which includes all the required code)
   Sebastian Duque Rivera, A00441528 (Removed some unecessary comments, modified filenames for css and js, as well as title. 
-                                    Moved buttons to app.js under a new getBtns() function.)
+                                    Moved buttons to app.js under a new getBtns() function. Added some IDs to div to 
+                                    reference later.)
 -->
 
 <html>
@@ -34,8 +35,7 @@
     <script src="./src/app.js"></script>
   </head>
 
-  <!-- When the page is loaded setup() is called to fill div's pic1,
-       pic2 and pic3 present below -->
+  <!-- When the page is loaded setup() is called to fill empty div's -->
   <body onload="setup()">
     <div class="container text-center">
       <div class="row top-space">
@@ -48,5 +48,7 @@
         <div class="col-lg-4" id="pic2"></div>
         <div class="col-lg-4" id="pic3"></div>
       </div>
+      <div class="row top-space" id="footer"></div>
+    </div>
   </body>
 </html>
