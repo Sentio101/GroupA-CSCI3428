@@ -96,12 +96,22 @@ function setup() {
   let title = '<h1 class="header-size">Wowkwis Says</h1>';
   document.getElementById("header").innerHTML = title;
 
-  let fox = '<img class="fox-size" type="image" src="./pics/wowkwis.jpg">';
+  let fox = '<img class="fox-size" type="image" src="./pics/congrats.png">';
   document.getElementById("footer").innerHTML = fox;
 
   let start =
     '<button class="btn btn-primary startBtn" onclick="displayMap()"><i class="bi bi-play-fill"></i></button>';
   document.getElementById("pic2").innerHTML = start;
+}
+
+/**
+ *  This function will bring up the congratulation's fox.
+ * 
+ *  Authors: SDR
+ */
+function congrats(){
+  let fox = '<img class="fox-size" type="image" src="./pics/congrats.png"></img>';
+  document.getElementById("pic1").innerHTML = fox;
 }
 
 /**
@@ -113,7 +123,10 @@ function setup() {
 function displayMap() {
   clearDivs();
   let map = '<img class="map-size" type="image" src="./pics/map.jpg">';
-  document.getElementById("header").innerHTML = map;
+  document.getElementById("body").innerHTML = map;
+
+  let mainMenuBtn = '<button class="btn btn-success btns" onclick="setup()"><i class="bi bi-three-dots-vertical"></i></button>';
+  document.getElementById("header").innerHTML = mainMenuBtn;
 }
 
 /**
@@ -129,6 +142,8 @@ function clearDivs() {
   document.getElementById("footer").innerHTML = "";
 }
 
+
+
 /**
  *  This function will retrieve the 4 main buttons for the app and display them in the header.
  *
@@ -143,6 +158,7 @@ function getBtns() {
     '<button class="btn btn-danger" onclick="quit()"><i class="bi-x-square-fill"></i></button>';
   let adminBtn =
     '<button class="btn btn-primary" onclick="teacher()"><i class="bi-file-lock2"></i></button>';
+
   let btns = audioBtn + recordBtn + exitBtn + adminBtn;
   document.getElementById("header").innerHTML = btns;
 }
