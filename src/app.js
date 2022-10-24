@@ -7,11 +7,27 @@
   screen, and starts the process over again.
 
   Authors: 
-  Terry Goldsmith (Created fully functioning code except for 2 function stubs: record(), teacher())
-  Sebastian Duque Rivera (SDR), A00441528 (Modified comments as well as certain images used. Renamed panelSet.
-                                          Re-purposed setup() function to display an intro screen first. Also 
-                                          added getBtns() function and renamed previous setup() to game(). 
-                                          Assisted in adding code for record() and teacher() functions.)
+  Terry Goldsmith 
+  - Created fully functioning code except for 2 function stubs: record(), teacher()
+  
+  Sebastian Duque Rivera(SDR)(A00441528)
+  - Modified comments as well as certain images used. Renamed panelSet.
+  - Re-purposed setup() function to display an intro screen first. 
+  - Also added getBtns() function and renamed previous setup() to game(). 
+  - Assisted in adding code for record() and teacher() functions.)
+
+  Felipe Duque Rivera(FDR)
+  - 
+
+  Coco
+  - 
+
+  Adam
+  - 
+
+  Mahmood
+  - 
+
 */
 
 // Global array containing audio file names containing the asscoiated
