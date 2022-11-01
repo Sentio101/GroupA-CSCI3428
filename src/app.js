@@ -140,9 +140,10 @@ function displayMap() {
   let map = '<img class="map-size" type="image" src="./pics/map.jpg">';
   document.getElementById("footer").innerHTML = map;
 
-  let mainMenuBtn =
-    '<button class="btn btn-primary mainBtn" onclick="game()"><i class="bi bi-three-dots-vertical"></i></button>';
-  document.getElementById("header").innerHTML = mainMenuBtn;
+  // This currently just goes to the game b/c I needed screenshots of the game :)
+  let backBtn =
+    '<button class="btn btn-primary mainBtn" onclick="game()"><i class="bi bi-arrow-left-circle-fill"></i></button>';
+  document.getElementById("header").innerHTML = backBtn;
 }
 
 /**
