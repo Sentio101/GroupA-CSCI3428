@@ -53,6 +53,10 @@ input {
     height: 100%;
 }
 
+.infoBtn{
+    border-radius: 8%;
+}
+
 .btns {
     width: 200px;
     height: 200px;

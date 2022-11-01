@@ -94,7 +94,10 @@ let screenNum = 0;
  */
 function setup() {
   let title = '<h1 class="header-size">Wowkwis Says</h1>';
-  document.getElementById("header").innerHTML = title;
+  let infoBtn =
+    '<button class="btn btn-primary infoBtn" onclick="instructions()"><i class="bi bi-info-circle-fill"></i></button>';
+  let top = title; /*+ infoBtn*/
+  document.getElementById("header").innerHTML = top;
 
   let fox = '<img class="fox-size" type="image" src="./pics/congrats.png">';
   document.getElementById("footer").innerHTML = fox;
@@ -105,12 +108,24 @@ function setup() {
 }
 
 /**
- *  This function will bring up the congratulation's fox.
- * 
+ *  This function will bring up the congratulation fox.
+ *
  *  Authors: SDR
  */
-function congrats(){
-  let fox = '<img class="fox-size" type="image" src="./pics/congrats.png"></img>';
+function congrats() {
+  let fox =
+    '<img class="fox-size" type="image" src="./pics/congrats.png"></img>';
+  document.getElementById("pic1").innerHTML = fox;
+}
+
+/**
+ *  This funciton will display the try again fox.
+ *
+ *  Authors: SDR
+ */
+function tryAgain() {
+  let fox =
+    '<img class="fox-size" type="image" src="./pics/tryagain.png"></img>';
   document.getElementById("pic1").innerHTML = fox;
 }
 
@@ -123,11 +138,19 @@ function congrats(){
 function displayMap() {
   clearDivs();
   let map = '<img class="map-size" type="image" src="./pics/map.jpg">';
-  document.getElementById("body").innerHTML = map;
+  document.getElementById("footer").innerHTML = map;
 
-  let mainMenuBtn = '<button class="btn btn-success btns" onclick="setup()"><i class="bi bi-three-dots-vertical"></i></button>';
+  let mainMenuBtn =
+    '<button class="btn btn-primary mainBtn" onclick="game()"><i class="bi bi-three-dots-vertical"></i></button>';
   document.getElementById("header").innerHTML = mainMenuBtn;
 }
+
+/**
+ *  This function will display the instructions for how to play the game.
+ *
+ *  Authors: SDR
+ */
+function instructions() {}
 
 /**
  *  This function will clear the contents of the header, pic and footer divs.
@@ -141,8 +164,6 @@ function clearDivs() {
   document.getElementById("pic3").innerHTML = "";
   document.getElementById("footer").innerHTML = "";
 }
-
-
 
 /**
  *  This function will retrieve the 4 main buttons for the app and display them in the header.
@@ -174,6 +195,7 @@ function getBtns() {
   Authors: same as file header
 */
 function game() {
+  clearDivs();
   getBtns();
   let str1 = '<input class="button" type="image" src="./pics/';
   let str2 = '" width="325" height="325" onclick="choose(1)"/>';
