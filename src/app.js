@@ -86,26 +86,71 @@ let panels = [
 // Contains the current screen number starting at zero.
 let screenNum = 0;
 
+// /**
+//  *  This function will set up the initial intro page for the app, which will
+//  *  include our fox and the play button.
+//  *
+//  *  Authors: SDR
+//  */
+// function setup() {
+//   let title = '<h1 class="header-size">Wowkwis Says</h1>';
+//   let infoBtn =
+//     '<button class="btn btn-primary infoBtn" onclick="instructions()"><i class="bi bi-info-circle-fill"></i></button>';
+//   let top = title; /*+ infoBtn*/
+//   document.getElementById("header").innerHTML = top;
+
+//   let fox = '<img class="fox-size" type="image" src="./pics/congrats.png">';
+//   document.getElementById("footer").innerHTML = fox;
+
+//   let start =
+//     '<button class="btn btn-primary startBtn" onclick="displayMap()"><i class="bi bi-play-fill"></i></button>';
+//   document.getElementById("pic2").innerHTML = start;
+// }
+
+//--------------------------------------------------------------------Displaying Screens---------------------------------------------------------------------------------------------//
+
 /**
- *  This function will set up the initial intro page for the app, which will
- *  include our fox and the play button.
+ *  This function will bring the user to the interactive map.
+ *
+ *  Authors: Mahmood
+ */
+function displayMap() {
+  window.location.href = "./pages/Map.html";
+}
+
+/**
+ *  This function will bring the user to the intro screen.
  *
  *  Authors: SDR
  */
-function setup() {
-  let title = '<h1 class="header-size">Wowkwis Says</h1>';
-  let infoBtn =
-    '<button class="btn btn-primary infoBtn" onclick="instructions()"><i class="bi bi-info-circle-fill"></i></button>';
-  let top = title; /*+ infoBtn*/
-  document.getElementById("header").innerHTML = top;
-
-  let fox = '<img class="fox-size" type="image" src="./pics/congrats.png">';
-  document.getElementById("footer").innerHTML = fox;
-
-  let start =
-    '<button class="btn btn-primary startBtn" onclick="displayMap()"><i class="bi bi-play-fill"></i></button>';
-  document.getElementById("pic2").innerHTML = start;
+function displayIntro() {
+  window.location.href = "../index.html";
 }
+
+/**
+ *  This function will bring the user to the game screen.
+ *
+ *  Authors: SDR
+ */
+function displayGame() {
+  window.location.href = "./pages/Game.html";
+}
+
+/**
+ *  STUB: This function will display the settings for the app.
+ *
+ *  Authors: SDR
+ */
+function displaySettings() {}
+
+/**
+ *  STUB: This function will display the instructions for how to play the game.
+ *
+ *  Authors: SDR
+ */
+function displayInstructions() {}
+
+//--------------------------------------------------------------------Displaying Modals----------------------------------------------------------------------------------------------//
 
 /**
  *  This function will bring up the congratulation fox.
@@ -129,42 +174,35 @@ function tryAgain() {
   document.getElementById("pic1").innerHTML = fox;
 }
 
-/**
- *  In Progress: This function will retrieve the interactive map for the game and will
- *  display the different "levels" that the user can play.
- *
- *  Authors: SDR
- */
-function displayMap() {
-  clearDivs();
-  let map = '<img class="map-size" type="image" src="./pics/map.jpg">';
-  document.getElementById("footer").innerHTML = map;
+// /**
+//  *  In Progress: This function will retrieve the interactive map for the game and will
+//  *  display the different "levels" that the user can play.
+//  *
+//  *  Authors: SDR
+//  */
+// function displayMap() {
+//   clearDivs();
+//   let map = '<img class="map-size" type="image" src="./pics/map.jpg">';
+//   document.getElementById("footer").innerHTML = map;
 
-  // This currently just goes to the game b/c I needed screenshots of the game :)
-  let backBtn =
-    '<button class="btn btn-primary mainBtn" onclick="game()"><i class="bi bi-arrow-left-circle-fill"></i></button>';
-  document.getElementById("header").innerHTML = backBtn;
-}
+//   // This currently just goes to the game b/c I needed screenshots of the game :)
+//   let backBtn =
+//     '<button class="btn btn-primary mainBtn" onclick="game()"><i class="bi bi-arrow-left-circle-fill"></i></button>';
+//   document.getElementById("header").innerHTML = backBtn;
+// }
 
-/**
- *  This function will display the instructions for how to play the game.
- *
- *  Authors: SDR
- */
-function instructions() {}
-
-/**
- *  This function will clear the contents of the header, pic and footer divs.
- *
- *  Authors: SDR
- */
-function clearDivs() {
-  document.getElementById("header").innerHTML = "";
-  document.getElementById("pic1").innerHTML = "";
-  document.getElementById("pic2").innerHTML = "";
-  document.getElementById("pic3").innerHTML = "";
-  document.getElementById("footer").innerHTML = "";
-}
+// /**
+//  *  This function will clear the contents of the header, pic and footer divs.
+//  *
+//  *  Authors: SDR
+//  */
+// function clearDivs() {
+//   document.getElementById("header").innerHTML = "";
+//   document.getElementById("pic1").innerHTML = "";
+//   document.getElementById("pic2").innerHTML = "";
+//   document.getElementById("pic3").innerHTML = "";
+//   document.getElementById("footer").innerHTML = "";
+// }
 
 /**
  *  This function will retrieve the 4 main buttons for the app and display them in the header.
@@ -225,7 +263,7 @@ function audio() {
 }
 
 /*
-  Stub for student's audio record feature.
+  Stub: for student's audio record feature.
 */
 function record() {}
 
@@ -239,7 +277,7 @@ function quit() {
 }
 
 /*
-  Stub for teacher's audio record feature.
+  Stub: for teacher's audio record feature.
 */
 function teacher() {}
 

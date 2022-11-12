@@ -1,21 +1,8 @@
 <!DOCTYPE html>
 <!--
-  This html file will be used for the Mi'kmaq language app. The content within this file was initially developped by Terry Goldsmith 
-  and we are building on top of it in order to improve functionality and implement new features.
+  The intro screen for the Mi'kmaq App (Wowkwis Says).
 
-  Authors: 
-  Terry Goldsmith 
-  - Created the initial file which includes all the required code
-
-  Sebastian Duque Rivera(SDR)(A00441528)
-  - Removed some unecessary comments, modified filenames for css and js, as well as title. 
-  Moved buttons to app.js under a new getBtns() function. Added some IDs to div to reference later.
-
-  Name
-  - 
-
-  Name
-  - 
+  Authors: Sebastian Duque Rivera (A00441528) or SDR
 -->
 
 <html>
@@ -43,20 +30,35 @@
     <script src="./src/app.js"></script>
   </head>
 
-  <!-- When the page is loaded setup() is called to fill empty div's -->
-  <body onload="setup()">
-    <div class="container text-center">
-      <div class="row top-space">
-        <div class="col-12" id="header"></div>
+  <body>
+    <div class="container" id="intro">
+      <!-- Games's title -->
+      <h1 class="header-size">Wowkwis Says</h1>
+      <!-- Fox image -->
+      <div class="row">
+        <img class="fox-size" type="image" src="./pics/congrats.png" />
       </div>
-      <div class="row top-space" id="body">
-        <!-- defines 3 columns which each include 4 column sections
-               which add up to 12 as they must -->
-        <div class="col-lg-4" id="pic1"></div>
-        <div class="col-lg-4" id="pic2"></div>
-        <div class="col-lg-4" id="pic3"></div>
+      <!-- Btns -->
+      <div class="row">
+        <div class="col-sm-8">
+          <!-- The play btn -->
+          <button class="btn playBtn" onclick="displayMap()">
+            <i class="bi bi-play-fill"></i>
+          </button>
+        </div>
+        <div class="col-sm-4">
+          <div class="input-group">
+            <!-- The info btn -->
+            <button class="btn insBtn" onclick="displayInstructions()">
+              <i class="bi bi-info-circle-fill"></i>
+            </button>
+            <!-- The settings btn -->
+            <button class="btn insBtn" onclick="displaySettings()">
+              <i class="bi bi-gear-fill"></i>
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="row top-space" id="footer"></div>
     </div>
   </body>
 </html>
