@@ -86,54 +86,101 @@ let panels = [
 // Contains the current screen number starting at zero.
 let screenNum = 0;
 
+//------------------------------------------------------------- Toggle Visibility ---------------------------------------------------------------------------------------------------//
 // /**
-//  *  This function will set up the initial intro page for the app, which will
-//  *  include our fox and the play button.
+//  *  This function will toggle the visibility of the @param.
 //  *
 //  *  Authors: SDR
+//  *
+//  * @param {*} element The desired element.
 //  */
-// function setup() {
-//   let title = '<h1 class="header-size">Wowkwis Says</h1>';
-//   let infoBtn =
-//     '<button class="btn btn-primary infoBtn" onclick="instructions()"><i class="bi bi-info-circle-fill"></i></button>';
-//   let top = title; /*+ infoBtn*/
-//   document.getElementById("header").innerHTML = top;
-
-//   let fox = '<img class="fox-size" type="image" src="./pics/congrats.png">';
-//   document.getElementById("footer").innerHTML = fox;
-
-//   let start =
-//     '<button class="btn btn-primary startBtn" onclick="displayMap()"><i class="bi bi-play-fill"></i></button>';
-//   document.getElementById("pic2").innerHTML = start;
+// function toggleVisibility(element) {
+//   var x = document.getElementById(element);
+//   if (x.style.display === "none") {
+//     x.style.display = "block";
+//   } else {
+//     x.style.display = "none";
+//   }
 // }
 
-//--------------------------------------------------------------------Displaying Screens---------------------------------------------------------------------------------------------//
-
 /**
- *  This function will bring the user to the interactive map.
+ *  This function will hide the element in the @param.
  *
- *  Authors: Mahmood
+ *  Authors: SDR
+ *
+ * @param {*} element The desired element.
  */
-function displayMap() {
-  window.location.href = "./pages/Map.html";
+function hide(element) {
+  var x = document.getElementById(element);
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "none";
+  }
 }
 
 /**
- *  This function will bring the user to the intro screen.
+ *  This function will show the element in the @param.
+ *
+ *  Authors: SDR
+ *
+ * @param {*} element The desired element.
+ */
+function show(element) {
+  var x = document.getElementById(element);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "block";
+  }
+}
+
+//-------------------------------------------------------------------- Screens ------------------------------------------------------------------------------------------------------//
+
+/**
+ *  This function will display the initial intro screen and hide any remaining screen.
+ *
+ *  Note: We don't need to show the intro, since index.html initially display it in the
+ *  body. In this case, we would just have to hide any screen that comes after it.
+ *
+ *  Authors: SDR
+ */
+function setup() {
+  hide("map");
+  hide("game");
+}
+
+/**
+ *  This function will display the intro screen.
  *
  *  Authors: SDR
  */
 function displayIntro() {
-  window.location.href = "../index.html";
+  hide("map");
+  hide("game");
+  show("intro");
 }
 
 /**
- *  This function will bring the user to the game screen.
+ *  This function will display the interactive map.
+ *
+ *  Authors: Mahmood
+ */
+function displayMap() {
+  hide("intro");
+  hide("game");
+  show("map");
+}
+
+/**
+ *  This function will display the game screen.
  *
  *  Authors: SDR
  */
 function displayGame() {
-  window.location.href = "./pages/Game.html";
+  hide("intro");
+  hide("map");
+  show("game");
 }
 
 /**
@@ -150,10 +197,10 @@ function displaySettings() {}
  */
 function displayInstructions() {}
 
-//--------------------------------------------------------------------Displaying Modals----------------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------- Modals -------------------------------------------------------------------------------------------------------//
 
 /**
- *  This function will bring up the congratulation fox.
+ *  This function will bring up the congratulations modal.
  *
  *  Authors: SDR
  */
@@ -161,10 +208,30 @@ function congrats() {
   let fox =
     '<img class="fox-size" type="image" src="./pics/congrats.png"></img>';
   document.getElementById("pic1").innerHTML = fox;
+
+  // Get the modal
+  var modal = document.getElementById("myModal");
+
+  // Get the image and insert it inside the modal
+  var img = document.getElementById("myImg");
+  var modalImg = document.getElementById("img01");
+
+  img.onclick = function () {
+    modal.style.display = "block";
+    modalImg.src = this.src;
+  };
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
 }
 
 /**
- *  This funciton will display the try again fox.
+ *  This funciton will display the try again modal.
  *
  *  Authors: SDR
  */
@@ -173,36 +240,6 @@ function tryAgain() {
     '<img class="fox-size" type="image" src="./pics/tryagain.png"></img>';
   document.getElementById("pic1").innerHTML = fox;
 }
-
-// /**
-//  *  In Progress: This function will retrieve the interactive map for the game and will
-//  *  display the different "levels" that the user can play.
-//  *
-//  *  Authors: SDR
-//  */
-// function displayMap() {
-//   clearDivs();
-//   let map = '<img class="map-size" type="image" src="./pics/map.jpg">';
-//   document.getElementById("footer").innerHTML = map;
-
-//   // This currently just goes to the game b/c I needed screenshots of the game :)
-//   let backBtn =
-//     '<button class="btn btn-primary mainBtn" onclick="game()"><i class="bi bi-arrow-left-circle-fill"></i></button>';
-//   document.getElementById("header").innerHTML = backBtn;
-// }
-
-// /**
-//  *  This function will clear the contents of the header, pic and footer divs.
-//  *
-//  *  Authors: SDR
-//  */
-// function clearDivs() {
-//   document.getElementById("header").innerHTML = "";
-//   document.getElementById("pic1").innerHTML = "";
-//   document.getElementById("pic2").innerHTML = "";
-//   document.getElementById("pic3").innerHTML = "";
-//   document.getElementById("footer").innerHTML = "";
-// }
 
 /**
  *  This function will retrieve the 4 main buttons for the app and display them in the header.
@@ -234,7 +271,6 @@ function getBtns() {
   Authors: same as file header
 */
 function game() {
-  clearDivs();
   getBtns();
   let str1 = '<input class="button" type="image" src="./pics/';
   let str2 = '" width="325" height="325" onclick="choose(1)"/>';
