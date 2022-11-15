@@ -181,6 +181,7 @@ function displayGame() {
   hide("intro");
   hide("map");
   show("game");
+  gameSetup();
 }
 
 /**
@@ -200,26 +201,19 @@ function displayInstructions() {}
 //-------------------------------------------------------------------- Modals -------------------------------------------------------------------------------------------------------//
 
 /**
- *  This function will bring up the congratulations modal.
+ *  In Progress: This function will bring up the congratulations modal.
  *
  *  Authors: SDR
  */
 function congrats() {
-  let fox =
-    '<img class="fox-size" type="image" src="./pics/congrats.png"></img>';
-  document.getElementById("pic1").innerHTML = fox;
-
   // Get the modal
   var modal = document.getElementById("myModal");
 
   // Get the image and insert it inside the modal
-  var img = document.getElementById("myImg");
-  var modalImg = document.getElementById("img01");
+  var modalImg = document.getElementById("modalImg");
 
-  img.onclick = function () {
-    modal.style.display = "block";
-    modalImg.src = this.src;
-  };
+  modal.style.display = "block";
+  modalImg.src = "./pics/congrats.png";
 
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("close")[0];
@@ -231,7 +225,7 @@ function congrats() {
 }
 
 /**
- *  This funciton will display the try again modal.
+ *  In Progress: This funciton will display the try again modal.
  *
  *  Authors: SDR
  */
@@ -247,30 +241,31 @@ function tryAgain() {
  *  Authors: SDR
  */
 function getBtns() {
+  let backBtn =
+    '<button class="btn multiBtn" onclick="displayMap()"><i class="bi bi-arrow-left-square-fill"></i></button>';
   let audioBtn =
-    '<button class="btn btn-success" onclick="audio()"><i class="bi bi-volume-up-fill"></i></button>';
+    '<button class="btn multiBtn" onclick="audio()"><i class="bi bi-volume-up-fill"></i></button>';
   let recordBtn =
-    '<button class="btn btn-warning" onclick="record()"><i class="bi-mic-fill"></i></button>';
-  let exitBtn =
-    '<button class="btn btn-danger" onclick="quit()"><i class="bi-x-square-fill"></i></button>';
+    '<button class="btn multiBtn" onclick="record()"><i class="bi-mic-fill"></i></button>';
   let adminBtn =
-    '<button class="btn btn-primary" onclick="teacher()"><i class="bi-file-lock2"></i></button>';
+    '<button class="btn multiBtn" onclick="teacher()"><i class="bi-file-lock2"></i></button>';
 
-  let btns = audioBtn + recordBtn + exitBtn + adminBtn;
+  let btns = backBtn + recordBtn + audioBtn + adminBtn;
   document.getElementById("header").innerHTML = btns;
 }
 
-/*
+/**
   The purpose of this function is to inject HTML that consists of:
-    - 3 images
-    - each image is clickable
-    - each image when clicked will call the same "choose" function
-      but with a different argument: 1, 2 or 3 representing the image
-      number
+  - 3 images
+  - each image is clickable
+  - each image when clicked will call the same "choose" function
+    but with a different argument: 1, 2 or 3 representing the image
+    number
 
   Authors: same as file header
-*/
-function game() {
+
+ */
+function gameSetup() {
   getBtns();
   let str1 = '<input class="button" type="image" src="./pics/';
   let str2 = '" width="325" height="325" onclick="choose(1)"/>';

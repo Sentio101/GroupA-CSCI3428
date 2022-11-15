@@ -83,14 +83,14 @@ input {
     color: #794921;
 }
 
-.insBtn{
+.multiBtn{
     border-radius: 5%;
     border: none;
     margin-right: 1rem;
     color: #7C3E25;
     background-color: #86C34E;
 }
-.insBtn:hover {
+.multiBtn:hover {
     background-color: #B6843F;
     color: #794921;
 }

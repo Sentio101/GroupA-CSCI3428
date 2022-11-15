@@ -52,11 +52,11 @@
         <div class="col-sm-4">
           <div class="input-group">
             <!-- The info btn -->
-            <button class="btn insBtn" onclick="displayInstructions()">
+            <button class="btn multiBtn" onclick="displayInstructions()">
               <i class="bi bi-info-circle-fill"></i>
             </button>
             <!-- The settings btn -->
-            <button class="btn insBtn" onclick="displaySettings()">
+            <button class="btn multiBtn" onclick="displaySettings()">
               <i class="bi bi-gear-fill"></i>
             </button>
           </div>
@@ -67,10 +67,18 @@
     <!-- The interactive map -->
     <div class="container" id="map">
       <div class="row">
-        <!-- The back btn -->
-        <button class="btn backBtn" onclick="displayIntro()">
-          <i class="bi bi-arrow-left-square-fill"></i>
-        </button>
+        <div class="col-sm-6">
+          <!-- The back btn (uses playBtn CSS) -->
+          <button class="btn playBtn" onclick="displayIntro()">
+            <i class="bi bi-arrow-left-square-fill"></i>
+          </button>
+        </div>
+        <div class="col-sm-6">
+          <!-- A temp game btn -->
+          <button class="btn playBtn" onclick="displayGame()">
+            <i class="bi bi-play-fill"></i>
+          </button>
+        </div>
       </div>
       <div class="row">
         <img class="map-size" type="image" src="./pics/map.jpg" />
@@ -81,6 +89,11 @@
     <div class="container text-center" id="game">
       <div class="row top-space">
         <div class="col-12" id="header"></div>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+          <span class="close">&times;</span>
+          <img class="modal-content" id="modalImg" />
+        </div>
       </div>
       <div class="row top-space" id="body">
         <!-- defines 3 columns which each include 4 column sections
