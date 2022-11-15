@@ -285,7 +285,7 @@ function gameSetup() {
   The purpose of this function is to play the audio for the current screen.
   "screenNum" always contains the number for the current screen.
 
-  Authors: same as file header
+  Authors: same as file header 
 */
 
 function audio() {
