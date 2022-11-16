@@ -116,4 +116,86 @@ input {
     color: #794921;
 } */
 
+/*
+Start: blicking animation for map buttons
+
+By: B. Coco
+*/
+
+.container{
+    position: relative;
+}
+.container.bi2{
+    position: absolute;
+    bottom:1%;
+    left:2%;
+}
+
+
+.svgCircle{
+    width: 350%;
+    height: 350%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position:absolute
+}
+
+.blicking{
+    -webkit-animation: 2s blink ease infinite;
+    -moz-animation: 2s blink ease infinite;
+    -ms-animation: 2s blink ease infinite;
+    -o-animation: 2s blink ease infinite;
+    animation: 2s blink ease infinite;
+}
+
+@keyframes "blink" {
+    from, to {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes blink {
+    from, to {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes "blink" {
+    from, to {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes "blink" {
+    from, to {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes "blink" {
+    from, to {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/*
+End: blicking animation for map buttons
+*/
+
 
