@@ -312,10 +312,42 @@ function audio() {
   voice.play();
 }
 
+var recording;
+
 /*
-  Stub: for student's audio record feature.
-*/
+Records audio on click, records for 3 seconds and
+automatically playes it back*/
 function record() {}
+
+function record() {
+  navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
+    const mediaRecorder = new MediaRecorder(stream);
+    mediaRecorder.start();
+    //pulseRed();
+    const audioChunks = [];
+    mediaRecorder.addEventListener("dataavailable", (event) => {
+      audioChunks.push(event.data);
+    });
+
+    mediaRecorder.addEventListener("stop", () => {
+      const audioBlob = new Blob(audioChunks);
+      const audioUrl = URL.createObjectURL(audioBlob);
+      recording = new Audio(audioUrl);
+      recording.play();
+    });
+
+    setTimeout(() => {
+      mediaRecorder.stop();
+    }, 3000);
+  });
+}
+
+/*
+Plays the recorded audio back
+*/
+function playBackAudio() {
+  recording.play();
+}
 
 /*
   The purpose of this function is to quit the application.
