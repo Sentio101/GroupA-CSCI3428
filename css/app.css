@@ -103,19 +103,6 @@ input {
   width: 80%;
 }
 
-/* .backBtn{
-    width: 25%;
-    border-radius: 5%;
-    border: none;
-    color: #7C3E25;
-    background-color: #86C34E;
-}
-.backBtn:hover {
-    background-color: #B6843F;
-    color: #794921;
-} */
-
-<<<<<<< Updated upstream
 /*
 Start: blicking animation for map buttons
 
@@ -148,6 +135,10 @@ By: B. Coco
     -o-animation: 2s blink ease infinite;
     animation: 2s blink ease infinite;
 }
+
+/*
+  Section for blinking animation for map buttons
+*/
 
 @keyframes "blink" {
     from, to {
@@ -198,12 +189,6 @@ By: B. Coco
 End: blicking animation for map buttons
 */
 
-=======
-.bi-mic-fill {
-  color: red;
-  animation: pulse 1.5s infinite;
-}
->>>>>>> Stashed changes
 
 @keyframes pulse {
   0% {

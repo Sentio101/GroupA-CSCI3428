@@ -87,21 +87,6 @@ let panels = [
 let screenNum = 0;
 
 //------------------------------------------------------------- Toggle Visibility ---------------------------------------------------------------------------------------------------//
-// /**
-//  *  This function will toggle the visibility of the @param.
-//  *
-//  *  Authors: SDR
-//  *
-//  * @param {*} element The desired element.
-//  */
-// function toggleVisibility(element) {
-//   var x = document.getElementById(element);
-//   if (x.style.display === "none") {
-//     x.style.display = "block";
-//   } else {
-//     x.style.display = "none";
-//   }
-// }
 
 /**
  *  This function will hide the element in the @param.
@@ -230,13 +215,6 @@ function congrats() {
  *  Authors: SDR
  */
 function tryAgain() {
-<<<<<<< Updated upstream
-  // let fox =
-  //   '<img class="fox-size" type="image" src="./pics/tryagain.png"></img>';
-  // document.getElementById("pic1").innerHTML = fox;
-=======
->>>>>>> Stashed changes
-  // Get the modal
   var modal = document.getElementById("myModal");
 
   // Get the image and insert it inside the modal
@@ -306,7 +284,6 @@ function gameSetup() {
 
   Authors: same as file header 
 */
-
 function audio() {
   let voice = new Audio(audios[screenNum]);
   voice.play();
@@ -314,11 +291,12 @@ function audio() {
 
 var recording;
 
-/*
-Records audio on click, records for 3 seconds and
-automatically playes it back*/
-function record() {}
+/**
+ *  Records audio on click, records for 3 seconds and
+    automatically playes it back.
 
+    Authors: Adam
+ */
 function record() {
   navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
     const mediaRecorder = new MediaRecorder(stream);
@@ -349,14 +327,14 @@ function playBackAudio() {
   recording.play();
 }
 
-/*
-  The purpose of this function is to quit the application.
+// /*
+//   The purpose of this function is to quit the application.
 
-  Authors: same as file header
-*/
-function quit() {
-  window.close();
-}
+//   Authors: same as file header
+// */
+// function quit() {
+//   window.close();
+// }
 
 /*
   Stub: for teacher's audio record feature.
