@@ -95,6 +95,15 @@ input {
     color: #794921;
 }
 
+/*
+    Section for Modal
+*/
+.modal-content{
+    display: block;
+    position: relative;
+    width: 80%;
+}
+
 /* .backBtn{
     width: 25%;
     border-radius: 5%;

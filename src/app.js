@@ -230,9 +230,12 @@ function congrats() {
  *  Authors: SDR
  */
 function tryAgain() {
+<<<<<<< Updated upstream
   // let fox =
   //   '<img class="fox-size" type="image" src="./pics/tryagain.png"></img>';
   // document.getElementById("pic1").innerHTML = fox;
+=======
+>>>>>>> Stashed changes
   // Get the modal
   var modal = document.getElementById("myModal");
 
