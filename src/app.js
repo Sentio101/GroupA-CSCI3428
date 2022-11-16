@@ -230,9 +230,25 @@ function congrats() {
  *  Authors: SDR
  */
 function tryAgain() {
-  let fox =
-    '<img class="fox-size" type="image" src="./pics/tryagain.png"></img>';
-  document.getElementById("pic1").innerHTML = fox;
+  // let fox =
+  //   '<img class="fox-size" type="image" src="./pics/tryagain.png"></img>';
+  // document.getElementById("pic1").innerHTML = fox;
+  // Get the modal
+  var modal = document.getElementById("myModal");
+
+  // Get the image and insert it inside the modal
+  var modalImg = document.getElementById("modalImg");
+
+  modal.style.display = "block";
+  modalImg.src = "./pics/tryagain.png";
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
 }
 
 /**
@@ -348,6 +364,7 @@ function choose(choice) {
     str3 = str1 + panels[screenNum * 3 + parseInt(2)] + str2;
     document.getElementById("pic3").innerHTML = str3;
   } else {
-    alert("Try again");
+    // alert("Try again");
+    tryAgain();
   }
 }
