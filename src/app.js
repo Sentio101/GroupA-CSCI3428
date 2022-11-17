@@ -51,6 +51,17 @@ let audios = [
 // Example: Screen 0 has an audio file that matches image 1
 let answers = [1, 2, 3, 2, 3, 1, 3, 1, 2];
 
+let answerWord = [
+  "Aqq",
+  "ltu",
+  "Wiktm",
+  "Eliey",
+  "Mijisi",
+  "Nin",
+  "Kesalk",
+  "Kil",
+  "Teluisi",
+];
 // global array containing 9 sets of 3 images making up the 9 screens.
 // There are 27 elements in this array.
 let panels = [
@@ -201,7 +212,8 @@ function displayInstructions() {
  */
 function congrats() {
   let msg = '<h1 class="header-size">Congrats!</h1>';
-  let fox = '<img class="fox-size-pass" type="image" src="./pics/congrats.png" />';
+  let fox =
+    '<img class="fox-size-pass" type="image" src="./pics/congrats.png" />';
   let retry =
     '<button class="btn playBtn" onclick="retryBtn()"><i class="bi bi-arrow-counterclockwise"></i></button>';
   let complete = msg + fox + retry;
@@ -219,7 +231,8 @@ function congrats() {
  */
 function tryAgain() {
   let msg = '<h1 class="header-size">Whoops, Try again</h1>';
-  let fox = '<img class="fox-size-fail" type="image" src="./pics/tryagain.png" />';
+  let fox =
+    '<img class="fox-size-fail" type="image" src="./pics/tryagain.png" />';
   let retry =
     '<button class="btn playBtn" onclick="retryBtn()"><i class="bi bi-arrow-counterclockwise"></i></button>';
   let complete = msg + fox + retry;
@@ -273,6 +286,11 @@ function getBtns() {
 
  */
 function gameSetup() {
+  console.log(screenNum);
+
+  document.getElementById("p1").innerHTML =
+    '"' + " " + answerWord[screenNum] + " " + '"';
+
   getBtns();
   let str1 = '<input class="button" type="image" src="./pics/';
   let str2 = '" width="325" height="325" onclick="choose(1)"/>';
@@ -375,11 +393,15 @@ function playBackAudio() {
   ELSE
       PRODUCE TRY AGAIN MESSAGE
 
-  Authors: Terry and SDR
+  Authors: Terry, SDR, Adam
  */
 function choose(choice) {
   if (choice == answers[screenNum]) {
     congrats();
+
+    // Empty recording variable and return color to brown on audio playback
+    document.getElementById("teacherBtn").style.color = "#7c3e15";
+    recording = null;
 
     // update screenNum in the sequence: 0 1 2 3 4 5 6 7 8 and back to 0
     screenNum = (screenNum + parseInt(1)) % parseInt(9);
