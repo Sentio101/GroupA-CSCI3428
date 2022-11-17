@@ -32,7 +32,7 @@ input {
 }
 
 .top-space {
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .header-size {
@@ -147,24 +147,13 @@ By: B. Coco
   left: 1%;
 }
 
-<<<<<<< HEAD
 .svgCircle {
-  width: 350%;
-  height: 350%;
+  width: 100%;
+  height: 80%;
   display: block;
   margin-left: auto;
   margin-right: auto;
   position: absolute;
-=======
-
-.svgCircle{
-    width: 100%;
-    height: 80%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    position:absolute
->>>>>>> cbb695163aaa546d29c08c73657e147b65b09e9c
 }
 
 .blinking {
