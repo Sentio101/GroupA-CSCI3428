@@ -393,8 +393,8 @@ function playBackAudio() {
  */
 function choose(choice) {
   if (choice == answers[screenNum]) {
-    alert("Congratulations");
     //congrats();
+    alert("Congratulations");
 
     // Empty recording variable and return color to brown on audio playback
     document.getElementById("teacherBtn").style.color = "#7c3e15";
