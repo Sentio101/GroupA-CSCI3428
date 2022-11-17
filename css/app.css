@@ -53,7 +53,21 @@ input {
   margin-right: auto;
 }
 
-.fox-size {
+.fox-size-welcome {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+.fox-size-fail {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.fox-size-pass {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -72,7 +86,7 @@ input {
 .playBtn {
   width: 100%;
   height: 100%;
-  background-color: #86c34e;
+  background-color: #94be6d;
   border-radius: 5%;
   border: none;
   color: #7c3e15;
@@ -87,7 +101,7 @@ input {
   border: none;
   margin-right: 1rem;
   color: #7c3e15;
-  background-color: #86c34e;
+  background-color: #94be6d;
 }
 .multiBtn:hover {
   background-color: #b6843f;
@@ -97,7 +111,7 @@ input {
 .backBtn{
   width: 50%;
   height: 100%;
-  background-color: #86c34e;
+  background-color: #94be6d;
   border-radius: 5%;
   border: none;
   color: #7c3e15;
@@ -133,8 +147,8 @@ By: B. Coco
 
 
 .svgCircle{
-    width: 350%;
-    height: 350%;
+    width: 100%;
+    height: 80%;
     display: block;
     margin-left: auto;
     margin-right: auto;
