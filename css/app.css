@@ -101,19 +101,9 @@ input {
   border: none;
   margin-right: 1rem;
   color: #7c3e15;
-<<<<<<< Updated upstream
   background-color: #94be6d;
   transition-property: color;
   transition-duration: 3s;
-=======
-<<<<<<< HEAD
-  background-color: #86c34e;
-  transition-property: color;
-  transition-duration: 3s;
-=======
-  background-color: #94be6d;
->>>>>>> cbb695163aaa546d29c08c73657e147b65b09e9c
->>>>>>> Stashed changes
 }
 .multiBtn:hover {
   background-color: #b6843f;
