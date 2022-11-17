@@ -278,6 +278,7 @@ function gameSetup() {
   let str2 = '" width="325" height="325" onclick="choose(1)"/>';
   let str3 = str1 + panels[0] + str2;
   document.getElementById("pic1").innerHTML = str3;
+  console.log(str3);
 
   str2 = '" width="325" height="325" onclick="choose(2)"/>';
   str3 = str1 + panels[1] + str2;
@@ -303,7 +304,7 @@ var recording;
 
 /**
  *  Records audio on click, records for 3 seconds and
-    automatically playes it back.
+    automatically plays it back.
 
     Authors: Adam
  */

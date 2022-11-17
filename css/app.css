@@ -101,16 +101,26 @@ input {
   border: none;
   margin-right: 1rem;
   color: #7c3e15;
+<<<<<<< Updated upstream
   background-color: #94be6d;
   transition-property: color;
   transition-duration: 3s;
+=======
+<<<<<<< HEAD
+  background-color: #86c34e;
+  transition-property: color;
+  transition-duration: 3s;
+=======
+  background-color: #94be6d;
+>>>>>>> cbb695163aaa546d29c08c73657e147b65b09e9c
+>>>>>>> Stashed changes
 }
 .multiBtn:hover {
   background-color: #b6843f;
   color: #794911;
 }
 
-.backBtn{
+.backBtn {
   width: 50%;
   height: 100%;
   background-color: #94be6d;
@@ -138,15 +148,24 @@ Start: blinking animation for map buttons
 By: B. Coco
 */
 
-.container{
-    position: relative;
+.container {
+  position: relative;
 }
-.container.bi1{
-    position: absolute;
-    bottom:1%;
-    left:1%;
+.container.bi1 {
+  position: absolute;
+  bottom: 1%;
+  left: 1%;
 }
 
+<<<<<<< HEAD
+.svgCircle {
+  width: 350%;
+  height: 350%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+=======
 
 .svgCircle{
     width: 100%;
@@ -155,65 +174,70 @@ By: B. Coco
     margin-left: auto;
     margin-right: auto;
     position:absolute
+>>>>>>> cbb695163aaa546d29c08c73657e147b65b09e9c
 }
 
-.blinking{
-    -webkit-animation: 1s blink ease infinite;
-    -moz-animation: 1s blink ease infinite;
-    -ms-animation: 1s blink ease infinite;
-    -o-animation: 1s blink ease infinite;
-    animation: 1s blink ease infinite;
-    color: red;
+.blinking {
+  -webkit-animation: 1s blink ease infinite;
+  -moz-animation: 1s blink ease infinite;
+  -ms-animation: 1s blink ease infinite;
+  -o-animation: 1s blink ease infinite;
+  animation: 1s blink ease infinite;
+  color: red;
 }
-
 
 /*
   Section for blinking animation for map buttons
 */
 
 @keyframes "blink" {
-    from, to {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
+  from,
+  to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 @-moz-keyframes blink {
-    from, to {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
+  from,
+  to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes "blink" {
-    from, to {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
+  from,
+  to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 @-ms-keyframes "blink" {
-    from, to {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
+  from,
+  to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 @-o-keyframes "blink" {
-    from, to {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
+  from,
+  to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 /*
@@ -231,6 +255,13 @@ End: blicking animation for map buttons
   100% {
     box-shadow: 0 0 0 10px red;
   }
-
 }
 
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0px red;
+  }
+  100% {
+    box-shadow: 0 0 0 10px red;
+  }
+}
