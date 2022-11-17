@@ -393,8 +393,8 @@ function playBackAudio() {
  */
 function choose(choice) {
   if (choice == answers[screenNum]) {
-    //congrats();
-    alert("Congratulations");
+    congrats();
+   // alert("Congratulations");
 
     // Empty recording variable and return color to brown on audio playback
     document.getElementById("teacherBtn").style.color = "#7c3e15";
@@ -416,7 +416,7 @@ function choose(choice) {
     str3 = str1 + panels[screenNum * 3 + parseInt(2)] + str2;
     document.getElementById("pic3").innerHTML = str3;
   } else {
-    //tryAgain();
-    alert("Try again");
+    tryAgain();
+    //alert("Try again");
   }
 }
