@@ -6,7 +6,7 @@
   Terry Goldsmith
   - Created original file with all required styles
 
-  Sebastian Duque Rivera(SDR)(A00441528) 
+  Sebastian Duque Rivera(SDR)(A00441518) 
   - Modified initial background image, and added more custom css .startBtn, .fox-size 
   and .header-size.
 
@@ -28,7 +28,7 @@ i {
 }
 
 input {
-  border: 5px solid rgb(0, 140, 255);
+  border: 5px solid rgb(0, 140, 155);
 }
 
 .top-space {
@@ -75,23 +75,36 @@ input {
   background-color: #86c34e;
   border-radius: 5%;
   border: none;
-  color: #7c3e25;
+  color: #7c3e15;
 }
 .playBtn:hover {
   background-color: #b6843f;
-  color: #794921;
+  color: #794911;
 }
 
 .multiBtn {
   border-radius: 5%;
   border: none;
   margin-right: 1rem;
-  color: #7c3e25;
+  color: #7c3e15;
   background-color: #86c34e;
 }
 .multiBtn:hover {
   background-color: #b6843f;
-  color: #794921;
+  color: #794911;
+}
+
+.backBtn{
+  width: 50%;
+  height: 100%;
+  background-color: #86c34e;
+  border-radius: 5%;
+  border: none;
+  color: #7c3e15;
+}
+.backBtn:hover {
+  background-color: #b6843f;
+  color: #794911;
 }
 
 /*
@@ -104,7 +117,7 @@ input {
 }
 
 /*
-Start: blicking animation for map buttons
+Start: blinking animation for map buttons
 
 By: B. Coco
 */
@@ -112,10 +125,10 @@ By: B. Coco
 .container{
     position: relative;
 }
-.container.bi2{
+.container.bi1{
     position: absolute;
     bottom:1%;
-    left:2%;
+    left:1%;
 }
 
 
@@ -128,13 +141,15 @@ By: B. Coco
     position:absolute
 }
 
-.blicking{
-    -webkit-animation: 2s blink ease infinite;
-    -moz-animation: 2s blink ease infinite;
-    -ms-animation: 2s blink ease infinite;
-    -o-animation: 2s blink ease infinite;
-    animation: 2s blink ease infinite;
+.blinking{
+    -webkit-animation: 1s blink ease infinite;
+    -moz-animation: 1s blink ease infinite;
+    -ms-animation: 1s blink ease infinite;
+    -o-animation: 1s blink ease infinite;
+    animation: 1s blink ease infinite;
+    color: red;
 }
+
 
 /*
   Section for blinking animation for map buttons
@@ -189,7 +204,10 @@ By: B. Coco
 End: blicking animation for map buttons
 */
 
-
+/*
+  Mic glow for recording
+  Authors: Adam
+*/
 @keyframes pulse {
   0% {
     box-shadow: 0 0 0 0px red;
@@ -197,4 +215,6 @@ End: blicking animation for map buttons
   100% {
     box-shadow: 0 0 0 10px red;
   }
+
 }
+
