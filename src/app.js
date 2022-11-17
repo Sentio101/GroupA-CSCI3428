@@ -340,6 +340,7 @@ function record() {
 function recordPulse() {
   let recording = '<i class="bi bi-soundwave blinking"></i>';
   document.getElementById("recordBtn").innerHTML = recording;
+  document.getElementById("teacherBtn").style.color = "blue";
 }
 
 /**

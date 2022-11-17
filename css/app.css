@@ -102,6 +102,8 @@ input {
   margin-right: 1rem;
   color: #7c3e15;
   background-color: #94be6d;
+  transition-property: color;
+  transition-duration: 3s;
 }
 .multiBtn:hover {
   background-color: #b6843f;
