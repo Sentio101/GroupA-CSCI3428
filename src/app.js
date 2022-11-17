@@ -212,10 +212,8 @@ function displayInstructions() {
  */
 function congrats() {
   let msg = '<h1 class="header-size">Congrats!</h1>';
-  let fox =
-    '<img class="fox-size-pass" type="image" src="./pics/congrats.png" />';
-  let retry =
-    '<button class="btn playBtn" onclick="retryBtn()"><i class="bi bi-arrow-counterclockwise"></i></button>';
+  let fox ='<img class="fox-size-pass" type="image" src="./pics/congrats.png" />';
+  let retry = '<button class="btn playBtn" onclick="retryBtn()"><i class="bi bi-arrow-counterclockwise"></i></button>';
   let complete = msg + fox + retry;
 
   document.getElementById("alertMsg").innerHTML = complete;
@@ -231,10 +229,8 @@ function congrats() {
  */
 function tryAgain() {
   let msg = '<h1 class="header-size">Whoops, Try again</h1>';
-  let fox =
-    '<img class="fox-size-fail" type="image" src="./pics/tryagain.png" />';
-  let retry =
-    '<button class="btn playBtn" onclick="retryBtn()"><i class="bi bi-arrow-counterclockwise"></i></button>';
+  let fox ='<img class="fox-size-fail" type="image" src="./pics/tryagain.png" />';
+  let retry = '<button class="btn playBtn" onclick="retryBtn()"><i class="bi bi-arrow-counterclockwise"></i></button>';
   let complete = msg + fox + retry;
 
   document.getElementById("alertMsg").innerHTML = complete;
@@ -397,7 +393,8 @@ function playBackAudio() {
  */
 function choose(choice) {
   if (choice == answers[screenNum]) {
-    congrats();
+    alert("Congratulations");
+    //congrats();
 
     // Empty recording variable and return color to brown on audio playback
     document.getElementById("teacherBtn").style.color = "#7c3e15";
@@ -419,6 +416,7 @@ function choose(choice) {
     str3 = str1 + panels[screenNum * 3 + parseInt(2)] + str2;
     document.getElementById("pic3").innerHTML = str3;
   } else {
-    tryAgain();
+    //tryAgain();
+    alert("Try again");
   }
 }
