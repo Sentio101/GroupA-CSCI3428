@@ -27,49 +27,62 @@
 </head>
 
 <body onload="setup()">
-  <!-- The intro Screen -->
-  <div class="container" id="intro">
-    <!-- Games's title -->
-    <h1 class="header-size">Wowkwis Says</h1>
-    <!-- Btns -->
-    <div class="row">
-      <div class="col-sm-8">
-        <!-- The play btn -->
-        <button class="btn playBtn" onclick="displayMap()">
-          <i class="bi bi-play-fill"></i>
-        </button>
-      </div>
-      <div class="col-sm-4">
-        <div class="input-group">
-          <!-- The info btn -->
-          <button class="btn multiBtn" onclick="displayInstructions()">
-            <i class="bi bi-info-circle-fill"></i>
-          </button>
-          <!-- The settings btn -->
-          <button class="btn multiBtn" onclick="displaySettings()">
-            <i class="bi bi-gear-fill"></i>
+     <!-- The intro Screen -->
+     <div class="container" id="intro">
+      <!-- Games's title -->
+      <h1 class="header-size">Wowkwis Says</h1>
+      <!-- Btns -->
+      <div class="row">
+        <div class="col-sm-8">
+          <!-- The play btn -->
+          <button class="btn playBtn" onclick="displayMap()">
+            <i class="bi bi-play-fill"></i>
           </button>
         </div>
+        <div class="col-sm-4">
+          <div class="input-group">
+            <!-- The info btn -->
+            <button class="btn multiBtn" onclick="displayInstructions()">
+              <i class="bi bi-info-circle-fill"></i>
+            </button>
+            <!-- The settings btn -->
+            <button class="btn multiBtn" onclick="displaySettings()">
+              <i class="bi bi-gear-fill"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Fox image -->
+      <div class="row">
+        <img class="fox-size-welcome" type="image" src="./pics/welcome.png" />
       </div>
     </div>
-    <!-- Fox image -->
-    <div class="row">
-      <img class="fox-size" type="image" src="./pics/congrats.png" />
+
+    <!-- How to play Screen -->
+    <div class="container" id="howTo">
+      <div class="row">
+        <div>
+          <button class="btn backBtn" onclick="displayIntro()">
+            <i class="bi bi-arrow-left-square-fill"></i>
+          </button>
+        </div>
+        <img class="map-size" type="image" src="./pics/howto.png" />
+      </div>
     </div>
-  </div>
 
   <!-- The interactive map -->
   <div id="map">
     <div class="container">
+
       <header>
         <div class="logo">
           <i class="fas fa-gamepad"></i>
           <p>THE MAP ZONE</p>
         </div>
-        
       </header>
+
       <img src="./pics/map.jpg" class="map-size" />
-      <a onclick="displayGame()"></a>
+      <a class="blinking" onclick="displayGame()"></a>
       <a1 onclick="displayGame()"></a1>
       <a2 onclick="displayGame()"></a2>
       <a3 onclick="displayGame()"></a3>
@@ -82,26 +95,23 @@
     <!-- Author: B. Coco -->
   </div>
 
-  <!-- The game -->
-  <div class="container text-center" id="game">
-    <div class="row top-space">
-      <div class="col-12" id="header"></div>
-    </div>
-    <div class="row">
-      <!-- The Modal -->
-      <div id="myModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="modalImg" />
+    <!-- The game -->
+    <div class="container text-center" id="game">
+      <div class="row top-space">
+        <div class="col-12" id="header"></div>
+      </div>
+      <div class="correctWord">
+       <p1 id="p1"></p1>
+      </div>
+      <div class="row" id="alertMsg"></div>
+      <div class="row top-space" id="body">
+        <!-- defines 3 columns which each include 4 column sections
+               which add up to 12 as they must -->
+        <div class="col-lg-4" id="pic1"></div>
+        <div class="col-lg-4" id="pic2"></div>
+        <div class="col-lg-4" id="pic3"></div>
       </div>
     </div>
-    <div class="row top-space" id="body">
-      <!-- defines 3 columns which each include 4 column sections
-               which add up to 12 as they must -->
-      <div class="col-lg-4" id="pic1"></div>
-      <div class="col-lg-4" id="pic2"></div>
-      <div class="col-lg-4" id="pic3"></div>
-    </div>
-  </div>
 </body>
 
 </html>
