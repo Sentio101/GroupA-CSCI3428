@@ -28,11 +28,11 @@ i {
 }
 
 input {
-  border: 5px solid rgb(0, 140, 255);
+  border: 5px solid rgb(0, 140, 155);
 }
 
 .top-space {
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .header-size {
@@ -64,7 +64,9 @@ input {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+  cursor: pointer;
 }
+
 
 .fox-size-pass {
   display: block;
@@ -102,6 +104,7 @@ input {
   margin-right: 1rem;
   color: #7c3e25;
   background-color: #86c34e;
+  transition-duration: 3s;
 }
 
 .multiBtn:hover {
@@ -243,10 +246,9 @@ End: blicking animation for map buttons
 }
 
 
-
-
 .container a {
   position: absolute;
+  cursor: pointer;
   top: 50%;
   right: 55%;
   background-color: yellow;
@@ -256,6 +258,7 @@ End: blicking animation for map buttons
 
 .container a1 {
   position: absolute;
+  cursor: pointer;
   top: 65%;
   right: 48%;
   background-color: gray;
@@ -265,6 +268,7 @@ End: blicking animation for map buttons
 
 .container a2 {
   position: absolute;
+  cursor: pointer;
   top: 51%;
   right: 32%;
   background-color: gray;
@@ -274,6 +278,7 @@ End: blicking animation for map buttons
 
 .container a3 {
   position: absolute;
+  cursor: pointer;
   top: 45%;
   right: 10%;
   background-color: gray;
@@ -283,7 +288,8 @@ End: blicking animation for map buttons
 
 .container a4 {
   position: absolute;
-  top: 67%;
+  cursor: pointer;
+  top: 68%;
   right: 22%;
   background-color: gray;
   border-radius: 1.5em;
@@ -291,6 +297,7 @@ End: blicking animation for map buttons
 }
 .container a5 {
   position: absolute;
+  cursor: pointer;
   top: 76%;
   right: 27%;
   background-color: gray;
@@ -299,6 +306,7 @@ End: blicking animation for map buttons
 }
 .container a6 {
   position: absolute;
+  cursor: pointer;
   top: 80%;
   right: 40%;
   background-color: gray;
@@ -307,9 +315,39 @@ End: blicking animation for map buttons
 }
 .container a7 {
   position: absolute;
+  cursor: pointer;
   top: 86%;
-  right: 51%;
+  right: 50%;
   background-color: gray;
   border-radius: 1.5em;
-  padding: 1em 1em;
+  padding: 1em ;
+}
+
+header {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+ul.navbar {
+  display: flex;
+  list-style: none;
+}
+
+ul.navbar li {
+  width: 225px;
+}
+
+ul.navbar li a0 {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 200%;
+}
+
+ul.navbar li a0:hover {
+  color: #FEC53A;
 }

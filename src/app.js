@@ -44,6 +44,18 @@ let audios = [
   "./audio/teluisi.wav",
 ];
 
+let answerWord = [
+  "Aqq",
+  "ltu",
+  "Wiktm",
+  "Eliey",
+  "Mijisi",
+  "Nin",
+  "Kesalk",
+  "Kil",
+  "Teluisi",
+];
+
 // global array containing the number of the image which corresponds to
 // the audio file for each of the 9 screens.
 // Note: Each screen contains 3 images: image 1, image 2 and image 3 from
@@ -201,9 +213,8 @@ function displaySettings() {}
  */
  function congrats() {
   let msg = '<h1 class="header-size">Congrats!</h1>';
-  let fox ='<img class="fox-size-pass" type="image" src="./pics/congrats.png" />';
-  let retry = '<button class="btn playBtn" onclick="retryBtn()"><i class="bi bi-arrow-counterclockwise"></i></button>';
-  let complete = msg + fox + retry;
+  let fox ='<img class="fox-size-pass" onclick="retryBtn()" type="image" src="./pics/congrats.png" />';
+  let complete = msg + fox;
 
   document.getElementById("alertMsg").innerHTML = complete;
 
@@ -218,9 +229,9 @@ function displaySettings() {}
  */
  function tryAgain() {
   let msg = '<h1 class="header-size">Whoops, Try again</h1>';
-  let fox ='<img class="fox-size-fail" type="image" src="./pics/tryagain.png" />';
-  let retry = '<button class="btn playBtn" onclick="retryBtn()"><i class="bi bi-arrow-counterclockwise"></i></button>';
-  let complete = msg + fox + retry;
+  let fox ='<img class="fox-size-fail" onclick="retryBtn()" type="image" src="./pics/tryagain.png" />';
+  
+  let complete = msg + fox;
 
   document.getElementById("alertMsg").innerHTML = complete;
 
@@ -245,6 +256,7 @@ function displaySettings() {}
  *
  *  Authors: SDR and Mahmood
  */
+
  function getBtns() {
   let backBtn =
     '<button class="btn multiBtn" onclick="displayMap()"><i class="bi bi-arrow-left-square-fill"></i></button>';
@@ -259,6 +271,8 @@ function displaySettings() {}
 
   let btns = backBtn + audioBtn + recordBtn + teacherBtn;
   document.getElementById("header").innerHTML = btns;
+  
+
 }
 
 /**
@@ -274,10 +288,14 @@ function displaySettings() {}
  */
 function gameSetup() {
   
+  document.getElementById("p1").innerHTML =
+   " " + answerWord[screenNum] + " ";
+
   getBtns();
   let str1 = '<input class="button" type="image" src="./pics/';
   let str2 = '" width="325" height="325" onclick="choose(1)"/>';
   let str3 = str1 + panels[0] + str2;
+  
   document.getElementById("pic1").innerHTML = str3;
 
   str2 = '" width="325" height="325" onclick="choose(2)"/>';
@@ -287,6 +305,7 @@ function gameSetup() {
   str2 = '" width="325" height="325" onclick="choose(3)"/>';
   str3 = str1 + panels[2] + str2;
   document.getElementById("pic3").innerHTML = str3;
+  
 }
 
 /*
@@ -299,6 +318,7 @@ function audio() {
   let voice = new Audio(audios[screenNum]);
   voice.play();
 }
+
 
 var recording;
 
@@ -379,8 +399,8 @@ function playBackAudio() {
  */
 function choose(choice) {
   if (choice == answers[screenNum]) {
-    alert("Congratulations");
-
+    congrats();
+    
     // update screenNum in the sequence: 0 1 2 3 4 5 6 7 8 and back to 0
     screenNum = (screenNum + parseInt(1)) % parseInt(9);
 
