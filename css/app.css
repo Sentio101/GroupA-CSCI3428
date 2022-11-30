@@ -6,12 +6,12 @@
   Terry Goldsmith
   - Created original file with all required styles
 
-  Sebastian Duque Rivera(SDR)(A00441518) 
+  Sebastian Duque Rivera(SDR)(A00441528) 
   - Modified initial background image, and added more custom css .startBtn, .fox-size 
   and .header-size.
 
-  Coco
-  - Create the Wowkwis Drawings
+  Name
+  - 
 
 */
 
@@ -28,11 +28,11 @@ i {
 }
 
 input {
-  border: 5px solid rgb(0, 140, 155);
+  border: 5px solid rgb(0, 140, 255);
 }
 
 .top-space {
-  margin-top: 1rem;
+  margin-top: 3rem;
 }
 
 .header-size {
@@ -53,21 +53,7 @@ input {
   margin-right: auto;
 }
 
-.fox-size-welcome {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
-
-.fox-size-fail {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
-
-.fox-size-pass {
+.fox-size {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -86,41 +72,28 @@ input {
 .playBtn {
   width: 100%;
   height: 100%;
-  background-color: #94be6d;
+  background-color: #86c34e;
   border-radius: 5%;
   border: none;
-  color: #7c3e15;
+  color: #7c3e25;
 }
+
 .playBtn:hover {
   background-color: #b6843f;
-  color: #794911;
+  color: #794921;
 }
 
 .multiBtn {
   border-radius: 5%;
   border: none;
   margin-right: 1rem;
-  color: #7c3e15;
-  background-color: #94be6d;
-  transition-property: color;
-  transition-duration: 3s;
-}
-.multiBtn:hover {
-  background-color: #b6843f;
-  color: #794911;
+  color: #7c3e25;
+  background-color: #86c34e;
 }
 
-.backBtn {
-  width: 50%;
-  height: 100%;
-  background-color: #94be6d;
-  border-radius: 5%;
-  border: none;
-  color: #7c3e15;
-}
-.backBtn:hover {
+.multiBtn:hover {
   background-color: #b6843f;
-  color: #794911;
+  color: #794921;
 }
 
 /*
@@ -133,7 +106,7 @@ input {
 }
 
 /*
-Start: blinking animation for map buttons
+Start: blicking animation for map buttons
 
 By: B. Coco
 */
@@ -141,35 +114,29 @@ By: B. Coco
 .container {
   position: relative;
 }
-.container.bi1 {
+
+.container.bi2 {
   position: absolute;
   bottom: 1%;
-  left: 1%;
+  left: 2%;
 }
 
+
 .svgCircle {
-  width: 100%;
-  height: 80%;
+  width: 350%;
+  height: 350%;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  position: absolute;
+  position: absolute
 }
 
-.blinking {
-  -webkit-animation: 1s blink ease infinite;
-  -moz-animation: 1s blink ease infinite;
-  -ms-animation: 1s blink ease infinite;
-  -o-animation: 1s blink ease infinite;
-  animation: 1s blink ease infinite;
-  color: red;
-}
-
-p1 {
-  font-size: 80px;
-  font: bold;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  color: white;
+.blicking {
+  -webkit-animation: 2s blink ease infinite;
+  -moz-animation: 2s blink ease infinite;
+  -ms-animation: 2s blink ease infinite;
+  -o-animation: 2s blink ease infinite;
+  animation: 2s blink ease infinite;
 }
 
 /*
@@ -177,50 +144,60 @@ p1 {
 */
 
 @keyframes "blink" {
+
   from,
   to {
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
 }
 
 @-moz-keyframes blink {
+
   from,
   to {
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
 }
 
 @-webkit-keyframes "blink" {
+
   from,
   to {
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
 }
 
 @-ms-keyframes "blink" {
+
   from,
   to {
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
 }
 
 @-o-keyframes "blink" {
+
   from,
   to {
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
@@ -230,24 +207,221 @@ p1 {
 End: blicking animation for map buttons
 */
 
-/*
-  Mic glow for recording
-  Authors: Adam
-*/
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0px red;
-  }
-  100% {
-    box-shadow: 0 0 0 10px red;
-  }
-}
 
 @keyframes pulse {
   0% {
     box-shadow: 0 0 0 0px red;
   }
+
   100% {
     box-shadow: 0 0 0 10px red;
   }
+}
+
+
+
+
+
+.play-size {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 1%;
+  width: 30%;
+  cursor: pointer;
+}
+
+.container {
+  width: 110%;
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+header {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+ul.navbar {
+  display: flex;
+  list-style: none;
+}
+
+ul.navbar li {
+  width: 225px;
+}
+
+ul.navbar li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+ul.navbar li a:hover {
+  color: #FEC53A;
+}
+
+
+.logo {
+  width: 300px;
+  height: 10vh;
+  background: #49B7D2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  clip-path: polygon(0 0, 100% 0, 64% 100%, 0% 100%);
+  padding: 10px;
+  line-height: 1.3rem;
+}
+
+.logo p {
+  width: 130px;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.logo .fas {
+  font-size: 50px;
+}
+
+.bi2 {
+  border: none;
+  color: #49B7D2;
+  font-size: 350%;
+  padding-left: 1%;
+  padding-top: 1%;
+}
+
+.bi2:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.container {
+  position: relative;
+}
+
+.container .bi2 {
+  position: absolute;
+  bottom: 1%;
+  left: 2%;
+}
+
+.zoom {
+  transition: transform .2s;
+  width: 80%;
+}
+
+.zoom:hover {
+  transform: scale(1.5);
+}
+
+.popup {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.popup-content {
+  height: 35%;
+  width: 40%;
+  background: white;
+  padding: 1%;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: -6%;
+  right: -1%;
+
+  height: 8%;
+  width: 5%;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.button-container {
+  display: inline-block;
+  position: relative;
+}
+
+.container a {
+  position: absolute;
+  top: 50%;
+  right: 55%;
+  background-color: yellow;
+  border-radius: 1.5em;
+  padding: 1em 1em;
+}
+
+.container a1 {
+  position: absolute;
+  top: 65%;
+  right: 48%;
+  background-color: gray;
+  border-radius: 1.5em;
+  padding: 1em 1em;
+}
+
+.container a2 {
+  position: absolute;
+  top: 51%;
+  right: 32%;
+  background-color: gray;
+  border-radius: 1.5em;
+  padding: 1em 1em;
+}
+
+.container a3 {
+  position: absolute;
+  top: 45%;
+  right: 10%;
+  background-color: gray;
+  border-radius: 1.5em;
+  padding: 1em 1em;
+}
+
+.container a4 {
+  position: absolute;
+  top: 67%;
+  right: 22%;
+  background-color: gray;
+  border-radius: 1.5em;
+  padding: 1em 1em;
+}
+.container a5 {
+  position: absolute;
+  top: 76%;
+  right: 27%;
+  background-color: gray;
+  border-radius: 1.5em;
+  padding: 1em 1em;
+}
+.container a6 {
+  position: absolute;
+  top: 80%;
+  right: 40%;
+  background-color: gray;
+  border-radius: 1.5em;
+  padding: 1em 1em;
+}
+.container a7 {
+  position: absolute;
+  top: 86%;
+  right: 51%;
+  background-color: gray;
+  border-radius: 1.5em;
+  padding: 1em 1em;
 }

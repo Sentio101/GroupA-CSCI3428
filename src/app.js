@@ -20,7 +20,7 @@
   - 
 
   Coco
-  - Create the Wowkwis Drawings
+  - 
 
   Adam
   - 
@@ -51,17 +51,6 @@ let audios = [
 // Example: Screen 0 has an audio file that matches image 1
 let answers = [1, 2, 3, 2, 3, 1, 3, 1, 2];
 
-let answerWord = [
-  "Aqq",
-  "ltu",
-  "Wiktm",
-  "Eliey",
-  "Mijisi",
-  "Nin",
-  "Kesalk",
-  "Kil",
-  "Teluisi",
-];
 // global array containing 9 sets of 3 images making up the 9 screens.
 // There are 27 elements in this array.
 let panels = [
@@ -143,7 +132,6 @@ function show(element) {
  */
 function setup() {
   hide("map");
-  hide("howTo");
   hide("game");
 }
 
@@ -154,7 +142,6 @@ function setup() {
  */
 function displayIntro() {
   hide("map");
-  hide("howTo");
   hide("game");
   show("intro");
 }
@@ -166,9 +153,19 @@ function displayIntro() {
  */
 function displayMap() {
   hide("intro");
-  hide("howTo");
   hide("game");
   show("map");
+}
+function popup(){
+  document.getElementById("htp").addEventListener("click",function(){
+    document.querySelector(".popup").style.display="flex";
+  })
+
+  document.querySelector(".close").addEventListener("click",function(){
+    document.querySelector(".popup").style.display="none";
+  })
+
+
 }
 
 /**
@@ -179,7 +176,6 @@ function displayMap() {
 function displayGame() {
   hide("intro");
   hide("map");
-  hide("howTo");
   show("game");
   gameSetup();
 }
@@ -192,67 +188,65 @@ function displayGame() {
 function displaySettings() {}
 
 /**
- *  This function will display the instructions for how to play the game.
+ *  STUB: This function will display the instructions for how to play the game.
  *
  *  Authors: SDR
  */
-function displayInstructions() {
-  hide("intro");
-  hide("map");
-  hide("game");
-  show("howTo");
-}
+function displayInstructions() {}
 
 //-------------------------------------------------------------------- Modals -------------------------------------------------------------------------------------------------------//
 
 /**
- *  This function will display the congrats msg.
+ *  In Progress: This function will bring up the congratulations modal.
  *
  *  Authors: SDR
  */
 function congrats() {
-  let msg = '<h1 class="header-size">Congrats!</h1>';
-  let fox ='<img class="fox-size-pass" type="image" src="./pics/congrats.png" />';
-  let retry = '<button class="btn playBtn" onclick="retryBtn()"><i class="bi bi-arrow-counterclockwise"></i></button>';
-  let complete = msg + fox + retry;
+  // Get the modal
+  var modal = document.getElementById("myModal");
 
-  document.getElementById("alertMsg").innerHTML = complete;
+  // Get the image and insert it inside the modal
+  var modalImg = document.getElementById("modalImg");
 
-  hide("body"); // Hides Terry's images
-  // retryBtn();
+  modal.style.display = "block";
+  modalImg.src = "./pics/congrats.png";
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
 }
 
 /**
- *  This function will display the try again msg.
+ *  In Progress: This funciton will display the try again modal.
  *
  *  Authors: SDR
  */
 function tryAgain() {
-  let msg = '<h1 class="header-size">Whoops, Try again</h1>';
-  let fox ='<img class="fox-size-fail" type="image" src="./pics/tryagain.png" />';
-  let retry = '<button class="btn playBtn" onclick="retryBtn()"><i class="bi bi-arrow-counterclockwise"></i></button>';
-  let complete = msg + fox + retry;
+  var modal = document.getElementById("myModal");
 
-  document.getElementById("alertMsg").innerHTML = complete;
+  // Get the image and insert it inside the modal
+  var modalImg = document.getElementById("modalImg");
 
-  hide("body"); // Hides Terry's images
-  // retryBtn();
-}
+  modal.style.display = "block";
+  modalImg.src = "./pics/tryagain.png";
 
-/**
- *  In progress: This function will allow the user to retry a question.
- *
- *  Authors: SDR and Mahmood
- */
-function retryBtn() {
-  show("body");
-  hide("alertMsg");
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
 }
 
 /**
  *  This function will retrieve the 4 main buttons for the app and display them in the header.
  *
- *  Authors: SDR and Mahmood
+ *  Authors: SDR
  */
 function getBtns() {
   let backBtn =
@@ -260,13 +254,11 @@ function getBtns() {
   let audioBtn =
     '<button class="btn multiBtn" onclick="audio()"><i class="bi bi-volume-up-fill"></i></button>';
   let recordBtn =
-    '<button class="btn multiBtn" id="recordBtn" onclick="record()"><i class="bi-mic-fill"></i></button>';
-  let teacherStr1 =
-    '<button class="btn multiBtn" id="teacherBtn" onclick="playBackAudio()"> ';
-  let teacherStr2 = '<i class="bi bi-music-player-fill"></i></button>';
-  let teacherBtn = teacherStr1 + teacherStr2;
+    '<button class="btn multiBtn" onclick="record()"><i class="bi-mic-fill"></i></button>';
+  let adminBtn =
+    '<button class="btn multiBtn" onclick="teacher()"><i class="bi-file-lock2"></i></button>';
 
-  let btns = backBtn + audioBtn + recordBtn + teacherBtn;
+  let btns = backBtn + recordBtn + audioBtn + adminBtn;
   document.getElementById("header").innerHTML = btns;
 }
 
@@ -282,17 +274,11 @@ function getBtns() {
 
  */
 function gameSetup() {
-  console.log(screenNum);
-
-  document.getElementById("p1").innerHTML =
-    '"' + " " + answerWord[screenNum] + " " + '"';
-
   getBtns();
   let str1 = '<input class="button" type="image" src="./pics/';
   let str2 = '" width="325" height="325" onclick="choose(1)"/>';
   let str3 = str1 + panels[0] + str2;
   document.getElementById("pic1").innerHTML = str3;
-  console.log(str3);
 
   str2 = '" width="325" height="325" onclick="choose(2)"/>';
   str3 = str1 + panels[1] + str2;
@@ -318,7 +304,7 @@ var recording;
 
 /**
  *  Records audio on click, records for 3 seconds and
-    automatically plays it back.
+    automatically playes it back.
 
     Authors: Adam
  */
@@ -326,7 +312,7 @@ function record() {
   navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
     const mediaRecorder = new MediaRecorder(stream);
     mediaRecorder.start();
-    recordPulse();
+    //pulseRed();
     const audioChunks = [];
     mediaRecorder.addEventListener("dataavailable", (event) => {
       audioChunks.push(event.data);
@@ -341,39 +327,30 @@ function record() {
 
     setTimeout(() => {
       mediaRecorder.stop();
-      recordStop();
     }, 3000);
   });
 }
 
-/**
- *  This function changes the mic to a soundwave icon while recording
- *  and makes it glow red.
- *
- *  Authors: SDR and Mahmood
- */
-function recordPulse() {
-  let recording = '<i class="bi bi-soundwave blinking"></i>';
-  document.getElementById("recordBtn").innerHTML = recording;
-  document.getElementById("teacherBtn").style.color = "blue";
-}
-
-/**
- *  This function change the recording back to a mic.
- *
- *  Authors: SDR and Mahmood
- */
-function recordStop() {
-  let stopRec = '<i class="bi-mic-fill">';
-  document.getElementById("recordBtn").innerHTML = stopRec;
-}
-
 /*
-  Plays the recorded audio back
+Plays the recorded audio back
 */
 function playBackAudio() {
   recording.play();
 }
+
+// /*
+//   The purpose of this function is to quit the application.
+
+//   Authors: same as file header
+// */
+// function quit() {
+//   window.close();
+// }
+
+/*
+  Stub: for teacher's audio record feature.
+*/
+function teacher() {}
 
 /*
   The purpose of this function is to produce a "try again" alert if the
@@ -389,16 +366,11 @@ function playBackAudio() {
   ELSE
       PRODUCE TRY AGAIN MESSAGE
 
-  Authors: Terry, SDR, Adam
+  Authors: same as the file header
  */
 function choose(choice) {
   if (choice == answers[screenNum]) {
-    congrats();
-   // alert("Congratulations");
-
-    // Empty recording variable and return color to brown on audio playback
-    document.getElementById("teacherBtn").style.color = "#7c3e15";
-    recording = null;
+    alert("Congratulations");
 
     // update screenNum in the sequence: 0 1 2 3 4 5 6 7 8 and back to 0
     screenNum = (screenNum + parseInt(1)) % parseInt(9);
@@ -416,7 +388,7 @@ function choose(choice) {
     str3 = str1 + panels[screenNum * 3 + parseInt(2)] + str2;
     document.getElementById("pic3").innerHTML = str3;
   } else {
+    // alert("Try again");
     tryAgain();
-    //alert("Try again");
   }
 }
