@@ -343,9 +343,6 @@ function displayInstructions() {
 function congrats() {
   Swal.fire({
     title: "Kelu'lk tela'tekn",
-    imageUrl: "./pics/congrats.png",
-    imageWidth: 400,
-    imageHeight: 200,
     background: "#86c34e",
   });
 }
@@ -358,10 +355,23 @@ function congrats() {
 function tryAgain() {
   Swal.fire({
     title: "Tknu'kwalsi ap",
-    imageUrl: "./pics/tryagain.png",
+    background: "#86c34e",
+  });
+}
+
+/**
+ *  This function will display the level complete msg.
+ *
+ *  Authors: SDR
+ */
+function levelCompleted() {
+  Swal.fire({
+    title: "Kelu'lk tela'tekn",
+    text: "Level Complete!",
+    imageUrl: "./pics/congrats.png",
     imageWidth: 400,
     imageHeight: 200,
-    background: "#86c34e",
+    background: "#4da0f3",
   });
 }
 
@@ -406,7 +416,7 @@ function level() {
   getBtns();
 
   let str1 = '<input class="button" type="image" src="./pics/';
-  let str2 = '" width="325" height="325" onclick="choose(correct)"/>';
+  let str2 = '" width="325" height="325" onclick="choose(finalArray[0].id)"/>';
   let str3 = str1 + correctAnswer + str2;
 
   var correctSpot = getRandomInt(1, 3);
@@ -415,76 +425,66 @@ function level() {
   if (correctSpot === 1) {
     document.getElementById("pic1").innerHTML = str3;
 
-
     if (incorrectSpot === 1) {
-      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str2 = '" width="325" height="325" onclick="choose(finalArray[1].id)"/>';
       str3 = str1 + incorrectAnswer1 + str2;
       document.getElementById("pic2").innerHTML = str3;
 
-      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str2 = '" width="325" height="325" onclick="choose(finalArray[2].id)"/>';
       str3 = str1 + incorrectAnswer2 + str2;
       document.getElementById("pic3").innerHTML = str3;
     } else {
-      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str2 = '" width="325" height="325" onclick="choose(finalArray[1].id)"/>';
       str3 = str1 + incorrectAnswer1 + str2;
       document.getElementById("pic3").innerHTML = str3;
 
-      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str2 = '" width="325" height="325" onclick="choose(finalArray[2].id)"/>';
       str3 = str1 + incorrectAnswer2 + str2;
       document.getElementById("pic2").innerHTML = str3;
     }
-  }
-
-  else if (correctSpot === 2) {
+  } else if (correctSpot === 2) {
     document.getElementById("pic2").innerHTML = str3;
 
-
     if (incorrectSpot === 1) {
-      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str2 = '" width="325" height="325" onclick="choose(finalArray[1].id)"/>';
       str3 = str1 + incorrectAnswer1 + str2;
       document.getElementById("pic1").innerHTML = str3;
 
-      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str2 = '" width="325" height="325" onclick="choose(finalArray[2].id)"/>';
       str3 = str1 + incorrectAnswer2 + str2;
       document.getElementById("pic3").innerHTML = str3;
     } else {
-      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str2 = '" width="325" height="325" onclick="choose(finalArray[1].id)"/>';
       str3 = str1 + incorrectAnswer1 + str2;
       document.getElementById("pic3").innerHTML = str3;
 
-      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str2 = '" width="325" height="325" onclick="choose(finalArray[2].id)"/>';
       str3 = str1 + incorrectAnswer2 + str2;
       document.getElementById("pic1").innerHTML = str3;
     }
-  }
-
-  else if (correctSpot === 3) {
+  } else if (correctSpot === 3) {
     document.getElementById("pic3").inner1HTML = str3;
 
-
     if (incorrectSpot === 1) {
-      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str2 = '" width="325" height="325" onclick="choose(finalArray[1].id)"/>';
       str3 = str1 + incorrectAnswer1 + str2;
       document.getElementById("pic1").innerHTML = str3;
 
-      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str2 = '" width="325" height="325" onclick="choose(finalArray[2].id)"/>';
       str3 = str1 + incorrectAnswer2 + str2;
       document.getElementById("pic2").innerHTML = str3;
     } else {
-      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str2 = '" width="325" height="325" onclick="choose(finalArray[1].id)"/>';
       str3 = str1 + incorrectAnswer1 + str2;
       document.getElementById("pic2").innerHTML = str3;
 
-      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str2 = '" width="325" height="325" onclick="choose(finalArray[2].id)"/>';
       str3 = str1 + incorrectAnswer2 + str2;
       document.getElementById("pic1").innerHTML = str3;
     }
-  }
-
-  else {
+  } else {
     alert("An error occured. Please try again.");
   }
-
 }
 
 /**
@@ -564,8 +564,9 @@ function record() {
 function recordPulse() {
   let recording = '<i class="bi bi-soundwave blinking"></i>';
   document.getElementById("recordBtn").innerHTML = recording;
-  setTimeout(() => {}, 3000);
-  document.getElementById("teacherBtn").style.color = "blue";
+  setTimeout(() => {
+    document.getElementById("teacherBtn").style.color = "blue";
+  }, 3000);
 }
 
 /**
@@ -604,7 +605,7 @@ function playBackAudio() {
 function choose(choice) {
   if (choice == answers[screenNum]) {
     congrats();
-
+    document.getElementById("p1").innerHTML = " " + finalArray[0].name + " ";
     // update screenNum in the sequence: 0 1 2 3 4 5 6 7 8 and back to 0
     screenNum = (screenNum + parseInt(1)) % parseInt(9);
 
@@ -621,7 +622,6 @@ function choose(choice) {
     str3 = str1 + panels[screenNum * 3 + parseInt(2)] + str2;
     document.getElementById("pic3").innerHTML = str3;
   } else {
-    //alert("Try again");
     tryAgain();
   }
 }
