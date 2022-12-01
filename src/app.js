@@ -96,15 +96,15 @@ let panels = [
 ];
 
 const words = [
-  { id: "0", name: "Aqq", image: "aqq.jpg", audio: "./audio/aqq.wav" },
+  { id: "0", name: "aqq", image: "aqq.jpg", audio: "./audio/aqq.wav" },
   { id: "1", name: "ltu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
-  { id: "2", name: "Wiktm", image: "wiktm.jpg", audio: "./audio/wiktm.wav" },
-  { id: "3", name: "Eliey", image: "eliey.jpg", audio: "./audio/eliey.wav" },
-  { id: "4", name: "Mijisi", image: "mijisi.jpg", audio: "./audio/mijisi.wav" },
-  { id: "5", name: "Nin", image: "nin.jpg", audio: "./audio/nin.wav" },
-  { id: "6", name: "Kesalk", image: "kesalk.jpg", audio: "./audio/kesalk.wav" },
-  { id: "7", name: "Kil", image: "kil.jpg", audio: "./audio/kil.wav" },
-  { id: "8", name: "Teluisi", image: "teluisi.jpg", audio: "./audio/teluisi.wav"},
+  { id: "2", name: "wiktm", image: "wiktm.jpg", audio: "./audio/wiktm.wav" },
+  { id: "3", name: "eliey", image: "eliey.jpg", audio: "./audio/eliey.wav" },
+  { id: "4", name: "mijisi", image: "mijisi.jpg", audio: "./audio/mijisi.wav" },
+  { id: "5", name: "nin", image: "nin.jpg", audio: "./audio/nin.wav" },
+  { id: "6", name: "kesalk", image: "kesalk.jpg", audio: "./audio/kesalk.wav" },
+  { id: "7", name: "kil", image: "kil.jpg", audio: "./audio/kil.wav" },
+  { id: "8", name: "teluisi", image: "teluisi.jpg", audio: "./audio/teluisi.wav"},
 ];
 
 //shuffle the three elements
