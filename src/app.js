@@ -45,15 +45,15 @@ let audios = [
 ];
 
 let answerWord = [
-  "Aqq",
-  "ltu",
-  "Wiktm",
-  "Eliey",
-  "Mijisi",
-  "Nin",
-  "Kesalk",
-  "Kil",
-  "Teluisi",
+  "aqq",
+  "itu",
+  "wiktm",
+  "eliey",
+  "mijisi",
+  "nin",
+  "kesalk",
+  "kil",
+  "teluisi",
 ];
 
 // global array containing the number of the image which corresponds to
@@ -94,6 +94,43 @@ let panels = [
   "teluisi.jpg",
   "wiktm.jpg",
 ];
+
+const words = [
+  { id: "0", name: "Aqq", image: "aqq.jpg", audio: "./audio/aqq.wav" },
+  { id: "1", name: "ltu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
+  { id: "2", name: "Wiktm", image: "wiktm.jpg", audio: "./audio/wiktm.wav" },
+  { id: "3", name: "Eliey", image: "eliey.jpg", audio: "./audio/eliey.wav" },
+  { id: "4", name: "Mijisi", image: "mijisi.jpg", audio: "./audio/mijisi.wav" },
+  { id: "5", name: "Nin", image: "nin.jpg", audio: "./audio/nin.wav" },
+  { id: "6", name: "Kesalk", image: "kesalk.jpg", audio: "./audio/kesalk.wav" },
+  { id: "7", name: "Kil", image: "kil.jpg", audio: "./audio/kil.wav" },
+  {
+    id: "8",
+    name: "Teluisi",
+    image: "teluisi.jpg",
+    audio: "./audio/teluisi.wav",
+  },
+];
+
+//shuffle the words array
+var newArray = shuffle(words);
+
+console.log(newArray);
+
+//select the first three elements in the array
+const first3 = newArray.slice(0, 3);
+
+console.log(first3);
+
+//shuffle the three elements
+var finalArray = shuffle(first3);
+
+//give each element a variable
+var correctAnswer = finalArray[0].image;
+var incorrectAnswer1 = finalArray[1].image;
+var incorrectAnswer2 = finalArray[2].image;
+
+console.log(correctAnswer, incorrectAnswer1, incorrectAnswer2);
 
 // Contains the current screen number starting at zero.
 let screenNum = 0;
@@ -177,7 +214,99 @@ function displayMap() {
  *
  *  Authors: SDR
  */
-function displayGame() {
+
+function displayGame1() {
+  hide("intro");
+  hide("map");
+  hide("howTo");
+  show("game");
+  gameSetup1();
+}
+
+/**
+ *  This function will display the game screen.
+ *
+ *  Authors: SDR
+ */
+function displayGame2() {
+  hide("intro");
+  hide("map");
+  hide("howTo");
+  show("game");
+  gameSetup();
+}
+
+/**
+ *  This function will display the game screen.
+ *
+ *  Authors: SDR
+ */
+function displayGame3() {
+  hide("intro");
+  hide("map");
+  hide("howTo");
+  show("game");
+  gameSetup();
+}
+
+/**
+ *  This function will display the game screen.
+ *
+ *  Authors: SDR
+ */
+function displayGame4() {
+  hide("intro");
+  hide("map");
+  hide("howTo");
+  show("game");
+  gameSetup();
+}
+
+/**
+ *  This function will display the game screen.
+ *
+ *  Authors: SDR
+ */
+function displayGame5() {
+  hide("intro");
+  hide("map");
+  hide("howTo");
+  show("game");
+  gameSetup();
+}
+
+/**
+ *  This function will display the game screen.
+ *
+ *  Authors: SDR
+ */
+function displayGame6() {
+  hide("intro");
+  hide("map");
+  hide("howTo");
+  show("game");
+  gameSetup();
+}
+
+/**
+ *  This function will display the game screen.
+ *
+ *  Authors: SDR
+ */
+function displayGame7() {
+  hide("intro");
+  hide("map");
+  hide("howTo");
+  show("game");
+  gameSetup();
+}
+
+/**
+ *  This function will display the game screen.
+ *
+ *  Authors: SDR
+ */
+function displayGame8() {
   hide("intro");
   hide("map");
   hide("howTo");
@@ -270,23 +399,116 @@ function getBtns() {
   Authors: same as file header
 
  */
-function gameSetup() {
-  document.getElementById("p1").innerHTML = " " + answerWord[screenNum] + " ";
+
+function level() {
+  document.getElementById("p1").innerHTML = " " + finalArray[0].name + " ";
 
   getBtns();
+
   let str1 = '<input class="button" type="image" src="./pics/';
-  let str2 = '" width="325" height="325" onclick="choose(1)"/>';
-  let str3 = str1 + panels[0] + str2;
+  let str2 = '" width="325" height="325" onclick="choose(correct)"/>';
+  let str3 = str1 + correctAnswer + str2;
 
-  document.getElementById("pic1").innerHTML = str3;
+  var correctSpot = getRandomInt(1, 3);
+  var incorrectSpot = getRandomInt(1, 2);
 
-  str2 = '" width="325" height="325" onclick="choose(2)"/>';
-  str3 = str1 + panels[1] + str2;
-  document.getElementById("pic2").innerHTML = str3;
+  if (correctSpot === 1) {
+    document.getElementById("pic1").innerHTML = str3;
 
-  str2 = '" width="325" height="325" onclick="choose(3)"/>';
-  str3 = str1 + panels[2] + str2;
-  document.getElementById("pic3").innerHTML = str3;
+
+    if (incorrectSpot === 1) {
+      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str3 = str1 + incorrectAnswer1 + str2;
+      document.getElementById("pic2").innerHTML = str3;
+
+      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str3 = str1 + incorrectAnswer2 + str2;
+      document.getElementById("pic3").innerHTML = str3;
+    } else {
+      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str3 = str1 + incorrectAnswer1 + str2;
+      document.getElementById("pic3").innerHTML = str3;
+
+      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str3 = str1 + incorrectAnswer2 + str2;
+      document.getElementById("pic2").innerHTML = str3;
+    }
+  }
+
+  else if (correctSpot === 2) {
+    document.getElementById("pic2").innerHTML = str3;
+
+
+    if (incorrectSpot === 1) {
+      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str3 = str1 + incorrectAnswer1 + str2;
+      document.getElementById("pic1").innerHTML = str3;
+
+      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str3 = str1 + incorrectAnswer2 + str2;
+      document.getElementById("pic3").innerHTML = str3;
+    } else {
+      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str3 = str1 + incorrectAnswer1 + str2;
+      document.getElementById("pic3").innerHTML = str3;
+
+      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str3 = str1 + incorrectAnswer2 + str2;
+      document.getElementById("pic1").innerHTML = str3;
+    }
+  }
+
+  else if (correctSpot === 3) {
+    document.getElementById("pic3").inner1HTML = str3;
+
+
+    if (incorrectSpot === 1) {
+      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str3 = str1 + incorrectAnswer1 + str2;
+      document.getElementById("pic1").innerHTML = str3;
+
+      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str3 = str1 + incorrectAnswer2 + str2;
+      document.getElementById("pic2").innerHTML = str3;
+    } else {
+      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str3 = str1 + incorrectAnswer1 + str2;
+      document.getElementById("pic2").innerHTML = str3;
+
+      str2 = '" width="325" height="325" onclick="choose(incorrect)"/>';
+      str3 = str1 + incorrectAnswer2 + str2;
+      document.getElementById("pic1").innerHTML = str3;
+    }
+  }
+
+  else {
+    alert("An error occured. Please try again.");
+  }
+
+}
+
+/**
+  The purpose of this function is to shuffle the array elements
+
+  Authors: same as file header
+
+ */
+function shuffle(array) {
+  var shuffledArray = array.sort(() => Math.random() - 0.5);
+  return array;
+}
+
+/**
+  The purpose of this function is to return a random int
+
+  Authors: same as file header
+
+ */
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+
+  return Math.floor(Math.random() * (max - min) + min);
 }
 
 /*
@@ -296,7 +518,7 @@ function gameSetup() {
   Authors: same as file header 
 */
 function audio() {
-  let voice = new Audio(audios[screenNum]);
+  let voice = new Audio(finalArray[0].audio);
   voice.play();
 }
 
@@ -399,7 +621,17 @@ function choose(choice) {
     str3 = str1 + panels[screenNum * 3 + parseInt(2)] + str2;
     document.getElementById("pic3").innerHTML = str3;
   } else {
-    // alert("Try again");
+    //alert("Try again");
     tryAgain();
   }
+}
+
+/**
+  The purpose of this function is to return a certain number of levels
+
+  Authors: same as file header
+
+ */
+function gameSetup1() {
+  level();
 }
