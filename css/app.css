@@ -251,6 +251,24 @@ End: blicking animation for map buttons
   font-size: 50px;
 }
 
+.logo2 {
+  width: 300px;
+  height: 10vh;
+  background: #49B7D2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
+  padding: 10px;
+  line-height: 1.3rem;
+}
+
+.logo2 a0 {
+  width: 130px;
+  margin-left: 35px;
+  font-size: 20px;
+}
 
 .container a {
   position: absolute;
