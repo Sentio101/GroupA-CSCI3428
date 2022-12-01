@@ -42,6 +42,13 @@ input {
   color: white;
 }
 
+.msg-size{
+  text-align: center;
+  font-size: 4rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
 /*
     Section for images
 */
@@ -104,7 +111,6 @@ input {
   margin-right: 1rem;
   color: #7c3e25;
   background-color: #86c34e;
-  transition-duration: 3s;
 }
 
 .multiBtn:hover {

@@ -22,15 +22,18 @@
   <!-- Programmer defined css -->
   <link rel="stylesheet" href="./css/app.css" />
 
+  <!-- JS for sweet alert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <!-- Programmer defined js -->
   <script src="./src/app.js"></script>
+  
 </head>
 
 <body onload="setup()">
      <!-- The intro Screen -->
      <div class="container" id="intro">
       <!-- Games's title -->
-      <h1 class="header-size">Wowkwis Says</h1>
+      <h1 class="header-size">Wowkwis teluet</h1>
       <!-- Btns -->
       <div class="row">
         <div class="col-sm-8">
@@ -62,7 +65,7 @@
     <div class="container" id="howTo">
       <div class="row">
         <div>
-          <button class="btn backBtn" onclick="displayIntro()">
+          <button class="btn multiBtn" onclick="displayIntro()">
             <i class="bi bi-arrow-left-square-fill"></i>
           </button>
         </div>
@@ -96,7 +99,6 @@
     </div>
   </div>
   
-
     <!-- The game -->
     <div class="container text-center" id="game">
       <div class="row top-space">
@@ -105,13 +107,10 @@
       <div class="correctWord">
        <p1 id="p1"></p1>
       </div>
-      <div class="row" id="alertMsg"></div>
       <div class="row top-space" id="body">
-        <!-- defines 3 columns which each include 4 column sections
-               which add up to 12 as they must -->
-        <div class="col-lg-4" id="pic1"></div>
-        <div class="col-lg-4" id="pic2"></div>
-        <div class="col-lg-4" id="pic3"></div>
+        <div class="col-sm-4" id="pic1"></div>
+        <div class="col-sm-4" id="pic2"></div>
+        <div class="col-sm-4" id="pic3"></div>
       </div>
     </div>
 </body>
