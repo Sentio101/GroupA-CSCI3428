@@ -17,6 +17,9 @@
   - Assisted in adding code for record() and teacher() functions.)
 
   Felipe Duque Rivera(FDR)
+  - Helped ensure all the words displayed to user were in lowercase.
+  - Corrected some misspelt translations.
+  - Added some comments for clarity (i.e. JSON objects).
   - 
 
   Coco
@@ -46,13 +49,13 @@ let audios = [
 
 let answerWord = [
   "aqq",
-  "itu",
+  "l\'tu",
   "wiktm",
   "eliey",
   "mijisi",
-  "nin",
+  "ni\'n",
   "kesalk",
-  "kil",
+  "k\'il",
   "teluisi",
 ];
 
@@ -95,15 +98,16 @@ let panels = [
   "wiktm.jpg",
 ];
 
+//Creates JSON objects for the words, each including: the name, image, and audio
 const words = [
   { id: "0", name: "aqq", image: "aqq.jpg", audio: "./audio/aqq.wav" },
-  { id: "1", name: "ltu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
+  { id: "1", name: "l\'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
   { id: "2", name: "wiktm", image: "wiktm.jpg", audio: "./audio/wiktm.wav" },
   { id: "3", name: "eliey", image: "eliey.jpg", audio: "./audio/eliey.wav" },
   { id: "4", name: "mijisi", image: "mijisi.jpg", audio: "./audio/mijisi.wav" },
-  { id: "5", name: "nin", image: "nin.jpg", audio: "./audio/nin.wav" },
+  { id: "5", name: "ni\'n", image: "nin.jpg", audio: "./audio/nin.wav" },
   { id: "6", name: "kesalk", image: "kesalk.jpg", audio: "./audio/kesalk.wav" },
-  { id: "7", name: "kil", image: "kil.jpg", audio: "./audio/kil.wav" },
+  { id: "7", name: "k\'il", image: "kil.jpg", audio: "./audio/kil.wav" },
   { id: "8", name: "teluisi", image: "teluisi.jpg", audio: "./audio/teluisi.wav"},
 ];
 
@@ -276,11 +280,11 @@ function congrats1() {
 /**
  *  This function will display the congrats msg.
  *
- *  Authors: SDR
+ *  Authors: SDR & FDR
  */
  function congrats3() {
   Swal.fire({
-    title: "Kelu'lk tela'tekn",
+    title: "kelu'lk tela'tekn",
     imageUrl: "./pics/congrats.png",
     imageWidth: 400,
     imageHeight: 200,
@@ -312,11 +316,11 @@ function tryAgain1() {
 /**
  *  This function will display the try again msg.
  *
- *  Authors: SDR
+ *  Authors: SDR & FDR
  */
  function tryAgain2() {
   Swal.fire({
-    title: "Tknu'kwalsi ap",
+    title: "tknu'kwalsi ap",
     imageUrl: "./pics/tryagain.png",
     imageWidth: 400,
     imageHeight: 200,
@@ -328,11 +332,11 @@ function tryAgain1() {
 /**
  *  This function will display the level complete msg.
  *
- *  Authors: SDR
+ *  Authors: SDR & FDR
  */
 function levelCompleted() {
   Swal.fire({
-    title: "Kelu'lk tela'tekn",
+    title: "kelu'lk tela'tekn",
     text: "Level Complete!",
     imageUrl: "./pics/congrats.png",
     imageWidth: 400,
