@@ -49,13 +49,13 @@ let audios = [
 
 let answerWord = [
   "aqq",
-  "l\'tu",
+  "l'tu",
   "wiktm",
   "eliey",
   "mijisi",
-  "ni\'n",
+  "ni'n",
   "kesalk",
-  "k\'il",
+  "k'il",
   "teluisi",
 ];
 
@@ -99,7 +99,9 @@ let panels = [
 ];
 
 //Creates JSON objects for the words, each including: the name, image, and audio
-const words = [
+//add/delete/update new words for different levels
+//level 1
+const words1 = [
   { id: "0", name: "aqq", image: "aqq.jpg", audio: "./audio/aqq.wav" },
   { id: "1", name: "l\'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
   { id: "2", name: "wiktm", image: "wiktm.jpg", audio: "./audio/wiktm.wav" },
@@ -108,29 +110,181 @@ const words = [
   { id: "5", name: "ni\'n", image: "nin.jpg", audio: "./audio/nin.wav" },
   { id: "6", name: "kesalk", image: "kesalk.jpg", audio: "./audio/kesalk.wav" },
   { id: "7", name: "k\'il", image: "kil.jpg", audio: "./audio/kil.wav" },
-  { id: "8", name: "teluisi", image: "teluisi.jpg", audio: "./audio/teluisi.wav"},
+  {
+    id: "8",
+    name: "teluisi",
+    image: "teluisi.jpg",
+    audio: "./audio/teluisi.wav",
+  },
 ];
 
-//shuffle the three elements
-var finalArray1 = shuffle();
-var finalArray2 = shuffle();
-var finalArray3 = shuffle();
+//Creates JSON objects for the words, each including: the name, image, and audio
+//add/delete/update new words for different levels
+//level 2
+const words2 = [
+  { id: "0", name: "aqq", image: "aqq.jpg", audio: "./audio/aqq.wav" },
+  { id: "1", name: "l\'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
+  { id: "2", name: "wiktm", image: "wiktm.jpg", audio: "./audio/wiktm.wav" },
+  { id: "3", name: "eliey", image: "eliey.jpg", audio: "./audio/eliey.wav" },
+  { id: "4", name: "mijisi", image: "mijisi.jpg", audio: "./audio/mijisi.wav" },
+  { id: "5", name: "ni\'n", image: "nin.jpg", audio: "./audio/nin.wav" },
+  { id: "6", name: "kesalk", image: "kesalk.jpg", audio: "./audio/kesalk.wav" },
+  { id: "7", name: "k\'il", image: "kil.jpg", audio: "./audio/kil.wav" },
+  {
+    id: "8",
+    name: "teluisi",
+    image: "teluisi.jpg",
+    audio: "./audio/teluisi.wav",
+  },
+];
 
-//give each element in Array 1 a variable
-var correctArray = finalArray1[0].image;
-var incAnswer1 = finalArray1[1].image;
-var incAnswer2 = finalArray1[2].image;
+//Creates JSON objects for the words, each including: the name, image, and audio
+//add/delete/update new words for different levels
+//level 3
+const words3 = [
+  { id: "0", name: "aqq", image: "aqq.jpg", audio: "./audio/aqq.wav" },
+  { id: "1", name: "l\'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
+  { id: "2", name: "wiktm", image: "wiktm.jpg", audio: "./audio/wiktm.wav" },
+  { id: "3", name: "eliey", image: "eliey.jpg", audio: "./audio/eliey.wav" },
+  { id: "4", name: "mijisi", image: "mijisi.jpg", audio: "./audio/mijisi.wav" },
+  { id: "5", name: "ni\'n", image: "nin.jpg", audio: "./audio/nin.wav" },
+  { id: "6", name: "kesalk", image: "kesalk.jpg", audio: "./audio/kesalk.wav" },
+  { id: "7", name: "k\'il", image: "kil.jpg", audio: "./audio/kil.wav" },
+  {
+    id: "8",
+    name: "teluisi",
+    image: "teluisi.jpg",
+    audio: "./audio/teluisi.wav",
+  },
+];
 
- //give each element in Array 2 a variable
- var correctArray2 = finalArray2[0].image;
- var incAnswer3 = finalArray2[1].image;
- var incAnswer4 = finalArray2[2].image;
+//Creates JSON objects for the words, each including: the name, image, and audio
+//add/delete/update new words for different levels
+//level 4
+const words4 = [
+  { id: "0", name: "aqq", image: "aqq.jpg", audio: "./audio/aqq.wav" },
+  { id: "1", name: "l\'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
+  { id: "2", name: "wiktm", image: "wiktm.jpg", audio: "./audio/wiktm.wav" },
+  { id: "3", name: "eliey", image: "eliey.jpg", audio: "./audio/eliey.wav" },
+  { id: "4", name: "mijisi", image: "mijisi.jpg", audio: "./audio/mijisi.wav" },
+  { id: "5", name: "ni\'n", image: "nin.jpg", audio: "./audio/nin.wav" },
+  { id: "6", name: "kesalk", image: "kesalk.jpg", audio: "./audio/kesalk.wav" },
+  { id: "7", name: "k\'il", image: "kil.jpg", audio: "./audio/kil.wav" },
+  {
+    id: "8",
+    name: "teluisi",
+    image: "teluisi.jpg",
+    audio: "./audio/teluisi.wav",
+  },
+];
 
-  //give each element in Array 2 a variable
-  var correctArray3 = finalArray3[0].image;
-  var incAnswer5 = finalArray3[1].image;
-  var incAnswer6 = finalArray3[2].image;
+//Creates JSON objects for the words, each including: the name, image, and audio
+//add/delete/update new words for different levels
+//level 5
+const words5 = [
+  { id: "0", name: "aqq", image: "aqq.jpg", audio: "./audio/aqq.wav" },
+  { id: "1", name: "l\'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
+  { id: "2", name: "wiktm", image: "wiktm.jpg", audio: "./audio/wiktm.wav" },
+  { id: "3", name: "eliey", image: "eliey.jpg", audio: "./audio/eliey.wav" },
+  { id: "4", name: "mijisi", image: "mijisi.jpg", audio: "./audio/mijisi.wav" },
+  { id: "5", name: "ni\'n", image: "nin.jpg", audio: "./audio/nin.wav" },
+  { id: "6", name: "kesalk", image: "kesalk.jpg", audio: "./audio/kesalk.wav" },
+  { id: "7", name: "k\'il", image: "kil.jpg", audio: "./audio/kil.wav" },
+  {
+    id: "8",
+    name: "teluisi",
+    image: "teluisi.jpg",
+    audio: "./audio/teluisi.wav",
+  },
+];
 
+//Creates JSON objects for the words, each including: the name, image, and audio
+//add/delete/update new words for different levels
+//level 6
+const words6 = [
+  { id: "0", name: "aqq", image: "aqq.jpg", audio: "./audio/aqq.wav" },
+  { id: "1", name: "l\'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
+  { id: "2", name: "wiktm", image: "wiktm.jpg", audio: "./audio/wiktm.wav" },
+  { id: "3", name: "eliey", image: "eliey.jpg", audio: "./audio/eliey.wav" },
+  { id: "4", name: "mijisi", image: "mijisi.jpg", audio: "./audio/mijisi.wav" },
+  { id: "5", name: "ni\'n", image: "nin.jpg", audio: "./audio/nin.wav" },
+  { id: "6", name: "kesalk", image: "kesalk.jpg", audio: "./audio/kesalk.wav" },
+  { id: "7", name: "k\'il", image: "kil.jpg", audio: "./audio/kil.wav" },
+  {
+    id: "8",
+    name: "teluisi",
+    image: "teluisi.jpg",
+    audio: "./audio/teluisi.wav",
+  },
+];
+
+//Creates JSON objects for the words, each including: the name, image, and audio
+//add/delete/update new words for different levels
+//level 7
+const words7 = [
+  { id: "0", name: "aqq", image: "aqq.jpg", audio: "./audio/aqq.wav" },
+  { id: "1", name: "l\'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
+  { id: "2", name: "wiktm", image: "wiktm.jpg", audio: "./audio/wiktm.wav" },
+  { id: "3", name: "eliey", image: "eliey.jpg", audio: "./audio/eliey.wav" },
+  { id: "4", name: "mijisi", image: "mijisi.jpg", audio: "./audio/mijisi.wav" },
+  { id: "5", name: "ni\'n", image: "nin.jpg", audio: "./audio/nin.wav" },
+  { id: "6", name: "kesalk", image: "kesalk.jpg", audio: "./audio/kesalk.wav" },
+  { id: "7", name: "k\'il", image: "kil.jpg", audio: "./audio/kil.wav" },
+  {
+    id: "8",
+    name: "teluisi",
+    image: "teluisi.jpg",
+    audio: "./audio/teluisi.wav",
+  },
+];
+
+//Creates JSON objects for the words, each including: the name, image, and audio
+//add/delete/update new words for different levels
+//level 8
+const words8 = [
+  { id: "0", name: "aqq", image: "aqq.jpg", audio: "./audio/aqq.wav" },
+  { id: "1", name: "l\'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
+  { id: "2", name: "wiktm", image: "wiktm.jpg", audio: "./audio/wiktm.wav" },
+  { id: "3", name: "eliey", image: "eliey.jpg", audio: "./audio/eliey.wav" },
+  { id: "4", name: "mijisi", image: "mijisi.jpg", audio: "./audio/mijisi.wav" },
+  { id: "5", name: "ni\'n", image: "nin.jpg", audio: "./audio/nin.wav" },
+  { id: "6", name: "kesalk", image: "kesalk.jpg", audio: "./audio/kesalk.wav" },
+  { id: "7", name: "k\'il", image: "kil.jpg", audio: "./audio/kil.wav" },
+  {
+    id: "8",
+    name: "teluisi",
+    image: "teluisi.jpg",
+    audio: "./audio/teluisi.wav",
+  },
+];
+
+//create a counter to ensure levels are locked until the previous is complete
+currentCount = 0;
+
+//create a level complete to determine what the level looks like
+//0 - locked - grey/invisible
+//1 - in progress - blicking yellow
+//2 - complete - yellow
+//the starting looks for the levels.
+
+//NOT WORKING - !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// var level1complete = 1;
+// currentLevel(level1complete);
+// var level2complete = 0;
+// currentLevel(level2complete);
+// var level3complete = 0;
+// currentLevel(level3complete);
+// var level4complete = 0;
+// currentLevel(level4complete);
+// var level5complete = 0;
+// currentLevel(level5complete);
+// var level6complete = 0;
+// currentLevel(level6complete);
+// var level7complete = 0;
+// currentLevel(level7complete);
+// var level8complete = 0;
+// currentLevel(level8complete);
+//NOT WORKING - !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 //------------------------------------------------------------- Toggle Visibility ---------------------------------------------------------------------------------------------------//
 
@@ -203,6 +357,8 @@ function displayMap() {
   hide("intro");
   hide("howTo");
   hide("game");
+  //NOT WORKING - !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  //currentLevel();
   show("map");
 }
 
@@ -212,12 +368,110 @@ function displayMap() {
  *  Authors: SDR
  */
 
-function displayGame() {
+function displayGame1() {
   hide("intro");
   hide("map");
   hide("howTo");
   show("game");
-  gameSetup();
+  lastLand();
+}
+
+/**
+ *  This function will display the game screen.
+ *
+ *  Authors: SDR
+ */
+
+function displayGame2() {
+  hide("intro");
+  hide("map");
+  hide("howTo");
+  show("game");
+  drainageArea();
+}
+
+/**
+ *  This function will display the game screen.
+ *
+ *  Authors: SDR
+ */
+
+function displayGame3() {
+  hide("intro");
+  hide("map");
+  hide("howTo");
+  show("game");
+  lyingInTheWater();
+}
+
+/**
+ *  This function will display the game screen.
+ *
+ *  Authors: SDR
+ */
+
+function displayGame4() {
+  hide("intro");
+  hide("map");
+  hide("howTo");
+  show("game");
+  landOfFog();
+}
+
+/**
+ *  This function will display the game screen.
+ *
+ *  Authors: SDR
+ */
+
+function displayGame5() {
+  hide("intro");
+  hide("map");
+  hide("howTo");
+  show("game");
+  theExplosivePlace();
+}
+
+/**
+ *  This function will display the game screen.
+ *
+ *  Authors: SDR
+ */
+
+function displayGame6() {
+  hide("intro");
+  hide("map");
+  hide("howTo");
+  show("game");
+  skinDressersTerritory();
+}
+
+/**
+ *  This function will display the game screen.
+ *
+ *  Authors: SDR
+ */
+
+function displayGame7() {
+  hide("intro");
+  hide("map");
+  hide("howTo");
+  show("game");
+  wildPotatoArea();
+}
+
+/**
+ *  This function will display the game screen.
+ *
+ *  Authors: SDR
+ */
+
+function displayGame8() {
+  hide("intro");
+  hide("map");
+  hide("howTo");
+  show("game");
+  landEnds();
 }
 
 /**
@@ -252,11 +506,16 @@ function congrats1() {
     background: "#86c34e",
   });
 
-  
-  audio2();
-  show(level2());
-  hide(level1());
-  hide(level3());
+  //shuffle the three elements
+  var finalArray2 = shuffle();
+
+  //give each element in Array a variable
+  var correctArray2 = finalArray2[0].image;
+  var incAnswer3 = finalArray2[1].image;
+  var incAnswer4 = finalArray2[2].image;
+
+  audio(finalArray2);
+  level2(finalArray2, correctArray2, incAnswer3, incAnswer4);
 }
 
 /**
@@ -264,17 +523,22 @@ function congrats1() {
  *
  *  Authors: SDR
  */
- function congrats2() {
+function congrats2() {
   Swal.fire({
     title: "You selected the right item again. Keep going!",
     background: "#86c34e",
   });
-  
-  audio3();
-  show(level3());
-  hide(level1());
-  hide(level2());
 
+  //shuffle the three elements
+  var finalArray3 = shuffle();
+
+  //give each element in Array a variable
+  var correctArray3 = finalArray3[0].image;
+  var incAnswer5 = finalArray3[1].image;
+  var incAnswer6 = finalArray3[2].image;
+
+  audio(finalArray3);
+  level3(finalArray3, correctArray3, incAnswer5, incAnswer6);
 }
 
 /**
@@ -282,7 +546,7 @@ function congrats1() {
  *
  *  Authors: SDR & FDR
  */
- function congrats3() {
+function congrats3() {
   Swal.fire({
     title: "kelu'lk tela'tekn",
     imageUrl: "./pics/congrats.png",
@@ -290,12 +554,11 @@ function congrats1() {
     imageHeight: 200,
     background: "#86c34e",
   });
-  
-  displayMap();
-  hide(level1());
-  hide(level2());
-  hide(level3());
 
+  currentCount++;
+  console.log(currentCount);
+  //counter(currentCount);
+  displayMap();
 }
 
 /**
@@ -306,9 +569,6 @@ function congrats1() {
 function tryAgain1() {
   Swal.fire({
     title: "You selected the wrong item. Guess again!",
-    imageUrl: "./pics/tryagain.png",
-    imageWidth: 400,
-    imageHeight: 200,
     background: "#86c34e",
   });
 }
@@ -318,7 +578,7 @@ function tryAgain1() {
  *
  *  Authors: SDR & FDR
  */
- function tryAgain2() {
+function tryAgain2() {
   Swal.fire({
     title: "tknu'kwalsi ap",
     imageUrl: "./pics/tryagain.png",
@@ -380,9 +640,10 @@ function getBtns() {
   Authors: same as file header
 
  */
+//shuffle the three elements
 
-function level1() {
-  document.getElementById("p1").innerHTML = " " + finalArray1[0].name + " ";
+function level1(finalArray, correctArray, incAnswer1, incAnswer2) {
+  document.getElementById("p1").innerHTML = " " + finalArray[0].name + " ";
 
   getBtns();
 
@@ -396,7 +657,6 @@ function level1() {
   if (correctSpot === 1) {
     document.getElementById("pic1").innerHTML = str3;
 
-
     if (incorrectSpot === 1) {
       str2 = '" width="325" height="325" onclick="choose1(2)"/>';
       str3 = str1 + incAnswer1 + str2;
@@ -414,12 +674,9 @@ function level1() {
       str3 = str1 + incAnswer2 + str2;
       document.getElementById("pic2").innerHTML = str3;
     }
-  }
-
-  else if (correctSpot === 2) {
+  } else if (correctSpot === 2) {
     document.getElementById("pic2").innerHTML = str3;
 
-
     if (incorrectSpot === 1) {
       str2 = '" width="325" height="325" onclick="choose1(2)"/>';
       str3 = str1 + incAnswer1 + str2;
@@ -437,12 +694,9 @@ function level1() {
       str3 = str1 + incAnswer2 + str2;
       document.getElementById("pic1").innerHTML = str3;
     }
-  }
-
-  else if (correctSpot === 3) {
+  } else if (correctSpot === 3) {
     document.getElementById("pic3").inner1HTML = str3;
 
-
     if (incorrectSpot === 1) {
       str2 = '" width="325" height="325" onclick="choose1(2)"/>';
       str3 = str1 + incAnswer1 + str2;
@@ -460,12 +714,9 @@ function level1() {
       str3 = str1 + incAnswer2 + str2;
       document.getElementById("pic1").innerHTML = str3;
     }
-  }
-
-  else {
+  } else {
     alert("An error occured. Please try again.");
   }
-
 }
 
 /**
@@ -480,92 +731,82 @@ function level1() {
 
  */
 
-  function level2() {
-    document.getElementById("p1").innerHTML = " " + finalArray2[0].name + " ";
-  
-    getBtns();
-  
-    let str1 = '<input class="button" type="image" src="./pics/';
-    let str2 = '" width="325" height="325" onclick="choose2(1)"/>';
-    let str3 = str1 + correctArray2 + str2;
-  
-    var correctSpot2 = getRandomInt(1, 3);
-    var incorrectSpot2 = getRandomInt(1, 2);
-  
-    if (correctSpot2 === 1) {
-      document.getElementById("pic1").innerHTML = str3;
-  
-  
-      if (incorrectSpot2 === 1) {
-        str2 = '" width="325" height="325" onclick="choose2(2)"/>';
-        str3 = str1 + incAnswer3 + str2;
-        document.getElementById("pic2").innerHTML = str3;
-  
-        str2 = '" width="325" height="325" onclick="choose2(3)"/>';
-        str3 = str1 + incAnswer4 + str2;
-        document.getElementById("pic3").innerHTML = str3;
-      } else {
-        str2 = '" width="325" height="325" onclick="choose2(2)"/>';
-        str3 = str1 + incAnswer3 + str2;
-        document.getElementById("pic3").innerHTML = str3;
-  
-        str2 = '" width="325" height="325" onclick="choose2(3)"/>';
-        str3 = str1 + incAnswer4 + str2;
-        document.getElementById("pic2").innerHTML = str3;
-      }
-    }
-  
-    else if (correctSpot2 === 2) {
+function level2(finalArray, correctArray, incAnswer1, incAnswer2) {
+  document.getElementById("p1").innerHTML = " " + finalArray[0].name + " ";
+
+  getBtns();
+
+  let str1 = '<input class="button" type="image" src="./pics/';
+  let str2 = '" width="325" height="325" onclick="choose2(1)"/>';
+  let str3 = str1 + correctArray + str2;
+
+  var correctSpot2 = getRandomInt(1, 3);
+  var incorrectSpot2 = getRandomInt(1, 2);
+
+  if (correctSpot2 === 1) {
+    document.getElementById("pic1").innerHTML = str3;
+
+    if (incorrectSpot2 === 1) {
+      str2 = '" width="325" height="325" onclick="choose2(2)"/>';
+      str3 = str1 + incAnswer1 + str2;
       document.getElementById("pic2").innerHTML = str3;
-  
-  
-      if (incorrectSpot2 === 1) {
-        str2 = '" width="325" height="325" onclick="choose2(2)"/>';
-        str3 = str1 + incAnswer3 + str2;
-        document.getElementById("pic1").innerHTML = str3;
-  
-        str2 = '" width="325" height="325" onclick="choose2(3)"/>';
-        str3 = str1 + incAnswer4 + str2;
-        document.getElementById("pic3").innerHTML = str3;
-      } else {
-        str2 = '" width="325" height="325" onclick="choose2(2)"/>';
-        str3 = str1 + incAnswer3 + str2;
-        document.getElementById("pic3").innerHTML = str3;
-  
-        str2 = '" width="325" height="325" onclick="choose2(3)"/>';
-        str3 = str1 + incAnswer4 + str2;
-        document.getElementById("pic1").innerHTML = str3;
-      }
+
+      str2 = '" width="325" height="325" onclick="choose2(3)"/>';
+      str3 = str1 + incAnswer2 + str2;
+      document.getElementById("pic3").innerHTML = str3;
+    } else {
+      str2 = '" width="325" height="325" onclick="choose2(2)"/>';
+      str3 = str1 + incAnswer1 + str2;
+      document.getElementById("pic3").innerHTML = str3;
+
+      str2 = '" width="325" height="325" onclick="choose2(3)"/>';
+      str3 = str1 + incAnswer2 + str2;
+      document.getElementById("pic2").innerHTML = str3;
     }
-  
-    else if (correctSpot2 === 3) {
-      document.getElementById("pic3").inner1HTML = str3;
-  
-  
-      if (incorrectSpot2 === 1) {
-        str2 = '" width="325" height="325" onclick="choose2(2)"/>';
-        str3 = str1 + incAnswer3 + str2;
-        document.getElementById("pic1").innerHTML = str3;
-  
-        str2 = '" width="325" height="325" onclick="choose2(3)"/>';
-        str3 = str1 + incAnswer4 + str2;
-        document.getElementById("pic2").innerHTML = str3;
-      } else {
-        str2 = '" width="325" height="325" onclick="choose2(2)"/>';
-        str3 = str1 + incAnswer3 + str2;
-        document.getElementById("pic2").innerHTML = str3;
-  
-        str2 = '" width="325" height="325" onclick="choose2(3)"/>';
-        str3 = str1 + incAnswer4 + str2;
-        document.getElementById("pic1").innerHTML = str3;
-      }
+  } else if (correctSpot2 === 2) {
+    document.getElementById("pic2").innerHTML = str3;
+
+    if (incorrectSpot2 === 1) {
+      str2 = '" width="325" height="325" onclick="choose2(2)"/>';
+      str3 = str1 + incAnswer1 + str2;
+      document.getElementById("pic1").innerHTML = str3;
+
+      str2 = '" width="325" height="325" onclick="choose2(3)"/>';
+      str3 = str1 + incAnswer2 + str2;
+      document.getElementById("pic3").innerHTML = str3;
+    } else {
+      str2 = '" width="325" height="325" onclick="choose2(2)"/>';
+      str3 = str1 + incAnswer1 + str2;
+      document.getElementById("pic3").innerHTML = str3;
+
+      str2 = '" width="325" height="325" onclick="choose2(3)"/>';
+      str3 = str1 + incAnswer2 + str2;
+      document.getElementById("pic1").innerHTML = str3;
     }
-  
-    else {
-      alert("An error occured. Please try again.");
+  } else if (correctSpot2 === 3) {
+    document.getElementById("pic3").inner1HTML = str3;
+
+    if (incorrectSpot2 === 1) {
+      str2 = '" width="325" height="325" onclick="choose2(2)"/>';
+      str3 = str1 + incAnswer1 + str2;
+      document.getElementById("pic1").innerHTML = str3;
+
+      str2 = '" width="325" height="325" onclick="choose2(3)"/>';
+      str3 = str1 + incAnswer2 + str2;
+      document.getElementById("pic2").innerHTML = str3;
+    } else {
+      str2 = '" width="325" height="325" onclick="choose2(2)"/>';
+      str3 = str1 + incAnswer1 + str2;
+      document.getElementById("pic2").innerHTML = str3;
+
+      str2 = '" width="325" height="325" onclick="choose2(3)"/>';
+      str3 = str1 + incAnswer2 + str2;
+      document.getElementById("pic1").innerHTML = str3;
     }
-  
+  } else {
+    alert("An error occured. Please try again.");
   }
+}
 
 /**
   The purpose of this function is to inject HTML that consists of:
@@ -578,95 +819,82 @@ function level1() {
   Authors: same as file header
 
  */
+function level3(finalArray, correctArray, incAnswer1, incAnswer2) {
+  document.getElementById("p1").innerHTML = " " + finalArray[0].name + " ";
 
-  function level3() {
-    document.getElementById("p1").innerHTML = " " + finalArray3[0].name + " ";
-  
-    getBtns();
-  
-    let str1 = '<input class="button" type="image" src="./pics/';
-    let str2 = '" width="325" height="325" onclick="choose3(1)"/>';
-    let str3 = str1 + correctArray3 + str2;
-  
-    var correctSpot3 = getRandomInt(1, 3);
-    var incorrectSpot3 = getRandomInt(1, 2);
-  
-    if (correctSpot3 === 1) {
-      document.getElementById("pic1").innerHTML = str3;
-  
-  
-      if (incorrectSpot3 === 1) {
-        str2 = '" width="325" height="325" onclick="choose3(2)"/>';
-        str3 = str1 + incAnswer5 + str2;
-        document.getElementById("pic2").innerHTML = str3;
-  
-        str2 = '" width="325" height="325" onclick="choose3(3)"/>';
-        str3 = str1 + incAnswer6 + str2;
-        document.getElementById("pic3").innerHTML = str3;
-      } else {
-        str2 = '" width="325" height="325" onclick="choose3(2)"/>';
-        str3 = str1 + incAnswer5 + str2;
-        document.getElementById("pic3").innerHTML = str3;
-  
-        str2 = '" width="325" height="325" onclick="choose3(3)"/>';
-        str3 = str1 + incAnswer6 + str2;
-        document.getElementById("pic2").innerHTML = str3;
-      }
-    }
-  
-    else if (correctSpot3 === 2) {
+  getBtns();
+
+  let str1 = '<input class="button" type="image" src="./pics/';
+  let str2 = '" width="325" height="325" onclick="choose3(1)"/>';
+  let str3 = str1 + correctArray + str2;
+
+  var correctSpot3 = getRandomInt(1, 3);
+  var incorrectSpot3 = getRandomInt(1, 2);
+
+  if (correctSpot3 === 1) {
+    document.getElementById("pic1").innerHTML = str3;
+
+    if (incorrectSpot3 === 1) {
+      str2 = '" width="325" height="325" onclick="choose3(2)"/>';
+      str3 = str1 + incAnswer1 + str2;
       document.getElementById("pic2").innerHTML = str3;
-  
-  
-      if (incorrectSpot3 === 1) {
-        str2 = '" width="325" height="325" onclick="choose3(2)"/>';
-        str3 = str1 + incAnswer5 + str2;
-        document.getElementById("pic1").innerHTML = str3;
-  
-        str2 = '" width="325" height="325" onclick="choose3(3)"/>';
-        str3 = str1 + incAnswer6 + str2;
-        document.getElementById("pic3").innerHTML = str3;
-      } else {
-        str2 = '" width="325" height="325" onclick="choose3(2)"/>';
-        str3 = str1 + incAnswer5 + str2;
-        document.getElementById("pic3").innerHTML = str3;
-  
-        str2 = '" width="325" height="325" onclick="choose3(3)"/>';
-        str3 = str1 + incAnswer6 + str2;
-        document.getElementById("pic1").innerHTML = str3;
-      }
+
+      str2 = '" width="325" height="325" onclick="choose3(3)"/>';
+      str3 = str1 + incAnswer2 + str2;
+      document.getElementById("pic3").innerHTML = str3;
+    } else {
+      str2 = '" width="325" height="325" onclick="choose3(2)"/>';
+      str3 = str1 + incAnswer1 + str2;
+      document.getElementById("pic3").innerHTML = str3;
+
+      str2 = '" width="325" height="325" onclick="choose3(3)"/>';
+      str3 = str1 + incAnswer2 + str2;
+      document.getElementById("pic2").innerHTML = str3;
     }
-  
-    else if (correctSpot3 === 3) {
-      document.getElementById("pic3").inner1HTML = str3;
-  
-  
-      if (incorrectSpot3 === 1) {
-        str2 = '" width="325" height="325" onclick="choose3(2)"/>';
-        str3 = str1 + incAnswer5 + str2;
-        document.getElementById("pic1").innerHTML = str3;
-  
-        str2 = '" width="325" height="325" onclick="choose3(3)"/>';
-        str3 = str1 + incAnswer6 + str2;
-        document.getElementById("pic2").innerHTML = str3;
-      } else {
-        str2 = '" width="325" height="325" onclick="choose3(2)"/>';
-        str3 = str1 + incAnswer5 + str2;
-        document.getElementById("pic2").innerHTML = str3;
-  
-        str2 = '" width="325" height="325" onclick="choose3(3)"/>';
-        str3 = str1 + incAnswer6 + str2;
-        document.getElementById("pic1").innerHTML = str3;
-      }
+  } else if (correctSpot3 === 2) {
+    document.getElementById("pic2").innerHTML = str3;
+
+    if (incorrectSpot3 === 1) {
+      str2 = '" width="325" height="325" onclick="choose3(2)"/>';
+      str3 = str1 + incAnswer1 + str2;
+      document.getElementById("pic1").innerHTML = str3;
+
+      str2 = '" width="325" height="325" onclick="choose3(3)"/>';
+      str3 = str1 + incAnswer2 + str2;
+      document.getElementById("pic3").innerHTML = str3;
+    } else {
+      str2 = '" width="325" height="325" onclick="choose3(2)"/>';
+      str3 = str1 + incAnswer1 + str2;
+      document.getElementById("pic3").innerHTML = str3;
+
+      str2 = '" width="325" height="325" onclick="choose3(3)"/>';
+      str3 = str1 + incAnswer2 + str2;
+      document.getElementById("pic1").innerHTML = str3;
     }
-  
-    else {
-      alert("An error occured. Please try again.");
+  } else if (correctSpot3 === 3) {
+    document.getElementById("pic3").inner1HTML = str3;
+
+    if (incorrectSpot3 === 1) {
+      str2 = '" width="325" height="325" onclick="choose3(2)"/>';
+      str3 = str1 + incAnswer1 + str2;
+      document.getElementById("pic1").innerHTML = str3;
+
+      str2 = '" width="325" height="325" onclick="choose3(3)"/>';
+      str3 = str1 + incAnswer2 + str2;
+      document.getElementById("pic2").innerHTML = str3;
+    } else {
+      str2 = '" width="325" height="325" onclick="choose3(2)"/>';
+      str3 = str1 + incAnswer1 + str2;
+      document.getElementById("pic2").innerHTML = str3;
+
+      str2 = '" width="325" height="325" onclick="choose3(3)"/>';
+      str3 = str1 + incAnswer2 + str2;
+      document.getElementById("pic1").innerHTML = str3;
     }
-  
+  } else {
+    alert("An error occured. Please try again.");
   }
-
-
+}
 
 /**
   The purpose of this function is to shuffle the array elements
@@ -675,12 +903,63 @@ function level1() {
 
  */
 function shuffle() {
-  //shuffle the words array
-  var array = words.sort(() => Math.random() - 0.5);
+  if (currentCount < 1) {
+    //shuffle the words array
+    var array = words1.sort(() => Math.random() - 0.5);
 
-  //select the first three elements in the array
-  const newArray = array.slice(0, 3);
+    //select the first three elements in the array
+    const newArray = array.slice(0, 3);
+    return newArray;
+  } else if (currentCount < 2) {
+    //shuffle the words array
+    var array = words2.sort(() => Math.random() - 0.5);
 
+    //select the first three elements in the array
+    const newArray = array.slice(0, 3);
+    return newArray;
+  } else if (currentCount < 3) {
+    //shuffle the words array
+    var array = words3.sort(() => Math.random() - 0.5);
+
+    //select the first three elements in the array
+    const newArray = array.slice(0, 3);
+    return newArray;
+  } else if (currentCount < 4) {
+    //shuffle the words array
+    var array = words4.sort(() => Math.random() - 0.5);
+
+    //select the first three elements in the array
+    const newArray = array.slice(0, 3);
+    return newArray;
+  } else if (currentCount < 5) {
+    //shuffle the words array
+    var array = words5.sort(() => Math.random() - 0.5);
+
+    //select the first three elements in the array
+    const newArray = array.slice(0, 3);
+    return newArray;
+  } else if (currentCount < 6) {
+    //shuffle the words array
+    var array = words6.sort(() => Math.random() - 0.5);
+
+    //select the first three elements in the array
+    const newArray = array.slice(0, 3);
+    return newArray;
+  } else if (currentCount < 7) {
+    //shuffle the words array
+    var array = words7.sort(() => Math.random() - 0.5);
+
+    //select the first three elements in the array
+    const newArray = array.slice(0, 3);
+    return newArray;
+  } else if (currentCount < 8) {
+    //shuffle the words array
+    var array = words8.sort(() => Math.random() - 0.5);
+
+    //select the first three elements in the array
+    const newArray = array.slice(0, 3);
+    return newArray;
+  }
   return newArray;
 }
 
@@ -703,30 +982,8 @@ function getRandomInt(min, max) {
 
   Authors: same as file header 
 */
-function audio1() {
-  let voice = new Audio(finalArray1[0].audio);
-  voice.play();
-}
-
-/*
-  The purpose of this function is to play the audio for the current screen.
-  "screenNum" always contains the number for the current screen.
-
-  Authors: same as file header 
-*/
-function audio2() {
-  let voice = new Audio(finalArray2[0].audio);
-  voice.play();
-}
-
-/*
-  The purpose of this function is to play the audio for the current screen.
-  "screenNum" always contains the number for the current screen.
-
-  Authors: same as file header 
-*/
-function audio3() {
-  let voice = new Audio(finalArray3[0].audio);
+function audio(finalArray) {
+  let voice = new Audio(finalArray[0].audio);
   voice.play();
 }
 
@@ -818,7 +1075,30 @@ function choose1(choice) {
   }
 }
 
+/*
+  The purpose of this function is to produce a "try again" alert if the
+  wrong image was clicked on, and to produce a "congratulations" alert if
+  the correct image was clicked on. Also, for a correct image selection,
+  the code will set up the next screen once the alert has finished.
 
+  IF USER CHOICE EQUALS CORRECT ANSWER
+      PRODUCE CONGRATULATING MESSAGE
+      INSERT CLICKABLE IMAGE 1 INCLUDING FUNCTION CALL WITH ARGUMENT = 1
+      INSERT CLICKABLE IMAGE 2 INCLUDING FUNCTION CALL WITH ARGUMENT = 2
+      INSERT CLICKABLE IMAGE 3 INCLUDING FUNCTION CALL WITH ARGUMENT = 3
+  ELSE
+      PRODUCE TRY AGAIN MESSAGE
+
+  Authors: same as the file header
+ */
+
+function choose2(choice) {
+  if (choice == 1) {
+    congrats2();
+  } else {
+    tryAgain1();
+  }
+}
 
 /*
   The purpose of this function is to produce a "try again" alert if the
@@ -836,40 +1116,15 @@ function choose1(choice) {
 
   Authors: same as the file header
  */
-  function choose2(choice) {
-    if (choice == 1) {
-      congrats2();
-    } else {
-      tryAgain1();
-    }
+function choose3(choice) {
+  if (choice == 1) {
+    congrats3();
+  } else {
+    tryAgain1();
+    //change to tryAgain2 if the level fails
+    //tryAgain2();
   }
-
-  /*
-  The purpose of this function is to produce a "try again" alert if the
-  wrong image was clicked on, and to produce a "congratulations" alert if
-  the correct image was clicked on. Also, for a correct image selection,
-  the code will set up the next screen once the alert has finished.
-
-  IF USER CHOICE EQUALS CORRECT ANSWER
-      PRODUCE CONGRATULATING MESSAGE
-      INSERT CLICKABLE IMAGE 1 INCLUDING FUNCTION CALL WITH ARGUMENT = 1
-      INSERT CLICKABLE IMAGE 2 INCLUDING FUNCTION CALL WITH ARGUMENT = 2
-      INSERT CLICKABLE IMAGE 3 INCLUDING FUNCTION CALL WITH ARGUMENT = 3
-  ELSE
-      PRODUCE TRY AGAIN MESSAGE
-
-  Authors: same as the file header
- */
-  function choose3(choice) {
-    if (choice == 1) {
-      congrats3();
-    } else {
-      tryAgain1();
-      //change to tryAgain2 if the level fails
-     //tryAgain2();
-    }
-  }
-
+}
 
 /**
   The purpose of this function is to return a certain number of levels
@@ -877,9 +1132,217 @@ function choose1(choice) {
   Authors: same as file header
 
  */
-function gameSetup() {
-  audio1();
-  show(level1());
-  hide(level2());
-  hide(level3());
+function lastLand() {
+  //shuffle the three elements
+  var finalArray = shuffle();
+
+  //give each element in Array 1 a variable
+  var correctArray = finalArray[0].image;
+  var incAnswer1 = finalArray[1].image;
+  var incAnswer2 = finalArray[2].image;
+
+  audio(finalArray);
+  level1(finalArray, correctArray, incAnswer1, incAnswer2);
 }
+
+/**
+  The purpose of this function is to return a certain number of levels
+
+  Authors: same as file header
+
+ */
+function drainageArea() {
+  //shuffle the three elements
+  var finalArray = shuffle();
+
+  //give each element in Array 1 a variable
+  var correctArray = finalArray[0].image;
+  var incAnswer1 = finalArray[1].image;
+  var incAnswer2 = finalArray[2].image;
+
+  audio(finalArray);
+  level1(finalArray, correctArray, incAnswer1, incAnswer2);
+}
+
+/**
+  The purpose of this function is to return a certain number of levels
+
+  Authors: same as file header
+
+ */
+function lyingInTheWater() {
+  //shuffle the three elements
+  var finalArray = shuffle();
+
+  //give each element in Array 1 a variable
+  var correctArray = finalArray[0].image;
+  var incAnswer1 = finalArray[1].image;
+  var incAnswer2 = finalArray[2].image;
+
+  audio(finalArray);
+  level1(finalArray, correctArray, incAnswer1, incAnswer2);
+}
+
+/**
+  The purpose of this function is to return a certain number of levels
+
+  Authors: same as file header
+
+ */
+function landOfFog() {
+  //shuffle the three elements
+  var finalArray = shuffle();
+
+  //give each element in Array 1 a variable
+  var correctArray = finalArray[0].image;
+  var incAnswer1 = finalArray[1].image;
+  var incAnswer2 = finalArray[2].image;
+
+  audio(finalArray);
+  level1(finalArray, correctArray, incAnswer1, incAnswer2);
+}
+
+/**
+  The purpose of this function is to return a certain number of levels
+
+  Authors: same as file header
+
+ */
+function theExplosivePlace() {
+  //shuffle the three elements
+  var finalArray = shuffle();
+
+  //give each element in Array 1 a variable
+  var correctArray = finalArray[0].image;
+  var incAnswer1 = finalArray[1].image;
+  var incAnswer2 = finalArray[2].image;
+
+  audio(finalArray);
+  level1(finalArray, correctArray, incAnswer1, incAnswer2);
+}
+
+/**
+  The purpose of this function is to return a certain number of levels
+
+  Authors: same as file header
+
+ */
+function skinDressersTerritory() {
+  //shuffle the three elements
+  var finalArray = shuffle();
+
+  //give each element in Array 1 a variable
+  var correctArray = finalArray[0].image;
+  var incAnswer1 = finalArray[1].image;
+  var incAnswer2 = finalArray[2].image;
+
+  audio(finalArray);
+  level1(finalArray, correctArray, incAnswer1, incAnswer2);
+}
+
+/**
+  The purpose of this function is to return a certain number of levels
+
+  Authors: same as file header
+
+ */
+function wildPotatoArea() {
+  //shuffle the three elements
+  var finalArray = shuffle();
+
+  //give each element in Array 1 a variable
+  var correctArray = finalArray[0].image;
+  var incAnswer1 = finalArray[1].image;
+  var incAnswer2 = finalArray[2].image;
+
+  audio(finalArray);
+  level1(finalArray, correctArray, incAnswer1, incAnswer2);
+}
+
+/**
+  The purpose of this function is to return a certain number of levels
+
+  Authors: same as file header
+
+ */
+function landEnds() {
+  //shuffle the three elements
+  var finalArray = shuffle();
+
+  //give each element in Array 1 a variable
+  var correctArray = finalArray[0].image;
+  var incAnswer1 = finalArray[1].image;
+  var incAnswer2 = finalArray[2].image;
+
+  audio(finalArray);
+  level1(finalArray, correctArray, incAnswer1, incAnswer2);
+}
+
+//NOT WORKING - !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// function counter(currentCount) {
+// //Use currentCount to determine which levels are being unlocked,
+// // in progress, or complete.
+
+//   if (currentCount = 0) {
+//     level1complete = 2;
+//     //currentLevel(level1complete);
+//     level2complete = 1;
+//     //currentLevel(level2complete);
+//     currentCount++;
+//    } else if (currentCount = 1) {
+//     level2complete = 2;
+//     //currentLevel(level2complete);
+//     level3complete = 1;
+//     //currentLevel(level3complete);
+//     currentCount++;
+//   } else if (currentCount = 2) {
+//     level3complete = 2;
+//     //currentLevel(level3complete);
+//     level4complete = 1;
+//     //currentLevel(level4complete);
+//     currentCount++;
+//   } else if (currentCount = 3) {
+//     level4complete = 2;
+//    // currentLevel(level4complete);
+//     level5complete = 1;
+//     //currentLevel(level5complete);
+//     currentCount++;
+//   } else if (currentCount = 4) {
+//     level5complete = 2;
+//     //currentLevel(level5complete);
+//     level6complete = 1;
+//     //currentLevel(level6complete);
+//     currentCount++;
+//   } else if (currentCount = 5) {
+//     level6complete = 2;
+//     //currentLevel(level6complete);
+//     level7complete = 1;
+//     //currentLevel(level7complete);
+//     currentCount++;
+//   } else if (currentCount = 6) {
+//     level7complete = 2;
+//     //currentLevel(level7complete);
+//     level8complete = 1;
+//     //currentLevel(level8complete);
+//     currentCount++;
+//   } else if (currentCount = 7) {
+//     level8complete = 2;
+//     //currentLevel(level8complete);
+//   } else {
+//     //pop up requesting to reset the game???????????????
+//   }
+// }
+
+// function currentLevel(level){
+//     //0 - locked
+//     //1 - in progress
+//     //2 - complete
+
+//     if (level = 0){
+//       document.getElementById('togglee').style.visibility = 'hidden';
+//     } else {
+//       document.getElementById('togglee').style.visibility = 'visible';
+//     }
+// }
+
+//NOT WORKING - !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
