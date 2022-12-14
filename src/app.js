@@ -40,6 +40,10 @@
 
   Adam Leveille (A00359857)
   - Created a record() function.
+  - Created audioPlayBack() function.
+  - Added to getBtns().
+  - Added color transitions for buttons.
+
 
   Mahmood Al-Zubaidi (A00432616)
   - Created the displayMap() function.
@@ -574,7 +578,7 @@ function tryAgain2() {
 /**
  *  This function will retrieve the 4 main buttons for the app and display them in the header.
  *
- *  Authors: SDR + Mahmood
+ *  Authors: SDR + Mahmood + Adam
  */
 
 function getBtns() {
@@ -953,26 +957,32 @@ function audio(finalArray) {
 
 var recording;
 
-/**
- *  Records audio on click, records for 3 seconds and
-    automatically plays it back.
-
+/** 
+*  This function prompts the user for microphone access,
+*  records the user for 3 seconds, saves the audio into the variable
+*  recording, and plays the recorded audio back to the user.
+    Credit: Bryan Jennings https://github.com/bryanjenningz
     Authors: Adam
  */
 function record() {
   navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
+    // A media recorder object
     const mediaRecorder = new MediaRecorder(stream);
     mediaRecorder.start();
     recordPulse();
+    // An array to store the audio recording while recording
     const audioChunks = [];
     mediaRecorder.addEventListener("dataavailable", (event) => {
       audioChunks.push(event.data);
     });
 
     mediaRecorder.addEventListener("stop", () => {
+      // The combined audio chunks
       const audioBlob = new Blob(audioChunks);
       const audioUrl = URL.createObjectURL(audioBlob);
+      // The audio object
       recording = new Audio(audioUrl);
+      // Plays the audio back to the user
       recording.play();
       console.log(recording);
     });
