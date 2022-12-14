@@ -1,115 +1,69 @@
 /*
-  The purpose of this file is to generate 9 screens one after another,
-  each containing 3 images, where one image must match the associated audio
-  that can be played.
-
-  When all 9 screens have been played, the software goes back to the first
-  screen, and starts the process over again.
+  Purpose: This will be the JS file we use to create our Mi'kmaq App (wowkwis teluet). 
+  
+  Gameplay: The main game itself will consist of an interactive map that has "levels" or dots that will 
+  all initially start off gray except the first dot, which will be blinking yellow. Once you click it,
+  you will be brought to the game screen, which will display several buttons at the top, a word in the middle,
+  and three images below. You will be matching the word (which has an associated audio file that plays with it) 
+  to the image below. The audio can be played back using the buttons above and one button will even allow the  
+  user to create a new recording using their microphone (the playback of that recorded audio is attached to a 
+  button up top as well). You will complete each level by achieving three correct answers. In doing so, you
+  will be sent back to the interactive map where the previously yellow blinking dot has now changed to green
+  and a new gray dot will begin to blink yellow.
 
   Authors: 
   Terry Goldsmith 
   - Created fully functioning code except for 2 function stubs: record(), teacher()
   
-  Sebastian Duque Rivera(SDR)(A00441528)
+  Sebastian Duque Rivera or SDR (A00441528)
   - Modified comments as well as certain images used. Renamed panelSet.
-  - Re-purposed setup() function to display an intro screen first. 
-  - Also added getBtns() function and renamed previous setup() to game(). 
-  - Assisted in adding code for record() and teacher() functions.)
+  - Re-purposed the setup() function to display an intro screen first.
+  - Created multiple display screen functions. 
+  - Added the show() and hide() functions, which will display or 
+    hide elements. In our case, we use it mainly for our screens.
+  - Added a getBtns() function. 
+  - Created a recordPulse() function.
+  - Modified some code in the record() function.
+  - Removed unused code.
+  - Created a currentLevel() function and updated fields calling this function
 
-  Felipe Duque Rivera(FDR)
-  - Helped ensure all the words displayed to user were in lowercase.
-  - Corrected some misspelt translations.
+  Felipe Duque Rivera or FDR (A)
+  - Helped ensure all the words displayed to the user were in lowercase.
+  - Corrected some misspelled translations.
   - Added some comments for clarity (i.e. JSON objects).
-  - 
 
-  Coco
-  - 
+  Brianna Coco (A00459547)
+  - Added the functions for levels()
+  - Created JSON array constants for words.
+  - Added a counter global variable.
+  - Created functions for specific levels
 
-  Adam
-  - 
+  Adam Leveille (A00359857)
+  - Created a record() function.
 
-  Mahmood
-  - 
+  Mahmood Al-Zubaidi (A00432616)
+  - Created the displayMap() function.
+  - Helped create the recordPulse() function.
 
 */
 
-// Global array containing audio file names containing the asscoiated
-// audio for each of the 9 screens. They occur in the order of the screens.
-let audios = [
-  "./audio/aqq.wav",
-  "./audio/ltu.wav",
-  "./audio/wiktm.wav",
-  "./audio/eliey.wav",
-  "./audio/mijisi.wav",
-  "./audio/nin.wav",
-  "./audio/kesalk.wav",
-  "./audio/kil.wav",
-  "./audio/teluisi.wav",
-];
+//------------------------------------------ Global Variables -----------------------------------------------//
 
-let answerWord = [
-  "aqq",
-  "l'tu",
-  "wiktm",
-  "eliey",
-  "mijisi",
-  "ni'n",
-  "kesalk",
-  "k'il",
-  "teluisi",
-];
-
-// global array containing the number of the image which corresponds to
-// the audio file for each of the 9 screens.
-// Note: Each screen contains 3 images: image 1, image 2 and image 3 from
-//       left to right or from top to bottom depending on your device.
-// Example: Screen 0 has an audio file that matches image 1
-let answers = [1, 2, 3, 2, 3, 1, 3, 1, 2];
-
-// global array containing 9 sets of 3 images making up the 9 screens.
-// There are 27 elements in this array.
-let panels = [
-  "aqq.jpg",
-  "eliey.jpg",
-  "kesalk.jpg",
-  "kil.jpg",
-  "ltu.jpg",
-  "mijisi.jpg",
-  "nin.jpg",
-  "teluisi.jpg",
-  "wiktm.jpg",
-  "aqq.jpg",
-  "eliey.jpg",
-  "kesalk.jpg",
-  "kil.jpg",
-  "ltu.jpg",
-  "mijisi.jpg",
-  "nin.jpg",
-  "teluisi.jpg",
-  "wiktm.jpg",
-  "aqq.jpg",
-  "eliey.jpg",
-  "kesalk.jpg",
-  "kil.jpg",
-  "ltu.jpg",
-  "mijisi.jpg",
-  "nin.jpg",
-  "teluisi.jpg",
-  "wiktm.jpg",
-];
+// A count to keep track of what level the user is on. By default, we start at level 1
+var currentCount = 1;
 
 //Creates JSON objects for the words, each including: the name, image, and audio
 //add/delete/update new words for different levels
 //level 1
 const words1 = [
   { id: "0", name: "aqq", image: "aqq.jpg", audio: "./audio/aqq.wav" },
-  { id: "1", name: "l\'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
+  { id: "1", name: "l'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
   { id: "2", name: "wiktm", image: "wiktm.jpg", audio: "./audio/wiktm.wav" },
   { id: "3", name: "eliey", image: "eliey.jpg", audio: "./audio/eliey.wav" },
   { id: "4", name: "mijisi", image: "mijisi.jpg", audio: "./audio/mijisi.wav" },
-  { id: "5", name: "ni\'n", image: "nin.jpg", audio: "./audio/nin.wav" },
+  { id: "5", name: "ni'n", image: "nin.jpg", audio: "./audio/nin.wav" },
   { id: "6", name: "kesalk", image: "kesalk.jpg", audio: "./audio/kesalk.wav" },
-  { id: "7", name: "k\'il", image: "kil.jpg", audio: "./audio/kil.wav" },
+  { id: "7", name: "k'il", image: "kil.jpg", audio: "./audio/kil.wav" },
   {
     id: "8",
     name: "teluisi",
@@ -123,13 +77,13 @@ const words1 = [
 //level 2
 const words2 = [
   { id: "0", name: "aqq", image: "aqq.jpg", audio: "./audio/aqq.wav" },
-  { id: "1", name: "l\'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
+  { id: "1", name: "l'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
   { id: "2", name: "wiktm", image: "wiktm.jpg", audio: "./audio/wiktm.wav" },
   { id: "3", name: "eliey", image: "eliey.jpg", audio: "./audio/eliey.wav" },
   { id: "4", name: "mijisi", image: "mijisi.jpg", audio: "./audio/mijisi.wav" },
-  { id: "5", name: "ni\'n", image: "nin.jpg", audio: "./audio/nin.wav" },
+  { id: "5", name: "ni'n", image: "nin.jpg", audio: "./audio/nin.wav" },
   { id: "6", name: "kesalk", image: "kesalk.jpg", audio: "./audio/kesalk.wav" },
-  { id: "7", name: "k\'il", image: "kil.jpg", audio: "./audio/kil.wav" },
+  { id: "7", name: "k'il", image: "kil.jpg", audio: "./audio/kil.wav" },
   {
     id: "8",
     name: "teluisi",
@@ -143,13 +97,13 @@ const words2 = [
 //level 3
 const words3 = [
   { id: "0", name: "aqq", image: "aqq.jpg", audio: "./audio/aqq.wav" },
-  { id: "1", name: "l\'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
+  { id: "1", name: "l'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
   { id: "2", name: "wiktm", image: "wiktm.jpg", audio: "./audio/wiktm.wav" },
   { id: "3", name: "eliey", image: "eliey.jpg", audio: "./audio/eliey.wav" },
   { id: "4", name: "mijisi", image: "mijisi.jpg", audio: "./audio/mijisi.wav" },
-  { id: "5", name: "ni\'n", image: "nin.jpg", audio: "./audio/nin.wav" },
+  { id: "5", name: "ni'n", image: "nin.jpg", audio: "./audio/nin.wav" },
   { id: "6", name: "kesalk", image: "kesalk.jpg", audio: "./audio/kesalk.wav" },
-  { id: "7", name: "k\'il", image: "kil.jpg", audio: "./audio/kil.wav" },
+  { id: "7", name: "k'il", image: "kil.jpg", audio: "./audio/kil.wav" },
   {
     id: "8",
     name: "teluisi",
@@ -163,13 +117,13 @@ const words3 = [
 //level 4
 const words4 = [
   { id: "0", name: "aqq", image: "aqq.jpg", audio: "./audio/aqq.wav" },
-  { id: "1", name: "l\'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
+  { id: "1", name: "l'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
   { id: "2", name: "wiktm", image: "wiktm.jpg", audio: "./audio/wiktm.wav" },
   { id: "3", name: "eliey", image: "eliey.jpg", audio: "./audio/eliey.wav" },
   { id: "4", name: "mijisi", image: "mijisi.jpg", audio: "./audio/mijisi.wav" },
-  { id: "5", name: "ni\'n", image: "nin.jpg", audio: "./audio/nin.wav" },
+  { id: "5", name: "ni'n", image: "nin.jpg", audio: "./audio/nin.wav" },
   { id: "6", name: "kesalk", image: "kesalk.jpg", audio: "./audio/kesalk.wav" },
-  { id: "7", name: "k\'il", image: "kil.jpg", audio: "./audio/kil.wav" },
+  { id: "7", name: "k'il", image: "kil.jpg", audio: "./audio/kil.wav" },
   {
     id: "8",
     name: "teluisi",
@@ -183,13 +137,13 @@ const words4 = [
 //level 5
 const words5 = [
   { id: "0", name: "aqq", image: "aqq.jpg", audio: "./audio/aqq.wav" },
-  { id: "1", name: "l\'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
+  { id: "1", name: "l'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
   { id: "2", name: "wiktm", image: "wiktm.jpg", audio: "./audio/wiktm.wav" },
   { id: "3", name: "eliey", image: "eliey.jpg", audio: "./audio/eliey.wav" },
   { id: "4", name: "mijisi", image: "mijisi.jpg", audio: "./audio/mijisi.wav" },
-  { id: "5", name: "ni\'n", image: "nin.jpg", audio: "./audio/nin.wav" },
+  { id: "5", name: "ni'n", image: "nin.jpg", audio: "./audio/nin.wav" },
   { id: "6", name: "kesalk", image: "kesalk.jpg", audio: "./audio/kesalk.wav" },
-  { id: "7", name: "k\'il", image: "kil.jpg", audio: "./audio/kil.wav" },
+  { id: "7", name: "k'il", image: "kil.jpg", audio: "./audio/kil.wav" },
   {
     id: "8",
     name: "teluisi",
@@ -203,13 +157,13 @@ const words5 = [
 //level 6
 const words6 = [
   { id: "0", name: "aqq", image: "aqq.jpg", audio: "./audio/aqq.wav" },
-  { id: "1", name: "l\'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
+  { id: "1", name: "l'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
   { id: "2", name: "wiktm", image: "wiktm.jpg", audio: "./audio/wiktm.wav" },
   { id: "3", name: "eliey", image: "eliey.jpg", audio: "./audio/eliey.wav" },
   { id: "4", name: "mijisi", image: "mijisi.jpg", audio: "./audio/mijisi.wav" },
-  { id: "5", name: "ni\'n", image: "nin.jpg", audio: "./audio/nin.wav" },
+  { id: "5", name: "ni'n", image: "nin.jpg", audio: "./audio/nin.wav" },
   { id: "6", name: "kesalk", image: "kesalk.jpg", audio: "./audio/kesalk.wav" },
-  { id: "7", name: "k\'il", image: "kil.jpg", audio: "./audio/kil.wav" },
+  { id: "7", name: "k'il", image: "kil.jpg", audio: "./audio/kil.wav" },
   {
     id: "8",
     name: "teluisi",
@@ -223,13 +177,13 @@ const words6 = [
 //level 7
 const words7 = [
   { id: "0", name: "aqq", image: "aqq.jpg", audio: "./audio/aqq.wav" },
-  { id: "1", name: "l\'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
+  { id: "1", name: "l'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
   { id: "2", name: "wiktm", image: "wiktm.jpg", audio: "./audio/wiktm.wav" },
   { id: "3", name: "eliey", image: "eliey.jpg", audio: "./audio/eliey.wav" },
   { id: "4", name: "mijisi", image: "mijisi.jpg", audio: "./audio/mijisi.wav" },
-  { id: "5", name: "ni\'n", image: "nin.jpg", audio: "./audio/nin.wav" },
+  { id: "5", name: "ni'n", image: "nin.jpg", audio: "./audio/nin.wav" },
   { id: "6", name: "kesalk", image: "kesalk.jpg", audio: "./audio/kesalk.wav" },
-  { id: "7", name: "k\'il", image: "kil.jpg", audio: "./audio/kil.wav" },
+  { id: "7", name: "k'il", image: "kil.jpg", audio: "./audio/kil.wav" },
   {
     id: "8",
     name: "teluisi",
@@ -243,13 +197,13 @@ const words7 = [
 //level 8
 const words8 = [
   { id: "0", name: "aqq", image: "aqq.jpg", audio: "./audio/aqq.wav" },
-  { id: "1", name: "l\'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
+  { id: "1", name: "l'tu", image: "ltu.jpg", audio: "./audio/ltu.wav" },
   { id: "2", name: "wiktm", image: "wiktm.jpg", audio: "./audio/wiktm.wav" },
   { id: "3", name: "eliey", image: "eliey.jpg", audio: "./audio/eliey.wav" },
   { id: "4", name: "mijisi", image: "mijisi.jpg", audio: "./audio/mijisi.wav" },
-  { id: "5", name: "ni\'n", image: "nin.jpg", audio: "./audio/nin.wav" },
+  { id: "5", name: "ni'n", image: "nin.jpg", audio: "./audio/nin.wav" },
   { id: "6", name: "kesalk", image: "kesalk.jpg", audio: "./audio/kesalk.wav" },
-  { id: "7", name: "k\'il", image: "kil.jpg", audio: "./audio/kil.wav" },
+  { id: "7", name: "k'il", image: "kil.jpg", audio: "./audio/kil.wav" },
   {
     id: "8",
     name: "teluisi",
@@ -257,34 +211,6 @@ const words8 = [
     audio: "./audio/teluisi.wav",
   },
 ];
-
-//create a counter to ensure levels are locked until the previous is complete
-currentCount = 0;
-
-//create a level complete to determine what the level looks like
-//0 - locked - grey/invisible
-//1 - in progress - blicking yellow
-//2 - complete - yellow
-//the starting looks for the levels.
-
-//NOT WORKING - !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// var level1complete = 1;
-// currentLevel(level1complete);
-// var level2complete = 0;
-// currentLevel(level2complete);
-// var level3complete = 0;
-// currentLevel(level3complete);
-// var level4complete = 0;
-// currentLevel(level4complete);
-// var level5complete = 0;
-// currentLevel(level5complete);
-// var level6complete = 0;
-// currentLevel(level6complete);
-// var level7complete = 0;
-// currentLevel(level7complete);
-// var level8complete = 0;
-// currentLevel(level8complete);
-//NOT WORKING - !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 //------------------------------------------------------------- Toggle Visibility ---------------------------------------------------------------------------------------------------//
 
@@ -321,19 +247,23 @@ function show(element) {
 }
 
 //-------------------------------------------------------------------- Screens ------------------------------------------------------------------------------------------------------//
-
 /**
- *  This function will display the initial intro screen and hide any remaining screen.
+ *  This function will display the initial intro screen by hide any remaining screens.
+ *  It will also hide the dots/levels on the map, so that only the first level appears.
  *
- *  Note: We don't need to show the intro, since index.html initially display it in the
+ *  Note: We don't need to call show("intro"), since index.html initially displays it in the
  *  body. In this case, we would just have to hide any screen that comes after it.
  *
  *  Authors: SDR
  */
 function setup() {
+  // These lines hide the other screens
   hide("map");
   hide("howTo");
   hide("game");
+
+  // This will check which dot/level should be appearing on the interactive map
+  currentLevel();
 }
 
 /**
@@ -342,9 +272,12 @@ function setup() {
  *  Authors: SDR
  */
 function displayIntro() {
+  // These lines hide the other screens
   hide("map");
   hide("howTo");
   hide("game");
+
+  // This shows the intro screen
   show("intro");
 }
 
@@ -354,11 +287,12 @@ function displayIntro() {
  *  Authors: Mahmood
  */
 function displayMap() {
+  // These lines hide the other screens
   hide("intro");
   hide("howTo");
   hide("game");
-  //NOT WORKING - !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  //currentLevel();
+
+  // This shows the interactive map
   show("map");
 }
 
@@ -369,10 +303,15 @@ function displayMap() {
  */
 
 function displayGame1() {
+  // These lines hide the other screens
   hide("intro");
   hide("map");
   hide("howTo");
+
+  // This shows the game screen
   show("game");
+
+  // This sets up the specific level
   lastLand();
 }
 
@@ -383,10 +322,15 @@ function displayGame1() {
  */
 
 function displayGame2() {
+  // These lines hide the other screens
   hide("intro");
   hide("map");
   hide("howTo");
+
+  // This shows the game screen
   show("game");
+
+  // This sets up the specific level
   drainageArea();
 }
 
@@ -397,10 +341,15 @@ function displayGame2() {
  */
 
 function displayGame3() {
+  // These lines hide the other screens
   hide("intro");
   hide("map");
   hide("howTo");
+
+  // This shows the game screen
   show("game");
+
+  // This sets up the specific level
   lyingInTheWater();
 }
 
@@ -411,10 +360,15 @@ function displayGame3() {
  */
 
 function displayGame4() {
+  // These lines hide the other screens
   hide("intro");
   hide("map");
   hide("howTo");
+
+  // This shows the game screen
   show("game");
+
+  // This sets up the specific level
   landOfFog();
 }
 
@@ -425,10 +379,15 @@ function displayGame4() {
  */
 
 function displayGame5() {
+  // These lines hide the other screens
   hide("intro");
   hide("map");
   hide("howTo");
+
+  // This shows the game screen
   show("game");
+
+  // This sets up the specific level
   theExplosivePlace();
 }
 
@@ -439,10 +398,15 @@ function displayGame5() {
  */
 
 function displayGame6() {
+  // These lines hide the other screens
   hide("intro");
   hide("map");
   hide("howTo");
+
+  // This shows the game screen
   show("game");
+
+  // This sets up the specific level
   skinDressersTerritory();
 }
 
@@ -453,10 +417,15 @@ function displayGame6() {
  */
 
 function displayGame7() {
+  // These lines hide the other screens
   hide("intro");
   hide("map");
   hide("howTo");
+
+  // This shows the game screen
   show("game");
+
+  // This sets up the specific level
   wildPotatoArea();
 }
 
@@ -467,19 +436,17 @@ function displayGame7() {
  */
 
 function displayGame8() {
+  // These lines hide the other screens
   hide("intro");
   hide("map");
   hide("howTo");
+
+  // This shows the game screen
   show("game");
+
+  // This sets up the specific level
   landEnds();
 }
-
-/**
- *  STUB: This function will display the settings for the app.
- *
- *  Authors: SDR
- */
-function displaySettings() {}
 
 /**
  *  This function will display the instructions for how to play the game.
@@ -487,9 +454,12 @@ function displaySettings() {}
  *  Authors: SDR
  */
 function displayInstructions() {
+  // These lines hide the other screens
   hide("intro");
   hide("map");
   hide("game");
+
+  // This shows the how to play screen
   show("howTo");
 }
 
@@ -502,7 +472,7 @@ function displayInstructions() {
  */
 function congrats1() {
   Swal.fire({
-    title: "You selected the right item. Keep going!",
+    title: "kelu'lk tela'tekn",
     background: "#86c34e",
   });
 
@@ -525,7 +495,7 @@ function congrats1() {
  */
 function congrats2() {
   Swal.fire({
-    title: "You selected the right item again. Keep going!",
+    title: "kelu'lk tela'tekn",
     background: "#86c34e",
   });
 
@@ -555,9 +525,16 @@ function congrats3() {
     background: "#86c34e",
   });
 
+  // This will add 1 to the currentCount, which points it to the next level
   currentCount++;
-  console.log(currentCount);
-  //counter(currentCount);
+
+  /* 
+    This will display the current level and update the dots/levels on the 
+    interactive map accordingly.
+  */
+  currentLevel();
+
+  // This will display the map after 3 correct answers are found.
   displayMap();
 }
 
@@ -568,7 +545,10 @@ function congrats3() {
  */
 function tryAgain1() {
   Swal.fire({
-    title: "You selected the wrong item. Guess again!",
+    title: "tknu'kwalsi ap",
+    imageUrl: "./pics/tryagain.png",
+    imageWidth: 400,
+    imageHeight: 200,
     background: "#86c34e",
   });
 }
@@ -589,28 +569,12 @@ function tryAgain2() {
   displayMap();
 }
 
-/**
- *  This function will display the level complete msg.
- *
- *  Authors: SDR & FDR
- */
-function levelCompleted() {
-  Swal.fire({
-    title: "kelu'lk tela'tekn",
-    text: "Level Complete!",
-    imageUrl: "./pics/congrats.png",
-    imageWidth: 400,
-    imageHeight: 200,
-    background: "#4da0f3",
-  });
-  displayMap();
-}
-
 //-------------------------------------------------------------------- Game -------------------------------------------------------------------------------------------------------//
+
 /**
  *  This function will retrieve the 4 main buttons for the app and display them in the header.
  *
- *  Authors: SDR and Mahmood
+ *  Authors: SDR + Mahmood
  */
 
 function getBtns() {
@@ -1022,7 +986,8 @@ function record() {
 
 /**
  *  This function changes the mic to a soundwave icon while recording
- *  and makes it glow red.
+ *  and makes it glow red. It also sets the color of the mp3 player
+ *  icon to blue after 3 seconds pass (which is the recording time).
  *
  *  Authors: SDR and Mahmood
  */
@@ -1035,7 +1000,7 @@ function recordPulse() {
 }
 
 /**
- *  This function change the recording back to a mic.
+ *  This function changes the recording icon back to a mic.
  *
  *  Authors: SDR and Mahmood
  */
@@ -1044,29 +1009,29 @@ function recordStop() {
   document.getElementById("recordBtn").innerHTML = stopRec;
 }
 
-/*
-Plays the recorded audio back
-*/
+/**
+ *  Plays the recorded audio back.
+ *
+ *  Authors: same as file header
+ */
 function playBackAudio() {
   recording.play();
 }
 
-/*
-The purpose of this function is to produce a "try again" alert if the
-wrong image was clicked on, and to produce a "congratulations" alert if
-the correct image was clicked on. Also, for a correct image selection,
-the code will set up the next screen once the alert has finished.
-
-IF USER CHOICE EQUALS CORRECT ANSWER
-    PRODUCE CONGRATULATING MESSAGE
-    INSERT CLICKABLE IMAGE 1 INCLUDING FUNCTION CALL WITH ARGUMENT = 1
-    INSERT CLICKABLE IMAGE 2 INCLUDING FUNCTION CALL WITH ARGUMENT = 2
-    INSERT CLICKABLE IMAGE 3 INCLUDING FUNCTION CALL WITH ARGUMENT = 3
-ELSE
-    PRODUCE TRY AGAIN MESSAGE
-
-Authors: same as the file header
-*/
+/**
+ * The purpose of this function is to produce a "try again" alert if the
+ * wrong image was clicked on, and to produce a "congratulations" alert if
+ * the correct image was clicked on.
+ *
+ * IF USER's CHOICE EQUALS CORRECT ANSWER
+ *  PRODUCE CONGRATULATING MESSAGE
+ * ELSE
+ *  PRODUCE TRY AGAIN MESSAGE
+ *
+ * @param {*} choice The selected image.
+ *
+ * Authors: same as the file header
+ */
 function choose1(choice) {
   if (choice == 1) {
     congrats1();
@@ -1075,23 +1040,20 @@ function choose1(choice) {
   }
 }
 
-/*
-  The purpose of this function is to produce a "try again" alert if the
-  wrong image was clicked on, and to produce a "congratulations" alert if
-  the correct image was clicked on. Also, for a correct image selection,
-  the code will set up the next screen once the alert has finished.
-
-  IF USER CHOICE EQUALS CORRECT ANSWER
-      PRODUCE CONGRATULATING MESSAGE
-      INSERT CLICKABLE IMAGE 1 INCLUDING FUNCTION CALL WITH ARGUMENT = 1
-      INSERT CLICKABLE IMAGE 2 INCLUDING FUNCTION CALL WITH ARGUMENT = 2
-      INSERT CLICKABLE IMAGE 3 INCLUDING FUNCTION CALL WITH ARGUMENT = 3
-  ELSE
-      PRODUCE TRY AGAIN MESSAGE
-
-  Authors: same as the file header
+/**
+ * The purpose of this function is to produce a "try again" alert if the
+ * wrong image was clicked on, and to produce a "congratulations" alert if
+ * the correct image was clicked on.
+ *
+ * IF USER CHOICE EQUALS CORRECT ANSWER
+ *  PRODUCE CONGRATULATING MESSAGE
+ * ELSE
+ *  PRODUCE TRY AGAIN MESSAGE
+ *
+ * @param {*} choice The selected image.
+ *
+ * Authors: same as the file header
  */
-
 function choose2(choice) {
   if (choice == 1) {
     congrats2();
@@ -1100,21 +1062,19 @@ function choose2(choice) {
   }
 }
 
-/*
-  The purpose of this function is to produce a "try again" alert if the
-  wrong image was clicked on, and to produce a "congratulations" alert if
-  the correct image was clicked on. Also, for a correct image selection,
-  the code will set up the next screen once the alert has finished.
-
-  IF USER CHOICE EQUALS CORRECT ANSWER
-      PRODUCE CONGRATULATING MESSAGE
-      INSERT CLICKABLE IMAGE 1 INCLUDING FUNCTION CALL WITH ARGUMENT = 1
-      INSERT CLICKABLE IMAGE 2 INCLUDING FUNCTION CALL WITH ARGUMENT = 2
-      INSERT CLICKABLE IMAGE 3 INCLUDING FUNCTION CALL WITH ARGUMENT = 3
-  ELSE
-      PRODUCE TRY AGAIN MESSAGE
-
-  Authors: same as the file header
+/**
+ * The purpose of this function is to produce a "try again" alert if the
+ * wrong image was clicked on, and to produce a "congratulations" alert if
+ * the correct image was clicked on.
+ *
+ * IF USER CHOICE EQUALS CORRECT ANSWER
+ *  PRODUCE CONGRATULATING MESSAGE
+ * ELSE
+ *  PRODUCE TRY AGAIN MESSAGE
+ *
+ * @param {*} choice The selected image.
+ *
+ * Authors: same as the file header
  */
 function choose3(choice) {
   if (choice == 1) {
@@ -1278,71 +1238,225 @@ function landEnds() {
   level1(finalArray, correctArray, incAnswer1, incAnswer2);
 }
 
-//NOT WORKING - !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// function counter(currentCount) {
-// //Use currentCount to determine which levels are being unlocked,
-// // in progress, or complete.
+/**
+ * This function will determine the current level that the user has
+ * made it to. It will also keep track of the current level in the
+ * console.
+ *
+ * Authors: SDR + Coco
+ */
+function currentLevel() {
+  /* 
+    Checking to see what the currentCount is to determine
+    what level the user is at.
+  */
+  if (currentCount == 1) {
+    // This will display the level 1 dot on the map
+    show("levelbutton1");
 
-//   if (currentCount = 0) {
-//     level1complete = 2;
-//     //currentLevel(level1complete);
-//     level2complete = 1;
-//     //currentLevel(level2complete);
-//     currentCount++;
-//    } else if (currentCount = 1) {
-//     level2complete = 2;
-//     //currentLevel(level2complete);
-//     level3complete = 1;
-//     //currentLevel(level3complete);
-//     currentCount++;
-//   } else if (currentCount = 2) {
-//     level3complete = 2;
-//     //currentLevel(level3complete);
-//     level4complete = 1;
-//     //currentLevel(level4complete);
-//     currentCount++;
-//   } else if (currentCount = 3) {
-//     level4complete = 2;
-//    // currentLevel(level4complete);
-//     level5complete = 1;
-//     //currentLevel(level5complete);
-//     currentCount++;
-//   } else if (currentCount = 4) {
-//     level5complete = 2;
-//     //currentLevel(level5complete);
-//     level6complete = 1;
-//     //currentLevel(level6complete);
-//     currentCount++;
-//   } else if (currentCount = 5) {
-//     level6complete = 2;
-//     //currentLevel(level6complete);
-//     level7complete = 1;
-//     //currentLevel(level7complete);
-//     currentCount++;
-//   } else if (currentCount = 6) {
-//     level7complete = 2;
-//     //currentLevel(level7complete);
-//     level8complete = 1;
-//     //currentLevel(level8complete);
-//     currentCount++;
-//   } else if (currentCount = 7) {
-//     level8complete = 2;
-//     //currentLevel(level8complete);
-//   } else {
-//     //pop up requesting to reset the game???????????????
-//   }
-// }
+    // This makes that dot start blinking yellow
+    document.getElementById("levelbutton1").className = "blinking";
 
-// function currentLevel(level){
-//     //0 - locked
-//     //1 - in progress
-//     //2 - complete
+    // These will hide the other dots/levels on the map
+    hide("levelbutton2");
+    hide("levelbutton3");
+    hide("levelbutton4");
+    hide("levelbutton5");
+    hide("levelbutton6");
+    hide("levelbutton7");
+    hide("levelbutton8");
 
-//     if (level = 0){
-//       document.getElementById('togglee').style.visibility = 'hidden';
-//     } else {
-//       document.getElementById('togglee').style.visibility = 'visible';
-//     }
-// }
+    // This will display the current level in the console
+    console.log("The current level: " + currentCount);
+  } else if (currentCount == 2) {
+    /* 
+      This will set the previous dot/level's class to lightgreen, which 
+      will indicate that the level is complete
+    */
+    document.getElementById("levelbutton1").style.backgroundColor =
+      "lightgreen";
 
-//NOT WORKING - !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // This will remove the blinking animation on the previous dot/level
+    document.getElementById("levelbutton1").style.animation = "none";
+
+    document.getElementById("levelbutton1").disable = true;
+
+    // This will display the level 2 dot on the map
+    show("levelbutton2");
+
+    // This makes that dot start blinking yellow
+    document.getElementById("levelbutton2").className = "blinking";
+
+    // These will hide the other dots/levels on the map
+    hide("levelbutton3");
+    hide("levelbutton4");
+    hide("levelbutton5");
+    hide("levelbutton6");
+    hide("levelbutton7");
+    hide("levelbutton8");
+
+    // This will display the current level in the console
+    console.log("The current level: " + currentCount);
+  } else if (currentCount == 3) {
+    /* 
+      This will set the previous dot/level's class to lightgreen, which 
+      will indicate that the level is complete
+    */
+    document.getElementById("levelbutton2").style.backgroundColor =
+      "lightgreen";
+
+    // This will remove the blinking animation on the previous dot/level
+    document.getElementById("levelbutton2").style.animation = "none";
+
+    // This will display the level 3 dot on the map
+    show("levelbutton3");
+
+    // This makes that dot start blinking yellow
+    document.getElementById("levelbutton3").className = "blinking";
+
+    // These will hide the other dots/levels on the map
+    hide("levelbutton4");
+    hide("levelbutton5");
+    hide("levelbutton6");
+    hide("levelbutton7");
+    hide("levelbutton8");
+
+    // This will display the current level in the console
+    console.log("The current level: " + currentCount);
+  } else if (currentCount == 4) {
+    /* 
+      This will set the previous dot/level's class to lightgreen, which 
+      will indicate that the level is complete
+    */
+    document.getElementById("levelbutton3").style.backgroundColor =
+      "lightgreen";
+
+    // This will remove the blinking animation on the previous dot/level
+    document.getElementById("levelbutton3").style.animation = "none";
+
+    // This will display the level 4 dot on the map
+    show("levelbutton4");
+
+    // This makes that dot start blinking yellow
+    document.getElementById("levelbutton4").className = "blinking";
+
+    // These will hide the other dots/levels on the map
+    hide("levelbutton5");
+    hide("levelbutton6");
+    hide("levelbutton7");
+    hide("levelbutton8");
+
+    // This will display the current level in the console
+    console.log("The current level: " + currentCount);
+  } else if (currentCount == 5) {
+    /* 
+      This will set the previous dot/level's class to lightgreen, which 
+      will indicate that the level is complete
+    */
+    document.getElementById("levelbutton4").style.backgroundColor =
+      "lightgreen";
+
+    // This will remove the blinking animation on the previous dot/level
+    document.getElementById("levelbutton4").style.animation = "none";
+
+    // This will display the level 5 dot on the map
+    show("levelbutton5");
+
+    // This makes that dot start blinking yellow
+    document.getElementById("levelbutton5").className = "blinking";
+
+    // These will hide the other dots/levels on the map
+    hide("levelbutton6");
+    hide("levelbutton7");
+    hide("levelbutton8");
+
+    // This will display the current level in the console
+    console.log("The current level: " + currentCount);
+  } else if (currentCount == 6) {
+    /* 
+      This will set the previous dot/level's class to lightgreen, which 
+      will indicate that the level is complete
+    */
+    document.getElementById("levelbutton5").style.backgroundColor =
+      "lightgreen";
+
+    // This will remove the blinking animation on the previous dot/level
+    document.getElementById("levelbutton5").style.animation = "none";
+
+    // This will display the level 6 dot on the map
+    show("levelbutton6");
+
+    // This makes that dot start blinking yellow
+    document.getElementById("levelbutton6").className = "blinking";
+
+    // These will hide the other dots/levels on the map
+    hide("levelbutton7");
+    hide("levelbutton8");
+
+    // This will display the current level in the console
+    console.log("The current level: " + currentCount);
+  } else if (currentCount == 7) {
+    /* 
+      This will set the previous dot/level's class to lightgreen, which 
+      will indicate that the level is complete
+    */
+    document.getElementById("levelbutton6").style.backgroundColor =
+      "lightgreen";
+
+    // This will remove the blinking animation on the previous dot/level
+    document.getElementById("levelbutton6").style.animation = "none";
+
+    // This will display the level 7 dot on the map
+    show("levelbutton7");
+
+    // This makes that dot start blinking yellow
+    document.getElementById("levelbutton7").className = "blinking";
+
+    // These will hide the other dots/levels on the map
+    hide("levelbutton8");
+
+    // This will display the current level in the console
+    console.log("The current level: " + currentCount);
+  } else if (currentCount == 8) {
+    /* 
+      This will set the previous dot/level's class to lightgreen, which 
+      will indicate that the level is complete
+    */
+    document.getElementById("levelbutton7").style.backgroundColor =
+      "lightgreen";
+
+    // This will remove the blinking animation on the previous dot/level
+    document.getElementById("levelbutton7").style.animation = "none";
+
+    // This will display the level 8 dot on the map
+    show("levelbutton8");
+
+    // This makes that dot start blinking yellow
+    document.getElementById("levelbutton8").className = "blinking";
+
+    // This will display the current level in the console
+    console.log("The current level: " + currentCount);
+  } else if (currentCount == 9) {
+    /* 
+      This will set the previous dot/level's class to lightgreen, which 
+      will indicate that the level is complete
+    */
+    document.getElementById("levelbutton8").style.backgroundColor =
+      "lightgreen";
+
+    // This will remove the blinking animation on the previous dot/level
+    document.getElementById("levelbutton8").style.animation = "none";
+
+    /* 
+      This will set the currentCount back to zero, which essentially
+      be used to restart the game (in theory). 
+    */
+    currentCount = 0;
+
+    // This will display the current level in the console
+    console.log("All levels have been completed!");
+  } else {
+    // This will display in console should an error occur.
+    console.log("The current level could not be determined.");
+  }
+}

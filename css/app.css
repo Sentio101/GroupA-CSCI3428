@@ -1,21 +1,47 @@
 /*
-  The purpose of this file is to define the different styles for the
-  Mi'kmaq language app.
+  Purpose: This file is to define the CSS for our Mi'kmaq app (wowkwis teluet).
 
   Authors: 
   Terry Goldsmith
   - Created original file with all required styles
 
-  Sebastian Duque Rivera(SDR)(A00441528) 
-  - Modified initial background image, and added more custom css .startBtn, .fox-size 
-  and .header-size.
+  Sebastian Duque Rivera or SDR (A00441528) 
+  - Modified initial background image
+  - Modified header-size
+  - Added custom css btns, images
+  - Cleaned up the CSS and divided it into sections
 
-  Name
-  - 
+  Felipe
+  - Modified css for certain btn colours
+  - Helped clean up CSS commenting by removing
+    unecessary comments and fixing typos
+
+  Mahmood Al-Zubaidi (A00432616)
+  - Added CSS for hover features
+  - Added CSS for the dots on the interactive map
+  - Added CSS for blue logo on interactive map
+  - Modified CSS for the dot containers
+  - Tweaked some CSS
+
+  Brianna Coco (A00459547)
+  - Added CSS for the blinking effect of the dots
+    on the interactive map
+  - Tweaked some CSS
+
+  Adam Leveille (A00359857)
+  - Modified the CSS for the blinking effect and
+    customized it to be used in our recording
+    feature
+  - Tweaked some CSS
 
 */
 
-/* Section for HTML tags */
+/*
+  This section is for the main background and
+  default font size for many of our text fields.
+
+  Authors: same as file header
+*/
 body {
   background-image: url("../pics/forrest.jpg");
   background-repeat: no-repeat;
@@ -50,7 +76,9 @@ input {
 }
 
 /*
-    Section for images
+  Section for images
+
+  Authors: same as file header
 */
 .map-size {
   width: 100%;
@@ -74,7 +102,6 @@ input {
   cursor: pointer;
 }
 
-
 .fox-size-pass {
   display: block;
   margin-left: auto;
@@ -83,7 +110,9 @@ input {
 }
 
 /*
-    Section for buttons
+  Section for buttons
+
+  Authors: same as file header
 */
 .button:hover {
   transform: scale(1.1, 1.1);
@@ -98,9 +127,7 @@ input {
   border-radius: 5%;
   border: none;
   color: #7c3e25;
-}
-
-.playBtn:hover {
+} .playBtn:hover {
   background-color: #b6843f;
   color: #794921;
 }
@@ -111,19 +138,16 @@ input {
   margin-right: 1rem;
   color: #7c3e25;
   background-color: #86c34e;
-}
-
-.multiBtn:hover {
+} .multiBtn:hover {
   background-color: #b6843f;
   color: #794921;
 }
 
 /*
-Start: blinking animation for map buttons
+  Start: blinking animation for map buttons
 
-By: B. Coco
+  Authors: Coco + SDR
 */
-
 .blinking {
   -webkit-animation: 1s blink ease infinite;
   -moz-animation: 1s blink ease infinite;
@@ -139,9 +163,6 @@ p1 {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   color: white;
 }
-/*
-  Section for blinking animation for map buttons
-*/
 
 @keyframes "blink" {
 
@@ -204,21 +225,15 @@ p1 {
 }
 
 /*
-End: blicking animation for map buttons
+  End: blicking animation for map buttons
 */
 
+/*
+  This section is for the dots on the interactive map
+  along with the blue logo theme.
 
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0px red;
-  }
-
-  100% {
-    box-shadow: 0 0 0 10px red;
-  }
-}
-
-
+  Authors: Mahmood 
+*/
 .container {
   position: relative;
   width: 110%;
@@ -285,7 +300,7 @@ End: blicking animation for map buttons
   cursor: pointer;
   top: 65%;
   right: 48%;
-  background-color: gray;
+  background-color: yellow;
   border-radius: 1.5em;
   padding: 1em 1em;
 }
@@ -295,7 +310,7 @@ End: blicking animation for map buttons
   cursor: pointer;
   top: 51%;
   right: 32%;
-  background-color: gray;
+  background-color: yellow;
   border-radius: 1.5em;
   padding: 1em 1em;
 }
@@ -305,7 +320,7 @@ End: blicking animation for map buttons
   cursor: pointer;
   top: 45%;
   right: 10%;
-  background-color: gray;
+  background-color: yellow;
   border-radius: 1.5em;
   padding: 1em 1em;
 }
@@ -315,7 +330,7 @@ End: blicking animation for map buttons
   cursor: pointer;
   top: 68%;
   right: 22%;
-  background-color: gray;
+  background-color: yellow;
   border-radius: 1.5em;
   padding: 1em 1em;
 }
@@ -324,7 +339,7 @@ End: blicking animation for map buttons
   cursor: pointer;
   top: 76%;
   right: 27%;
-  background-color: gray;
+  background-color: yellow;
   border-radius: 1.5em;
   padding: 1em 1em;
 }
@@ -333,7 +348,7 @@ End: blicking animation for map buttons
   cursor: pointer;
   top: 80%;
   right: 40%;
-  background-color: gray;
+  background-color: yellow;
   border-radius: 1.5em;
   padding: 1em 1em;
 }
@@ -342,7 +357,7 @@ End: blicking animation for map buttons
   cursor: pointer;
   top: 86%;
   right: 50%;
-  background-color: gray;
+  background-color: yellow;
   border-radius: 1.5em;
   padding: 1em ;
 }
@@ -370,8 +385,6 @@ ul.navbar li a0 {
   font-weight: bold;
   cursor: pointer;
   font-size: 200%;
-}
-
-ul.navbar li a0:hover {
+} ul.navbar li a0:hover {
   color: #FEC53A;
 }
