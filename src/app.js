@@ -27,7 +27,7 @@
   - Removed unused code.
   - Created a currentLevel() function and updated fields calling this function
 
-  Felipe Duque Rivera or FDR (A)
+  Felipe Duque Rivera or FDR (A00446745)
   - Helped ensure all the words displayed to the user were in lowercase.
   - Corrected some misspelled translations.
   - Added some comments for clarity (i.e. JSON objects).
