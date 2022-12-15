@@ -33,10 +33,16 @@
   - Added some comments for clarity (i.e. JSON objects).
 
   Brianna Coco (A00459547)
+  - Created all the drawings
   - Added the functions for levels()
   - Created JSON array constants for words.
   - Added a counter global variable.
   - Created functions for specific levels
+  - Modified the audio() function
+  - Moodified the congrats() and tryAgain() functions
+  - Create the getRandomInt() function 
+  - Modified the choose() functions
+  - Created the shuffle() function
 
   Adam Leveille (A00359857)
   - Created a record() function.
@@ -301,7 +307,7 @@ function displayMap() {
 }
 
 /**
- *  This function will display the game screen.
+ *  This function will display the game screen for level 1.
  *
  *  Authors: SDR
  */
@@ -320,7 +326,7 @@ function displayGame1() {
 }
 
 /**
- *  This function will display the game screen.
+ *  This function will display the game screen for level 2.
  *
  *  Authors: SDR
  */
@@ -339,7 +345,7 @@ function displayGame2() {
 }
 
 /**
- *  This function will display the game screen.
+ *  This function will display the game screen for level 3.
  *
  *  Authors: SDR
  */
@@ -358,7 +364,7 @@ function displayGame3() {
 }
 
 /**
- *  This function will display the game screen.
+ *  This function will display the game screen for level 4.
  *
  *  Authors: SDR
  */
@@ -377,7 +383,7 @@ function displayGame4() {
 }
 
 /**
- *  This function will display the game screen.
+ *  This function will display the game screen for level 5.
  *
  *  Authors: SDR
  */
@@ -396,7 +402,7 @@ function displayGame5() {
 }
 
 /**
- *  This function will display the game screen.
+ *  This function will display the game screen for level 6.
  *
  *  Authors: SDR
  */
@@ -415,7 +421,7 @@ function displayGame6() {
 }
 
 /**
- *  This function will display the game screen.
+ *  This function will display the game screen for level 7.
  *
  *  Authors: SDR
  */
@@ -434,7 +440,7 @@ function displayGame7() {
 }
 
 /**
- *  This function will display the game screen.
+ * This function will display the game screen for level 8.
  *
  *  Authors: SDR
  */
@@ -470,13 +476,13 @@ function displayInstructions() {
 //-------------------------------------------------------------------- Alerts -------------------------------------------------------------------------------------------------------//
 
 /**
- *  This function will display the congrats msg.
+ *  This function will display the first congrats msg.
  *
  *  Authors: SDR
  */
 function congrats1() {
   Swal.fire({
-    title: "kelu'lk tela'tekn",
+    title: "si'owa'si",
     background: "#86c34e",
   });
 
@@ -488,12 +494,14 @@ function congrats1() {
   var incAnswer3 = finalArray2[1].image;
   var incAnswer4 = finalArray2[2].image;
 
+  //play new audio
   audio(finalArray2);
+  //play next level
   level2(finalArray2, correctArray2, incAnswer3, incAnswer4);
 }
 
 /**
- *  This function will display the congrats msg.
+ *  This function will display the second congrats msg.
  *
  *  Authors: SDR
  */
@@ -510,19 +518,21 @@ function congrats2() {
   var correctArray3 = finalArray3[0].image;
   var incAnswer5 = finalArray3[1].image;
   var incAnswer6 = finalArray3[2].image;
-
+  
+  //play new audio
   audio(finalArray3);
+  //play next level
   level3(finalArray3, correctArray3, incAnswer5, incAnswer6);
 }
 
 /**
- *  This function will display the congrats msg.
+ *  This function will display the third congrats msg.
  *
  *  Authors: SDR & FDR
  */
 function congrats3() {
   Swal.fire({
-    title: "kelu'lk tela'tekn",
+    title: "kespu'tuwenek",
     imageUrl: "./pics/congrats.png",
     imageWidth: 400,
     imageHeight: 200,
@@ -543,7 +553,7 @@ function congrats3() {
 }
 
 /**
- *  This function will display the try again msg.
+ *  This function will display the first try again msg.
  *
  *  Authors: SDR
  */
@@ -558,7 +568,7 @@ function tryAgain1() {
 }
 
 /**
- *  This function will display the try again msg.
+ *  This function will display the second try again msg.
  *
  *  Authors: SDR & FDR
  */
@@ -570,6 +580,7 @@ function tryAgain2() {
     imageHeight: 200,
     background: "#86c34e",
   });
+  //return to map
   displayMap();
 }
 
@@ -608,7 +619,6 @@ function getBtns() {
   Authors: same as file header
 
  */
-//shuffle the three elements
 
 function level1(finalArray, correctArray, incAnswer1, incAnswer2) {
   document.getElementById("p1").innerHTML = " " + finalArray[0].name + " ";
@@ -1044,8 +1054,10 @@ function playBackAudio() {
  */
 function choose1(choice) {
   if (choice == 1) {
-    congrats1();
-  } else {
+     //show congrats
+     congrats1();
+    } else {
+      //show try again
     tryAgain1();
   }
 }
@@ -1066,8 +1078,10 @@ function choose1(choice) {
  */
 function choose2(choice) {
   if (choice == 1) {
-    congrats2();
-  } else {
+     //show congrats
+     congrats2();
+    } else {
+      //show try again
     tryAgain1();
   }
 }
@@ -1088,16 +1102,16 @@ function choose2(choice) {
  */
 function choose3(choice) {
   if (choice == 1) {
+    //show congrats
     congrats3();
   } else {
+    //show try again
     tryAgain1();
-    //change to tryAgain2 if the level fails
-    //tryAgain2();
   }
 }
 
 /**
-  The purpose of this function is to return a certain number of levels
+  The purpose of this function is to return the first level
 
   Authors: same as file header
 
@@ -1106,17 +1120,20 @@ function lastLand() {
   //shuffle the three elements
   var finalArray = shuffle();
 
-  //give each element in Array 1 a variable
+  //give each element in Array a variable
   var correctArray = finalArray[0].image;
   var incAnswer1 = finalArray[1].image;
   var incAnswer2 = finalArray[2].image;
 
-  audio(finalArray);
+   //play the audio
+   audio(finalArray);
+   //play the level
   level1(finalArray, correctArray, incAnswer1, incAnswer2);
+
 }
 
 /**
-  The purpose of this function is to return a certain number of levels
+  The purpose of this function is to return the second level
 
   Authors: same as file header
 
@@ -1125,17 +1142,19 @@ function drainageArea() {
   //shuffle the three elements
   var finalArray = shuffle();
 
-  //give each element in Array 1 a variable
+  //give each element in Array a variable
   var correctArray = finalArray[0].image;
   var incAnswer1 = finalArray[1].image;
   var incAnswer2 = finalArray[2].image;
 
-  audio(finalArray);
+   //play the audio
+   audio(finalArray);
+   //play the level
   level1(finalArray, correctArray, incAnswer1, incAnswer2);
 }
 
 /**
-  The purpose of this function is to return a certain number of levels
+  The purpose of this function is to return the third level
 
   Authors: same as file header
 
@@ -1144,17 +1163,19 @@ function lyingInTheWater() {
   //shuffle the three elements
   var finalArray = shuffle();
 
-  //give each element in Array 1 a variable
+  //give each element in Array a variable
   var correctArray = finalArray[0].image;
   var incAnswer1 = finalArray[1].image;
   var incAnswer2 = finalArray[2].image;
 
-  audio(finalArray);
+   //play the audio
+   audio(finalArray);
+   //play the level
   level1(finalArray, correctArray, incAnswer1, incAnswer2);
 }
 
 /**
-  The purpose of this function is to return a certain number of levels
+  The purpose of this function is to return the fourth level
 
   Authors: same as file header
 
@@ -1163,17 +1184,19 @@ function landOfFog() {
   //shuffle the three elements
   var finalArray = shuffle();
 
-  //give each element in Array 1 a variable
+  //give each element in Array a variable
   var correctArray = finalArray[0].image;
   var incAnswer1 = finalArray[1].image;
   var incAnswer2 = finalArray[2].image;
 
-  audio(finalArray);
+   //play the audio
+   audio(finalArray);
+   //play the level
   level1(finalArray, correctArray, incAnswer1, incAnswer2);
 }
 
 /**
-  The purpose of this function is to return a certain number of levels
+  The purpose of this function is to return the fifth level
 
   Authors: same as file header
 
@@ -1182,17 +1205,19 @@ function theExplosivePlace() {
   //shuffle the three elements
   var finalArray = shuffle();
 
-  //give each element in Array 1 a variable
+  //give each element in Array a variable
   var correctArray = finalArray[0].image;
   var incAnswer1 = finalArray[1].image;
   var incAnswer2 = finalArray[2].image;
 
-  audio(finalArray);
+   //play the audio
+   audio(finalArray);
+   //play the level
   level1(finalArray, correctArray, incAnswer1, incAnswer2);
 }
 
 /**
-  The purpose of this function is to return a certain number of levels
+  The purpose of this function is to return the sixth level
 
   Authors: same as file header
 
@@ -1201,17 +1226,19 @@ function skinDressersTerritory() {
   //shuffle the three elements
   var finalArray = shuffle();
 
-  //give each element in Array 1 a variable
+  //give each element in Array a variable
   var correctArray = finalArray[0].image;
   var incAnswer1 = finalArray[1].image;
   var incAnswer2 = finalArray[2].image;
 
-  audio(finalArray);
+   //play the audio
+   audio(finalArray);
+   //play the level
   level1(finalArray, correctArray, incAnswer1, incAnswer2);
 }
 
 /**
-  The purpose of this function is to return a certain number of levels
+  The purpose of this function is to return the seventh level
 
   Authors: same as file header
 
@@ -1220,17 +1247,19 @@ function wildPotatoArea() {
   //shuffle the three elements
   var finalArray = shuffle();
 
-  //give each element in Array 1 a variable
+  //give each element in Array a variable
   var correctArray = finalArray[0].image;
   var incAnswer1 = finalArray[1].image;
   var incAnswer2 = finalArray[2].image;
 
-  audio(finalArray);
+   //play the audio
+   audio(finalArray);
+   //play the level
   level1(finalArray, correctArray, incAnswer1, incAnswer2);
 }
 
 /**
-  The purpose of this function is to return a certain number of levels
+  The purpose of this function is to return the last level
 
   Authors: same as file header
 
@@ -1239,12 +1268,14 @@ function landEnds() {
   //shuffle the three elements
   var finalArray = shuffle();
 
-  //give each element in Array 1 a variable
+  //give each element in Array a variable
   var correctArray = finalArray[0].image;
   var incAnswer1 = finalArray[1].image;
   var incAnswer2 = finalArray[2].image;
 
+  //play the audio
   audio(finalArray);
+  //play the level
   level1(finalArray, correctArray, incAnswer1, incAnswer2);
 }
 
