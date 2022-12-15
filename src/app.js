@@ -62,6 +62,9 @@
 // A count to keep track of what level the user is on. By default, we start at level 1
 var currentCount = 1;
 
+// This will keep the recording that the user makes after pressing the mic btn
+var recording;
+
 //Creates JSON objects for the words, each including: the name, image, and audio
 //add/delete/update new words for different levels
 //level 1
@@ -518,7 +521,7 @@ function congrats2() {
   var correctArray3 = finalArray3[0].image;
   var incAnswer5 = finalArray3[1].image;
   var incAnswer6 = finalArray3[2].image;
-  
+
   //play new audio
   audio(finalArray3);
   //play next level
@@ -553,11 +556,11 @@ function congrats3() {
 }
 
 /**
- *  This function will display the first try again msg.
+ *  This function will display a try again msg.
  *
  *  Authors: SDR
  */
-function tryAgain1() {
+function tryAgain() {
   Swal.fire({
     title: "tknu'kwalsi ap",
     imageUrl: "./pics/tryagain.png",
@@ -565,23 +568,6 @@ function tryAgain1() {
     imageHeight: 200,
     background: "#86c34e",
   });
-}
-
-/**
- *  This function will display the second try again msg.
- *
- *  Authors: SDR & FDR
- */
-function tryAgain2() {
-  Swal.fire({
-    title: "tknu'kwalsi ap",
-    imageUrl: "./pics/tryagain.png",
-    imageWidth: 400,
-    imageHeight: 200,
-    background: "#86c34e",
-  });
-  //return to map
-  displayMap();
 }
 
 //-------------------------------------------------------------------- Game -------------------------------------------------------------------------------------------------------//
@@ -591,7 +577,6 @@ function tryAgain2() {
  *
  *  Authors: SDR + Mahmood + Adam
  */
-
 function getBtns() {
   let backBtn =
     '<button class="btn multiBtn" onclick="displayMap()"><i class="bi bi-arrow-left-square-fill"></i></button>';
@@ -619,7 +604,6 @@ function getBtns() {
   Authors: same as file header
 
  */
-
 function level1(finalArray, correctArray, incAnswer1, incAnswer2) {
   document.getElementById("p1").innerHTML = " " + finalArray[0].name + " ";
 
@@ -708,7 +692,6 @@ function level1(finalArray, correctArray, incAnswer1, incAnswer2) {
   Authors: same as file header
 
  */
-
 function level2(finalArray, correctArray, incAnswer1, incAnswer2) {
   document.getElementById("p1").innerHTML = " " + finalArray[0].name + " ";
 
@@ -965,8 +948,6 @@ function audio(finalArray) {
   voice.play();
 }
 
-var recording;
-
 /** 
 *  This function prompts the user for microphone access,
 *  records the user for 3 seconds, saves the audio into the variable
@@ -1054,11 +1035,11 @@ function playBackAudio() {
  */
 function choose1(choice) {
   if (choice == 1) {
-     //show congrats
-     congrats1();
-    } else {
-      //show try again
-    tryAgain1();
+    //show congrats
+    congrats1();
+  } else {
+    //show try again
+    tryAgain();
   }
 }
 
@@ -1078,11 +1059,11 @@ function choose1(choice) {
  */
 function choose2(choice) {
   if (choice == 1) {
-     //show congrats
-     congrats2();
-    } else {
-      //show try again
-    tryAgain1();
+    //show congrats
+    congrats2();
+  } else {
+    //show try again
+    tryAgain();
   }
 }
 
@@ -1106,7 +1087,7 @@ function choose3(choice) {
     congrats3();
   } else {
     //show try again
-    tryAgain1();
+    tryAgain();
   }
 }
 
@@ -1125,11 +1106,10 @@ function lastLand() {
   var incAnswer1 = finalArray[1].image;
   var incAnswer2 = finalArray[2].image;
 
-   //play the audio
-   audio(finalArray);
-   //play the level
+  //play the audio
+  audio(finalArray);
+  //play the level
   level1(finalArray, correctArray, incAnswer1, incAnswer2);
-
 }
 
 /**
@@ -1147,9 +1127,9 @@ function drainageArea() {
   var incAnswer1 = finalArray[1].image;
   var incAnswer2 = finalArray[2].image;
 
-   //play the audio
-   audio(finalArray);
-   //play the level
+  //play the audio
+  audio(finalArray);
+  //play the level
   level1(finalArray, correctArray, incAnswer1, incAnswer2);
 }
 
@@ -1168,9 +1148,9 @@ function lyingInTheWater() {
   var incAnswer1 = finalArray[1].image;
   var incAnswer2 = finalArray[2].image;
 
-   //play the audio
-   audio(finalArray);
-   //play the level
+  //play the audio
+  audio(finalArray);
+  //play the level
   level1(finalArray, correctArray, incAnswer1, incAnswer2);
 }
 
@@ -1189,9 +1169,9 @@ function landOfFog() {
   var incAnswer1 = finalArray[1].image;
   var incAnswer2 = finalArray[2].image;
 
-   //play the audio
-   audio(finalArray);
-   //play the level
+  //play the audio
+  audio(finalArray);
+  //play the level
   level1(finalArray, correctArray, incAnswer1, incAnswer2);
 }
 
@@ -1210,9 +1190,9 @@ function theExplosivePlace() {
   var incAnswer1 = finalArray[1].image;
   var incAnswer2 = finalArray[2].image;
 
-   //play the audio
-   audio(finalArray);
-   //play the level
+  //play the audio
+  audio(finalArray);
+  //play the level
   level1(finalArray, correctArray, incAnswer1, incAnswer2);
 }
 
@@ -1231,9 +1211,9 @@ function skinDressersTerritory() {
   var incAnswer1 = finalArray[1].image;
   var incAnswer2 = finalArray[2].image;
 
-   //play the audio
-   audio(finalArray);
-   //play the level
+  //play the audio
+  audio(finalArray);
+  //play the level
   level1(finalArray, correctArray, incAnswer1, incAnswer2);
 }
 
@@ -1252,9 +1232,9 @@ function wildPotatoArea() {
   var incAnswer1 = finalArray[1].image;
   var incAnswer2 = finalArray[2].image;
 
-   //play the audio
-   audio(finalArray);
-   //play the level
+  //play the audio
+  audio(finalArray);
+  //play the level
   level1(finalArray, correctArray, incAnswer1, incAnswer2);
 }
 
